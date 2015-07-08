@@ -1,70 +1,105 @@
 <!DOCTYPE html>
-<html lang="ru-RU" class="no-js"></html>
-<head> 
-  <title>Генератор водяных знаков</title>
-  <meta charset="UTF-8">
-  <!--SEO-->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!--CSS-->
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-  <link rel="stylesheet" type="text/css" href="bower/normalize.css/normalize.css">
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <script src="bower/jquery/dist/jquery.min.js"></script>
-  <script src="bower/modernizr/modernizr.js"></script>
-  <script src="bower/jquery-ui/jquery-ui.js"></script>
-</head>
-<body>
-  <div class="wrapper">
-    <div class="window__container">
-      <div class="result">
-        <div class="result__title">Генератор водяных знаков</div>
-        <div class="result__window"></div>
-      </div>
-      <div class="setting-block">
-        <div class="settings__main-title">Настройки</div>
-        <form action="" class="settings__form">
-          <div class="settings__inputs">
-            <label class="settings__titles">Исходное изображение</label>
-            <label class="settings__inputs_container">
-              <input type="file" name="image" size="30" class="settings__inputs_load-file settings__inputs_image">
-            </label>
-            <input type="text" placeholder="Загрузите изображение" class="settings__inputs_input-style">
-            <label class="settings__titles">Водяной знак
-              <input type="file" name="image" size="30" class="settings__inputs_load-file settings__inputs_watermark">
-            </label>
-            <input type="text" placeholder="Загрузите водяной знак" class="settings__inputs_input-style">
-          </div>
-          <div class="settings__position">
-            <div class="settings__titles">Положение</div>
-            <div class="settings__position_field"></div>
-            <div class="settings__position_axis">
-              <div class="axis__wrapper"><span class="axis__name">X</span>
-                <input type="text" value="0" data-validation="axis-x" class="axis__input">
+<html lang="ru-RU" class="no-js">
+  <head> 
+    <title>Генератор водяных знаков</title>
+    <meta charset="UTF-8">
+    <!--SEO-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="bower/normalize.css/normalize.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="bower/jquery/dist/jquery.min.js"></script>
+    <script src="bower/modernizr/modernizr.js"></script>
+    <script src="bower/jquery-ui/jquery-ui.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="window__container">
+        <div class="result">
+          <div class="result__title">Генератор водяных знаков</div>
+          <div class="result__window"></div>
+        </div>
+        <div class="setting-block">
+          <div class="settings__main-title">Настройки</div>
+          <form action="" class="settings__form">
+            <div class="settings__inputs">
+              <label class="settings__titles">Исходное изображение</label>
+              <label class="settings__inputs_container">
+                <input type="file" name="image" size="30" class="settings__inputs_load-file settings__inputs_image">
+              </label>
+              <input type="text" placeholder="Загрузите изображение" class="settings__inputs_input-style">
+              <label class="settings__titles">Водяной знак
+                <input type="file" name="image" size="30" class="settings__inputs_load-file settings__inputs_watermark">
+              </label>
+              <input type="text" placeholder="Загрузите водяной знак" class="settings__inputs_input-style">
+            </div>
+            <div class="settings__position">
+              <div class="settings__titles">Положение</div>
+              <div class="settings__position_field">
+                <label for="left-up" class="field__style">
+                  <input type="radio" name="field__part" id="left-up">
+                </label>
+                <label for="middle-up" class="field__style">
+                  <input type="radio" name="field__part" id="middle-up">
+                </label>
+                <label for="right-up" class="field__style">
+                  <input type="radio" name="field__part" id="right-up">
+                </label>
+                <label for="middle-left" class="field__style">
+                  <input type="radio" name="field__part" id="middle-left">
+                </label>
+                <label for="middle-middle" class="field__style">
+                  <input type="radio" name="field__part" id="middle-middle">
+                </label>
+                <label for="middle-right" class="field__style">
+                  <input type="radio" name="field__part" id="middle-right">
+                </label>
+                <label for="down-left" class="field__style">
+                  <input type="radio" name="field__part" id="down-left">
+                </label>
+                <label for="down-middle" class="field__style">
+                  <input type="radio" name="field__part" id="down-middle">
+                </label>
+                <label for="down-right" class="field__style">
+                  <input type="radio" name="field__part" id="down-right">
+                </label>
               </div>
-              <div class="axis__wrapper"><span class="axis__name">Y</span>
-                <input type="text" value="0" data-validation="axis-y" class="axis__input">
+              <div class="settings__position_axis">
+                <div class="axis__wrapper"><span class="axis__name">X</span>
+                  <input type="text" value="0" data-validation="axis-x" class="axis__input">
+                  <button name="axis__button_up-x" class="axis__button_up"></button>
+                  <button name="axis__button_down-x" class="axis__button_down"></button>
+                </div>
+                <div class="axis__wrapper"><span class="axis__name">Y</span>
+                  <input type="text" value="0" data-validation="axis-y" class="axis__input">
+                  <button name="axis__button_up-y" class="axis__button_up"></button>
+                  <button name="axis__button_down-y" class="axis__button_down"></button>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="settings__opasity">
-            <div class="settings__titles">Прозрачность</div>
-            <input type="range" data-validation="slider" class="settings__slider">
-          </div>
-          <input type="button" name="download_image" value="Скачать" class="settings__download-image">
-          <input type="reset" name="reset_settings" value="Сброс" class="settings__reset">
-        </form>
+            <div class="settings__opasity">
+              <div class="settings__titles">Прозрачность</div>
+              <input type="range" data-validation="slider" class="settings__slider">
+            </div>
+            <input type="button" name="download_image" value="Скачать" class="settings__download-image">
+            <input type="reset" name="reset_settings" value="Сброс" class="settings__reset">
+          </form>
+        </div>
       </div>
+      <aside class="ad-features">
+        <ul class="language__wrapper">
+          <li class="language">РУС<a href="#" class="language__link"><span class="language__title">русский</span></a></li>
+          <li class="language">ENG<a href="#" class="language__link"><span class="language__title">английский</span></a></li>
+        </ul>
+        <ul class="socials">
+          <li class="socials__fb"><a href="#" class="socials__link"></a><span class="socials__title">facebook</span></li>
+          <li class="socials__tw"><a href="#" class="socials__link"></a><span class="socials__title">twitter</span></li>
+          <li class="socials__vk"><a href="#" class="socials__link"></a><span class="socials__title">вконтакте</span></li>
+        </ul>
+      </aside>
+      <footer class="footer">&copy Это мой сайт, пожалуйста, не копируйте и не воруйте его</footer>
     </div>
-    <div class="language__wrapper">
-      <div class="language">РУС<a href="#" class="language__link"><span class="language__title">русский</span></a></div>
-      <div class="language">ENG<a href="#" class="language__link"><span class="language__title">английский</span></a></div>
-    </div>
-    <div class="socials">
-      <div class="socials__fb"><a href="#" class="socials__link"><span class="socials__title">facebook</span></a></div>
-      <div class="socials__tw"><a href="#" class="socials__link"><span class="socials__title">twitter</span></a></div>
-      <div class="socials__vk"><a href="#" class="socials__link"><span class="socials__title">вконтакте</span></a></div>
-    </div>
-  </div>
-  <div class="footer">&copy Это мой сайт, пожалуйста, не копируйте и не воруйте его</div>
-</body>
+  </body>
+</html>

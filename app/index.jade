@@ -1,53 +1,76 @@
 doctype html
 html.no-js(lang = 'ru-RU')
-include includes/head
-body
-	.wrapper
-		.window__container
-			.result
-				.result__title Генератор водяных знаков
-				.result__window
-			.setting-block
-				.settings__main-title Настройки
-				form(action="").settings__form
-					.settings__inputs
-						label.settings__titles Исходное изображение
-						label.settings__inputs_container
-							input(type = 'file' name = 'image' size = '30').settings__inputs_load-file.settings__inputs_image
-						input(type = 'text' placeholder = 'Загрузите изображение').settings__inputs_input-style
-						label.settings__titles Водяной знак
-							input(type = 'file' name = 'image' size = '30').settings__inputs_load-file.settings__inputs_watermark
-						input(type = 'text' placeholder = 'Загрузите водяной знак').settings__inputs_input-style
-					.settings__position
-						.settings__titles Положение
-						.settings__position_field
-						.settings__position_axis
-							.axis__wrapper
-								span.axis__name X
-								input(type = 'text' value = '0' data-validation = 'axis-x').axis__input
-							.axis__wrapper
-								span.axis__name Y
-								input(type = 'text' value = '0' data-validation = 'axis-y').axis__input
-					.settings__opasity
-						.settings__titles Прозрачность
-						input(type = 'range' data-validation = 'slider').settings__slider
-					input(type = 'button' name = 'download_image' value = 'Скачать').settings__download-image
-					input(type = 'reset' name = 'reset_settings' value = 'Сброс').settings__reset
-		.language__wrapper
-			.language РУС
-				a(href = '#').language__link
-					span.language__title русский
-			.language ENG
-				a(href = '#').language__link
-					span.language__title английский
-		.socials
-			.socials__fb
-				a(href = '#').socials__link
-					span.socials__title facebook
-			.socials__tw
-				a(href = '#').socials__link
-					span.socials__title twitter
-			.socials__vk
-				a(href = '#').socials__link
-					span.socials__title вконтакте
-	.footer &copy Это мой сайт, пожалуйста, не копируйте и не воруйте его
+	include includes/head
+	body
+		.wrapper
+			.window__container
+				.result
+					.result__title Генератор водяных знаков
+					.result__window
+				.setting-block
+					.settings__main-title Настройки
+					form(action="").settings__form
+						.settings__inputs
+							label.settings__titles Исходное изображение
+							label.settings__inputs_container
+								input(type = 'file' name = 'image' size = '30').settings__inputs_load-file.settings__inputs_image
+							input(type = 'text' placeholder = 'Загрузите изображение').settings__inputs_input-style
+							label.settings__titles Водяной знак
+								input(type = 'file' name = 'image' size = '30').settings__inputs_load-file.settings__inputs_watermark
+							input(type = 'text' placeholder = 'Загрузите водяной знак').settings__inputs_input-style
+						.settings__position
+							.settings__titles Положение
+							.settings__position_field
+								label(for = 'left-up').field__style
+									input(type = 'radio' name = 'field__part' id = 'left-up')
+								label(for = 'middle-up').field__style
+									input(type = 'radio' name = 'field__part' id = 'middle-up')
+								label(for = 'right-up').field__style
+									input(type = 'radio' name = 'field__part' id = 'right-up')
+								label(for = 'middle-left').field__style
+									input(type = 'radio' name = 'field__part' id = 'middle-left')
+								label(for = 'middle-middle').field__style
+									input(type = 'radio' name = 'field__part' id = 'middle-middle')
+								label(for = 'middle-right').field__style
+									input(type = 'radio' name = 'field__part' id = 'middle-right')
+								label(for = 'down-left').field__style
+									input(type = 'radio' name = 'field__part' id = 'down-left')
+								label(for = 'down-middle').field__style
+									input(type = 'radio' name = 'field__part' id = 'down-middle')
+								label(for = 'down-right').field__style
+									input(type = 'radio' name = 'field__part' id = 'down-right')
+							.settings__position_axis
+								.axis__wrapper
+									span.axis__name X
+									input(type = 'text' value = '0' data-validation = 'axis-x').axis__input
+									button(name = 'axis__button_up-x').axis__button_up
+									button(name = 'axis__button_down-x').axis__button_down
+								.axis__wrapper
+									span.axis__name Y
+									input(type = 'text' value = '0' data-validation = 'axis-y').axis__input
+									button(name = 'axis__button_up-y').axis__button_up
+									button(name = 'axis__button_down-y').axis__button_down
+						.settings__opasity
+							.settings__titles Прозрачность
+							input(type = 'range' data-validation = 'slider').settings__slider
+						input(type = 'button' name = 'download_image' value = 'Скачать').settings__download-image
+						input(type = 'reset' name = 'reset_settings' value = 'Сброс').settings__reset
+			aside.ad-features
+				ul.language__wrapper
+					li.language РУС
+						a(href = '#').language__link
+							span.language__title русский
+					li.language ENG
+						a(href = '#').language__link
+							span.language__title английский
+				ul.socials
+					li.socials__fb
+						a(href = '#').socials__link
+						span.socials__title facebook
+					li.socials__tw
+						a(href = '#').socials__link
+						span.socials__title twitter
+					li.socials__vk
+						a(href = '#').socials__link
+						span.socials__title вконтакте
+			footer.footer &copy Это мой сайт, пожалуйста, не копируйте и не воруйте его
