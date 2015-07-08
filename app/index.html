@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru-RU" class="no-js"></html>
+<head> 
+  <title>Генератор водяных знаков</title>
+  <meta charset="UTF-8">
+  <!--SEO-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--CSS-->
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="bower/normalize.css/normalize.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="bower/jquery/dist/jquery.min.js"></script>
+  <script src="bower/modernizr/modernizr.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="window__container">
+      <div class="result">
+        <div class="result__header">Генератор водяных знаков</div>
+        <div class="result__window"></div>
+      </div>
+      <div class="settings">
+        <div class="settings__main-header">Настройки</div>
+        <form action="" class="settings__form">
+          <div class="settings__inputs"><span class="settings__headers">Исходное изображение</span>
+            <input type="file" name="image" size="30" class="settings__inputs_input settings__inputs_image"><span class="settings__headers">Водяной знак</span>
+            <input type="file" name="image" size="30" class="settings__inputs_input settings__inputs_watermark">
+          </div>
+          <div class="settings__border-line"></div>
+          <div class="settings__position">
+            <div class="settings__headers">Положение</div>
+            <div class="settings__position_field"></div>
+            <div class="settings__position_axis">
+              <div class="axis__wrapper"><span class="axis__name">X</span>
+                <input type="text" value="0" class="axis__input">
+                <button name="axis__x_up" class="axis_up"></button>
+                <button name="axis__x_down" class="axis_down"></button>
+              </div>
+              <div class="axis__wrapper"><span class="axis__name">Y</span>
+                <input type="text" value="0" class="axis__input">
+                <button name="axis__y_up" class="axis_up"></button>
+                <button name="axis__y_down" class="axis_down"></button>
+              </div>
+            </div>
+          </div>
+          <div class="settings__border-line"></div>
+          <div class="settings__opasity">
+            <div class="settings__headers">Прозрачность</div>
+          </div>
+          <div class="settings__border-line"></div>
+          <button type="button" name="download_image" class="settings__download-image">Скачать</button>
+          <button type="reset" name="reset_settings" class="settings__reset">Сброс</button>
+        </form>
+      </div>
+    </div>
+    <div class="language">РУС</div>
+    <div class="language">ENG</div>
+    <div class="socials-sharing"></div>
+  </div>
+  <div class="footer">&copy Это мой сайт, пожалуйста, не копируйте и не воруйте его</div>
+</body>

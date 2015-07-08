@@ -1,0 +1,53 @@
+doctype html
+html.no-js(lang = 'ru-RU')
+head 
+	title Генератор водяных знаков
+	meta(charset = 'UTF-8')
+	//SEO
+	meta(http-equiv = 'X-UA-Compatible' content = 'IE=edge')
+	//CSS
+	link(rel = 'stylesheet' type = 'text/css' href = 'css/main.css')
+	link(rel = 'stylesheet' type = 'text/css' href = 'bower/normalize.css/normalize.css')
+	link(rel = "shortcut icon" type = "image/x-icon" href = "favicon.ico")
+	link(rel = "icon" type = "image/x-icon" href = "favicon.ico")
+	script(src = 'bower/jquery/dist/jquery.min.js')
+	script(src="bower/modernizr/modernizr.js")
+body
+	.wrapper
+		.window__container
+			.result
+				.result__header Генератор водяных знаков
+				.result__window
+			.settings
+				.settings__main-header Настройки
+				form(action="").settings__form
+					.settings__inputs
+						span.settings__headers Исходное изображение
+						input(type = 'file' name = 'image' size = '30').settings__inputs_input.settings__inputs_image
+						span.settings__headers Водяной знак
+						input(type = 'file' name = 'image' size = '30').settings__inputs_input.settings__inputs_watermark
+					.settings__border-line
+					.settings__position
+						.settings__headers Положение
+						.settings__position_field
+						.settings__position_axis
+							.axis__wrapper
+								span.axis__name X
+								input(type = 'text' value = '0').axis__input
+								button(name = 'axis__x_up').axis_up
+								button(name = 'axis__x_down').axis_down
+							.axis__wrapper
+								span.axis__name Y
+								input(type = 'text' value = '0').axis__input
+								button(name = 'axis__y_up').axis_up
+								button(name = 'axis__y_down').axis_down
+					.settings__border-line
+					.settings__opasity
+						.settings__headers Прозрачность
+					.settings__border-line
+					button(type = 'button' name = 'download_image').settings__download-image Скачать
+					button(type = 'reset' name = 'reset_settings').settings__reset Сброс
+		.language РУС
+		.language ENG
+		.socials-sharing
+	.footer &copy Это мой сайт, пожалуйста, не копируйте и не воруйте его
