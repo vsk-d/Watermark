@@ -493,7 +493,9 @@ html {
 
 body {
   height: 100%;
-  background: #989493; }
+  background: #989493;
+  background: -webkit-linear-gradient(315deg, #989493 0%, #d7b79c 50%, #d7b79c 51%, #a9827c 100%);
+  background: linear-gradient(135deg, #989493 0%, #d7b79c 50%, #d7b79c 51%, #a9827c 100%); }
 
 /* прибьём футер к низу*/
 .wrapper {
@@ -567,6 +569,11 @@ body {
   line-height: 24px;
   font-weight: 300; }
 
+aside {
+  position: absolute;
+  left: 0;
+  top: 0; }
+
 .language {
   padding-left: 0;
   list-style: none; }
@@ -574,11 +581,6 @@ body {
 .socials {
   padding-left: 0;
   list-style: none; }
-
-aside {
-  position: absolute;
-  left: 0;
-  top: 0; }
 
 .settings {
   padding: 0 20px; }
@@ -592,6 +594,7 @@ aside {
   text-align: left;
   margin-bottom: 20px; }
 
+/* --------- upload --------- */
 .upload__wrapper {
   position: relative;
   display: block;
@@ -602,7 +605,7 @@ aside {
   color: #9eb2c0;
   font-weight: 300;
   text-align: left;
-  padding: 5px 3px;
+  padding: 5px;
   margin-top: 5px; }
   .upload__wrapper:after {
     content: '';
@@ -615,6 +618,43 @@ aside {
     width: 40px;
     height: 28px; }
 
+/* --------- position --------- */
+.settings__position:before,
+.settings__position:after {
+  content: "";
+  display: table; }
+
+.settings__position:after {
+  clear: both; }
+
+.settings__left {
+  float: left; }
+
+.settings__axis {
+  float: right; }
+
+.axis__name {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: Roboto;
+  color: #2e3641;
+  font-size: 16px;
+  font-weight: 300; }
+
+.axis__input {
+  display: inline-block;
+  vertical-align: middle;
+  border-width: 1px solid #9eb2c0;
+  border-radius: 3px;
+  width: 46px;
+  height: 45px;
+  font-family: 'SegoeUI';
+  color: #444a53;
+  font-size: 24px;
+  font-weight: 300;
+  text-align: center; }
+
+/* --------- opasity --------- */
 .btn-wrap:before,
 .btn-wrap:after {
   content: "";

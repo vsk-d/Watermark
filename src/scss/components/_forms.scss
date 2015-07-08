@@ -13,6 +13,9 @@
 	margin-bottom: 20px; 
 }
 
+
+/* --------- upload --------- */
+
 .upload__wrapper {
 	position: relative;	
 	display: block;
@@ -24,7 +27,7 @@
 	color:  #9eb2c0;
 	font-weight: 300;
 	text-align: left;
-	padding: 5px 3px;
+	padding: 5px;
 	margin-top: 5px; 
 
 	&:after {
@@ -40,3 +43,40 @@
 	}
 }
 
+/* --------- position --------- */
+
+.settings__position{
+	@include clearfix;
+}
+
+.settings__left{
+	float: left;
+}
+
+.settings__axis{
+	float: right;
+}
+.axis__name {
+	@include inline-block (middle);
+	font-family: Roboto;
+	color:  #2e3641;
+	font-size: 16px; 
+	font-weight: 300;
+}
+.axis__input {
+	@include inline-block (middle);
+	border-width: 1px solid #9eb2c0;
+	border-radius: 3px;
+	width: 46px;
+	height: 45px;
+	font-family: 'SegoeUI';
+	color:  #444a53;
+	font-size: 24px;
+	font-weight: 300;
+	text-align: center;
+
+
+}
+
+
+/* --------- opasity --------- */

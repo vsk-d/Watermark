@@ -16,14 +16,14 @@ html(lang="ru-Ru")
 						.settings__wrapper
 							.settings__upload
 								label.settings__title Исходное изображение
-									label(for="upload-img" ).upload__wrapper Загрузите изображение
+									label(for="upload-img" ).upload__wrapper Image.jpg
 										input(type = 'file' id = 'upload-img' name = 'img' size = '30').upload__input.upload__input_image.hide
 								label.settings__title  Водяной знак
-									label(for="upload-water").upload__wrapper Загрузите водяной знак
+									label(for="upload-water").upload__wrapper Image.png
 										input(type = 'file' id = 'upload-water' name = 'water-img' size = '30').upload__input.upload__input_water-image.hide
 						
 						.settings__wrapper
-							.settings__position							
+							.settings__position
 								.settings__title Положение
 
 								.settings__field
@@ -31,14 +31,16 @@ html(lang="ru-Ru")
 								.settings__axis
 									.axis__wrapper
 										.axis__name X
-										input(type = 'text' value = '0').axis__input
+										input(type = 'text' value = '0' data-validation = 'axis-x').axis__input
 									.axis__wrapper
 										.axis__name Y
-										input(type = 'text' value = '0').axis__input
+										input(type = 'text' value = '0' data-validation = 'axis-y').axis__input
 						
 						.settings__wrapper
 							.settings__opacity
 								.settings__title Прозрачность
+
+								//- input(type = 'range' data-validation = 'slider').settings__slider
 						
 						.btn-wrap
 							input(type = "reset" value = "Сброс").settings__btn.settings__btn_reset 
