@@ -1,0 +1,82 @@
+.settings {
+	padding: 0 20px;
+	// border-bottom: 1px solid rgba(249, 126, 118, 0.4);s
+}
+
+.settings__title {
+	display: block;
+	font-family: Roboto;
+	color:  #2e3641;
+	font-size: 14px; 
+	font-weight: 300;
+	text-align: left;
+	margin-bottom: 20px; 
+}
+
+
+/* --------- upload --------- */
+
+.upload__wrapper {
+	position: relative;	
+	display: block;
+	border-radius: 3px;
+	border: 1px solid #9eb2c0;
+
+	font-family: 'SegoeUI';
+	font-size: 12px;
+	color:  #9eb2c0;
+	font-weight: 300;
+	text-align: left;
+	padding: 5px;
+	margin-top: 5px; 
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		right: -1px;
+		top: -1px;
+		border-radius:  0 3px 3px 0  ;
+		background:  #f97e76 url('../img/sprite.png') no-repeat 5px 0 ;
+		width: 40px;
+		height: 28px;
+	}
+}
+
+/* --------- position --------- */
+
+.settings__position{
+	@include clearfix;
+}
+
+.settings__left{
+	float: left;
+}
+
+.settings__axis{
+	float: right;
+}
+.axis__name {
+	@include inline-block (middle);
+	font-family: Roboto;
+	color:  #2e3641;
+	font-size: 16px; 
+	font-weight: 300;
+}
+.axis__input {
+	@include inline-block (middle);
+	border-width: 1px solid #9eb2c0;
+	border-radius: 3px;
+	width: 46px;
+	height: 45px;
+	font-family: 'SegoeUI';
+	color:  #444a53;
+	font-size: 24px;
+	font-weight: 300;
+	text-align: center;
+
+
+}
+
+
+/* --------- opasity --------- */
