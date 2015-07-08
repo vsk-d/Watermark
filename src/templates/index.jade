@@ -9,45 +9,59 @@ html(lang="ru-Ru")
 				.result
 					h1.result__title Генератор водяных знаков
 					.result__window
-				.settings
-					h2.settings__title Настройки
-					form(action="").upload
-						label.upload__title Исходное изображение
-							label(for="upload-img" ).upload__wrapper Загрузите изображение
-								input(type = 'file' id = 'upload-img' name = 'img' size = '30').upload__input.upload__input_image.hide
-						label.upload__title  Водяной знак
-							label(for="upload-water").upload__wrapper Загрузите водяной знак
-								input(type = 'file' id = 'upload-water' name = 'water-img' size = '30').upload__input.upload__input_water-image.hide
-					form(action="")
-						.settings__border-line
-						.settings__position
-							.settings__headers Положение
-							.settings__position_field
-							.settings__position_axis
-								.axis__wrapper
-									span.axis__name X
-									input(type = 'text' value = '0').axis__input
-									button(name = 'axis__x_up').axis_up
-									button(name = 'axis__x_down').axis_down
-								.axis__wrapper
-									span.axis__name Y
-									input(type = 'text' value = '0').axis__input
-									button(name = 'axis__y_up').axis_up
-									button(name = 'axis__y_down').axis_down
-						.settings__border-line
-						.settings__opasity
-							.settings__headers Прозрачность
-						.settings__border-line
-						button(type = 'reset' name = 'reset_settings').settings__btn.settings__btn_reset Сброс
-						button(type = 'button' name = 'download_image').settings__btn.settings__btn_download Скачать
+				.setting-block
+					h2.setting-block__title Настройки
+					form(action="").settings
 						
-			.language__wrapper
-				.language РУС
-				.language ENG
-			.socials-sharing
-				.social-sharing__fb
-				.social-sharing__tw
-				.social-sharing__vk
+						.settings__wrapper
+							.settings__upload
+								label.settings__title Исходное изображение
+									label(for="upload-img" ).upload__wrapper Загрузите изображение
+										input(type = 'file' id = 'upload-img' name = 'img' size = '30').upload__input.upload__input_image.hide
+								label.settings__title  Водяной знак
+									label(for="upload-water").upload__wrapper Загрузите водяной знак
+										input(type = 'file' id = 'upload-water' name = 'water-img' size = '30').upload__input.upload__input_water-image.hide
+						
+						.settings__wrapper
+							.settings__position							
+								.settings__title Положение
+
+								.settings__field
+
+								.settings__axis
+									.axis__wrapper
+										.axis__name X
+										input(type = 'text' value = '0').axis__input
+									.axis__wrapper
+										.axis__name Y
+										input(type = 'text' value = '0').axis__input
+						
+						.settings__wrapper
+							.settings__opacity
+								.settings__title Прозрачность
+						
+						.btn-wrap
+							input(type = "reset" value = "Сброс").settings__btn.settings__btn_reset 
+							input(type = "button" value = "Скачать").settings__btn.settings__btn_download 
+						
+			aside
+				ul.language
+					li.language__item РУС
+						a(href = '#').language__link
+							span.language__name.hide русский
+					li.language__item ENG
+						a(href = '#').language__link
+							span.language__name.hide английский
+				ul.socials
+					li.socials__item
+						a(href = '#').socials__link.socials__link_fb
+							span.socials__name facebook
+					li.socials__item
+						a(href = '#').socials__link.socials__link_tw
+							span.socials__name twitter
+					li.socials__item
+						a(href = '#').socials__link.socials__link_vk
+							span.socials__name вконтакте
 		footer.page-footer
 			p.page-footer__text
 				|&copy Это мой сайт, пожалуйста, не копируйте и не воруйте его

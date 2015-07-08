@@ -34,57 +34,60 @@
           <h1 class="result__title">Генератор водяных знаков</h1>
           <div class="result__window"></div>
         </div>
-        <div class="settings">
-          <h2 class="settings__title">Настройки</h2>
-          <form action="" class="upload">
-            <label class="upload__title">Исходное изображение
-              <label for="upload-img" class="upload__wrapper">Загрузите изображение
-                <input type="file" id="upload-img" name="img" size="30" class="upload__input upload__input_image hide"/>
-              </label>
-            </label>
-            <label class="upload__title"> Водяной знак
-              <label for="upload-water" class="upload__wrapper">Загрузите водяной знак
-                <input type="file" id="upload-water" name="water-img" size="30" class="upload__input upload__input_water-image hide"/>
-              </label>
-            </label>
-          </form>
-          <form action="">
-            <div class="settings__border-line"></div>
-            <div class="settings__position">
-              <div class="settings__headers">Положение</div>
-              <div class="settings__position_field"></div>
-              <div class="settings__position_axis">
-                <div class="axis__wrapper"><span class="axis__name">X</span>
-                  <input type="text" value="0" class="axis__input"/>
-                  <button name="axis__x_up" class="axis_up"></button>
-                  <button name="axis__x_down" class="axis_down"></button>
-                </div>
-                <div class="axis__wrapper"><span class="axis__name">Y</span>
-                  <input type="text" value="0" class="axis__input"/>
-                  <button name="axis__y_up" class="axis_up"></button>
-                  <button name="axis__y_down" class="axis_down"></button>
+        <div class="setting-block">
+          <h2 class="setting-block__title">Настройки</h2>
+          <form action="" class="settings">
+            <div class="settings__wrapper">
+              <div class="settings__upload">
+                <label class="settings__title">Исходное изображение
+                  <label for="upload-img" class="upload__wrapper">Загрузите изображение
+                    <input type="file" id="upload-img" name="img" size="30" class="upload__input upload__input_image hide"/>
+                  </label>
+                </label>
+                <label class="settings__title"> Водяной знак
+                  <label for="upload-water" class="upload__wrapper">Загрузите водяной знак
+                    <input type="file" id="upload-water" name="water-img" size="30" class="upload__input upload__input_water-image hide"/>
+                  </label>
+                </label>
+              </div>
+            </div>
+            <div class="settings__wrapper">
+              <div class="settings__position">							
+                <div class="settings__title">Положение</div>
+                <div class="settings__field"></div>
+                <div class="settings__axis">
+                  <div class="axis__wrapper">
+                    <div class="axis__name">X</div>
+                    <input type="text" value="0" class="axis__input"/>
+                  </div>
+                  <div class="axis__wrapper">
+                    <div class="axis__name">Y</div>
+                    <input type="text" value="0" class="axis__input"/>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="settings__border-line"></div>
-            <div class="settings__opasity">
-              <div class="settings__headers">Прозрачность</div>
+            <div class="settings__wrapper">
+              <div class="settings__opacity">
+                <div class="settings__title">Прозрачность</div>
+              </div>
             </div>
-            <div class="settings__border-line"></div>
-            <button type="button" name="download_image" class="settings__download">Скачать</button>
-            <button type="reset" name="reset_settings" class="settings__reset">Сброс</button>
+            <div class="btn-wrap">
+              <input type="reset" value="Сброс" class="settings__btn settings__btn_reset"/>
+              <input type="button" value="Скачать" class="settings__btn settings__btn_download"/>
+            </div>
           </form>
         </div>
       </main>
-      <div class="language__wrapper">
-        <div class="language">РУС</div>
-        <div class="language">ENG</div>
-      </div>
-      <div class="socials-sharing">
-        <div class="social-sharing__fb"></div>
-        <div class="social-sharing__tw"></div>
-        <div class="social-sharing__vk"></div>
-      </div>
+      <ul class="language">
+        <li class="language__item">РУС<a href="#" class="language__link"><span class="language__name hide">русский</span></a></li>
+        <li class="language__item">ENG<a href="#" class="language__link"><span class="language__name hide">английский</span></a></li>
+      </ul>
+      <ul class="socials">
+        <li class="socials__item"><a href="#" class="socials__link socials__link_fb"><span class="socials__name hide">facebook</span></a></li>
+        <li class="socials__item"><a href="#" class="socials__link socials__link_tw"><span class="socials__name hide">twitter</span></a></li>
+        <li class="socials__item"><a href="#" class="socials__link socials__link_vk"><span class="socials__name hide">вконтакте</span></a></li>
+      </ul>
     </div>
     <footer class="page-footer">
       <p class="page-footer__text">&copy Это мой сайт, пожалуйста, не копируйте и не воруйте его</p>

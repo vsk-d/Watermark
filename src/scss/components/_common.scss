@@ -38,10 +38,7 @@ body {
 	@include clearfix;
 }
 
-
-
 .result {
-
 	background: $result-bg-color;
 	width: 700px;
 	height: 670px;
@@ -49,7 +46,7 @@ body {
 }
 
 .result__title {
-	font-family: 'Segoe UI';
+	font-family: 'SegoeUI';
 	color:  #ffffff;
 	font-size: 36px;
 	font-weight: 300;
@@ -64,14 +61,14 @@ body {
 	height: 534px;
 }
 
-.settings {
+.setting-block {
 	background: $settings-bg-color;
 	width: 260px;
 	height: 670px;
 	float: left;
 }
 
-.settings__title {
+.setting-block__title {
 	font-family: Roboto;
 	color:  #2e3641;
 	font-size: 26px; 

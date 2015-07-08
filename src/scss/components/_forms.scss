@@ -1,32 +1,42 @@
-.upload {
+.settings {
 	padding: 0 20px;
-	border-bottom: 1px solid rgba(249, 126, 118, 0.4);
+	// border-bottom: 1px solid rgba(249, 126, 118, 0.4);s
 }
 
-.upload__title {
+.settings__title {
 	display: block;
 	font-family: Roboto;
 	color:  #2e3641;
-	font-size: 14px; /* Приближение из-за подстановки шрифтов */
+	font-size: 14px; 
 	font-weight: 300;
 	text-align: left;
 	margin-bottom: 20px; 
 }
 
 .upload__wrapper {
+	position: relative;	
 	display: block;
 	border-radius: 3px;
-	border-width: 1px;
-	border-color:  #9eb2c0;
-	border-style: solid;
-	width: 192px;
-	height: 18px;
+	border: 1px solid #9eb2c0;
 
-	font-family: 'Segoe UI';
+	font-family: 'SegoeUI';
 	font-size: 12px;
+	color:  #9eb2c0;
 	font-weight: 300;
 	text-align: left;
 	padding: 5px 3px;
 	margin-top: 5px; 
 
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		right: -1px;
+		top: -1px;
+		border-radius:  0 3px 3px 0  ;
+		background:  #f97e76 url('../img/sprite.png') no-repeat 5px 0 ;
+		width: 40px;
+		height: 28px;
+	}
 }
+
