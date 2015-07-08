@@ -18,58 +18,56 @@
   <div class="wrapper">
     <div class="window__container">
       <div class="result">
-        <div class="result__header">Генератор водяных знаков</div>
+        <div class="result__title">Генератор водяных знаков</div>
         <div class="result__window"></div>
       </div>
-      <div class="settings">
-        <div class="settings__main-header">Настройки</div>
+      <div class="setting-block">
+        <div class="settings__main-title">Настройки</div>
         <form action="" class="settings__form">
           <div class="settings__inputs">
-            <label class="settings__headers">Исходное изображение</label>
+            <label class="settings__titles">Исходное изображение</label>
             <label class="settings__inputs_container">
               <input type="file" name="image" size="30" class="settings__inputs_load-file settings__inputs_image">
             </label>
             <input type="text" placeholder="Загрузите изображение" class="settings__inputs_input-style">
-            <label class="settings__headers">Водяной знак
+            <label class="settings__titles">Водяной знак
               <input type="file" name="image" size="30" class="settings__inputs_load-file settings__inputs_watermark">
             </label>
             <input type="text" placeholder="Загрузите водяной знак" class="settings__inputs_input-style">
           </div>
-          <div class="settings__border-line"></div>
           <div class="settings__position">
-            <div class="settings__headers">Положение</div>
+            <div class="settings__titles">Положение</div>
             <div class="settings__position_field"></div>
             <div class="settings__position_axis">
               <div class="axis__wrapper"><span class="axis__name">X</span>
-                <input type="text" value="0" class="axis__input">
+                <input type="text" value="0" data-validation="axis-x" class="axis__input">
                 <button name="axis__x_up" class="axis_up"></button>
                 <button name="axis__x_down" class="axis_down"></button>
               </div>
               <div class="axis__wrapper"><span class="axis__name">Y</span>
-                <input type="text" value="0" class="axis__input">
+                <input type="text" value="0" data-validation="axis-y" class="axis__input">
                 <button name="axis__y_up" class="axis_up"></button>
                 <button name="axis__y_down" class="axis_down"></button>
               </div>
             </div>
           </div>
-          <div class="settings__border-line"></div>
           <div class="settings__opasity">
-            <div class="settings__headers">Прозрачность</div>
+            <div class="settings__titles">Прозрачность</div>
+            <input type="range" data-validation="slider" class="settings__slider">
           </div>
-          <div class="settings__border-line"></div>
-          <button type="button" name="download_image" class="settings__download-image">Скачать</button>
-          <button type="reset" name="reset_settings" class="settings__reset">Сброс</button>
+          <input type="button" name="download_image" value="Скачать" class="settings__download-image">
+          <input type="reset" name="reset_settings" value="Сброс" class="settings__reset">
         </form>
       </div>
     </div>
     <div class="language__wrapper">
-      <div class="language">РУС</div>
-      <div class="language">ENG</div>
+      <div class="language">РУС<a href="#" class="language__link"><span class="language__title">русский</span></a></div>
+      <div class="language">ENG<a href="#" class="language__link"><span class="language__title">английский</span></a></div>
     </div>
-    <div class="socials-sharing">
-      <div class="social-sharing__fb"></div>
-      <div class="social-sharing__tw"></div>
-      <div class="social-sharing__vk"></div>
+    <div class="socials">
+      <div class="socials__fb"><a href="#" class="socials__link"><span class="socials__title">facebook</span></a></div>
+      <div class="socials__tw"><a href="#" class="socials__link"><span class="socials__title">twitter</span></a></div>
+      <div class="socials__vk"><a href="#" class="socials__link"><span class="socials__title">вконтакте</span></a></div>
     </div>
   </div>
   <div class="footer">&copy Это мой сайт, пожалуйста, не копируйте и не воруйте его</div>

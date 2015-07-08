@@ -5,45 +5,53 @@ body
 	.wrapper
 		.window__container
 			.result
-				.result__header Генератор водяных знаков
+				.result__title Генератор водяных знаков
 				.result__window
-			.settings
-				.settings__main-header Настройки
+			.setting-block
+				.settings__main-title Настройки
 				form(action="").settings__form
 					.settings__inputs
-						label.settings__headers Исходное изображение
+						label.settings__titles Исходное изображение
 						label.settings__inputs_container
 							input(type = 'file' name = 'image' size = '30').settings__inputs_load-file.settings__inputs_image
 						input(type = 'text' placeholder = 'Загрузите изображение').settings__inputs_input-style
-						label.settings__headers Водяной знак
+						label.settings__titles Водяной знак
 							input(type = 'file' name = 'image' size = '30').settings__inputs_load-file.settings__inputs_watermark
 						input(type = 'text' placeholder = 'Загрузите водяной знак').settings__inputs_input-style
-					.settings__border-line
 					.settings__position
-						.settings__headers Положение
+						.settings__titles Положение
 						.settings__position_field
 						.settings__position_axis
 							.axis__wrapper
 								span.axis__name X
-								input(type = 'text' value = '0').axis__input
+								input(type = 'text' value = '0' data-validation = 'axis-x').axis__input
 								button(name = 'axis__x_up').axis_up
 								button(name = 'axis__x_down').axis_down
 							.axis__wrapper
 								span.axis__name Y
-								input(type = 'text' value = '0').axis__input
+								input(type = 'text' value = '0' data-validation = 'axis-y').axis__input
 								button(name = 'axis__y_up').axis_up
 								button(name = 'axis__y_down').axis_down
-					.settings__border-line
 					.settings__opasity
-						.settings__headers Прозрачность
-					.settings__border-line
-					button(type = 'button' name = 'download_image').settings__download-image Скачать
-					button(type = 'reset' name = 'reset_settings').settings__reset Сброс
+						.settings__titles Прозрачность
+						input(type = 'range' data-validation = 'slider').settings__slider
+					input(type = 'button' name = 'download_image' value = 'Скачать').settings__download-image
+					input(type = 'reset' name = 'reset_settings' value = 'Сброс').settings__reset
 		.language__wrapper
 			.language РУС
+				a(href = '#').language__link
+					span.language__title русский
 			.language ENG
-		.socials-sharing
-			.social-sharing__fb
-			.social-sharing__tw
-			.social-sharing__vk
+				a(href = '#').language__link
+					span.language__title английский
+		.socials
+			.socials__fb
+				a(href = '#').socials__link
+					span.socials__title facebook
+			.socials__tw
+				a(href = '#').socials__link
+					span.socials__title twitter
+			.socials__vk
+				a(href = '#').socials__link
+					span.socials__title вконтакте
 	.footer &copy Это мой сайт, пожалуйста, не копируйте и не воруйте его
