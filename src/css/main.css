@@ -627,11 +627,33 @@ aside {
 .settings__position:after {
   clear: both; }
 
+.settings__field {
+  float: left;
+  display: table;
+  border-left: 1px solid #9eb2c0;
+  border-top: 1px solid #9eb2c0;
+  border-radius: 3px;
+  background-color: rgba(193, 207, 217, 0.46);
+  width: 100px;
+  height: 100px;
+  overflow: hidden; }
+
+.field__row {
+  display: table-row; }
+
+.field__cell {
+  display: table-cell;
+  border-right: 1px solid #9eb2c0;
+  border-bottom: 1px solid #9eb2c0; }
+
 .settings__left {
   float: left; }
 
 .settings__axis {
   float: right; }
+
+.axis__wrapper {
+  margin-bottom: 5px; }
 
 .axis__name {
   display: inline-block;
@@ -646,13 +668,18 @@ aside {
   vertical-align: middle;
   border-width: 1px solid #9eb2c0;
   border-radius: 3px;
-  width: 46px;
+  width: 44px;
   height: 45px;
   font-family: 'SegoeUI';
   color: #444a53;
   font-size: 24px;
   font-weight: 300;
   text-align: center; }
+
+.axis__control {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px; }
 
 /* --------- opasity --------- */
 .btn-wrap:before,

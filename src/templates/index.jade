@@ -23,19 +23,46 @@ html(lang="ru-Ru")
 										input(type = 'file' id = 'upload-water' name = 'water-img' size = '30').upload__input.upload__input_water-image.hide
 						
 						.settings__wrapper
+							
+							.settings__title Положение
 							.settings__position
-								.settings__title Положение
-
 								.settings__field
+									.field__row
+										label(for = 'left-up').field__cell
+											input(type = 'radio' name = 'field__part' id = 'left-up').hide
+										label(for = 'middle-up').field__cell
+											input(type = 'radio' name = 'field__part' id = 'middle-up').hide
+										label(for = 'right-up').field__cell
+											input(type = 'radio' name = 'field__part' id = 'right-up').hide
+									.field__row
+										label(for = 'middle-left').field__cell
+											input(type = 'radio' name = 'field__part' id = 'middle-left').hide
+										label(for = 'middle-middle').field__cell
+											input(type = 'radio' name = 'field__part' id = 'middle-middle').hide
+										label(for = 'middle-right').field__cell
+											input(type = 'radio' name = 'field__part' id = 'middle-right').hide
+									.field__row
+										label(for = 'down-left').field__cell
+											input(type = 'radio' name = 'field__part' id = 'down-left').hide
+										label(for = 'down-middle').field__cell
+											input(type = 'radio' name = 'field__part' id = 'down-middle').hide
+										label(for = 'down-right').field__cell
+											input(type = 'radio' name = 'field__part' id = 'down-right').hide
 
 								.settings__axis
 									.axis__wrapper
 										.axis__name X
 										input(type = 'text' value = '0' data-validation = 'axis-x').axis__input
+										.axis__control
+											button(name = 'axis__button_up-x').axis__button.axis__button_up
+											button(name = 'axis__button_down-x').axis__button.axis__button_down
+
 									.axis__wrapper
 										.axis__name Y
 										input(type = 'text' value = '0' data-validation = 'axis-y').axis__input
-						
+										.axis__control
+											button(name = 'axis__button_up-y').axis__button.axis__button_up
+											button(name = 'axis__button_down-y').axis__button.axis__button_down
 						.settings__wrapper
 							.settings__opacity
 								.settings__title Прозрачность
