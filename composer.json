@@ -1,0 +1,13 @@
+{
+    "name": "libs/img",
+    "authors": [
+        {
+            "name": "Artem Aleksandrov",
+            "email": "fenrir.90@mail.ru"
+        }
+    ],
+    "require": {
+		"imagine/Imagine": "dev-master",
+		 "sybio/image-workshop": "2.0.*"
+	}
+}
