@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+html(lang="ru-Ru")
+
+	include includes/head.jade
+
+	body
+		.wrapper
+			main.main-content
+				.result
+					h1.result__title Генератор водяных знаков
+					.result__window
+				.settings
+					h2.settings__title Настройки
+					form(action="").upload
+						label.upload__title Исходное изображение
+							label(for="upload-img" ).upload__wrapper Загрузите изображение
+								input(type = 'file' id = 'upload-img' name = 'img' size = '30').upload__input.upload__input_image.hide
+						label.upload__title  Водяной знак
+							label(for="upload-water").upload__wrapper Загрузите водяной знак
+								input(type = 'file' id = 'upload-water' name = 'water-img' size = '30').upload__input.upload__input_water-image.hide
+					form(action="")
+						.settings__border-line
+						.settings__position
+							.settings__headers Положение
+							.settings__position_field
+							.settings__position_axis
+								.axis__wrapper
+									span.axis__name X
+									input(type = 'text' value = '0').axis__input
+									button(name = 'axis__x_up').axis_up
+									button(name = 'axis__x_down').axis_down
+								.axis__wrapper
+									span.axis__name Y
+									input(type = 'text' value = '0').axis__input
+									button(name = 'axis__y_up').axis_up
+									button(name = 'axis__y_down').axis_down
+						.settings__border-line
+						.settings__opasity
+							.settings__headers Прозрачность
+						.settings__border-line
+						button(type = 'reset' name = 'reset_settings').settings__btn.settings__btn_reset Сброс
+						button(type = 'button' name = 'download_image').settings__btn.settings__btn_download Скачать
+						
+			.language__wrapper
+				.language РУС
+				.language ENG
+			.socials-sharing
+				.social-sharing__fb
+				.social-sharing__tw
+				.social-sharing__vk
+		footer.page-footer
+			p.page-footer__text
+				|&copy Это мой сайт, пожалуйста, не копируйте и не воруйте его
+

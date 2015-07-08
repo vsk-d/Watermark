@@ -1,11 +1,95 @@
-body {
+html { height: 100%; }
 
+body {
+	height: 100%;	
 	background: #989493; // Old browsers 
-	background: -moz-linear-gradient(-45deg, #989493 0%, #d7b79c 50%, #d7b79c 51%, #a9827c 100%);  //FF3.6+ 
-	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#989493), color-stop(50%,#d7b79c), color-stop(51%,#d7b79c), color-stop(100%,#a9827c)); //Chrome,Safari4+ 
-	background: -webkit-linear-gradient(-45deg, #989493 0%,#d7b79c 50%,#d7b79c 51%,#a9827c 100%); //Chrome10+,Safari5.1+ 
-	background: -o-linear-gradient(-45deg, #989493 0%,#d7b79c 50%,#d7b79c 51%,#a9827c 100%); //Opera 11.10+ 
-	background: -ms-linear-gradient(-45deg, #989493 0%,#d7b79c 50%,#d7b79c 51%,#a9827c 100%); //IE10+ 
-	background: linear-gradient(135deg, #989493 0%,#d7b79c 50%,#d7b79c 51%,#a9827c 100%); //W3C 
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#989493', endColorstr='#a9827c',GradientType=1 ); //IE6-9 fallback on horizontal gradient 
+	// background: -moz-linear-gradient(-45deg, #989493 0%, #d7b79c 50%, #d7b79c 51%, #a9827c 100%);  //FF3.6+ 
+	// background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#989493), color-stop(50%,#d7b79c), color-stop(51%,#d7b79c), color-stop(100%,#a9827c)); //Chrome,Safari4+ 
+	// background: -webkit-linear-gradient(-45deg, #989493 0%,#d7b79c 50%,#d7b79c 51%,#a9827c 100%); //Chrome10+,Safari5.1+ 
+	// background: -o-linear-gradient(-45deg, #989493 0%,#d7b79c 50%,#d7b79c 51%,#a9827c 100%); //Opera 11.10+ 
+	// background: -ms-linear-gradient(-45deg, #989493 0%,#d7b79c 50%,#d7b79c 51%,#a9827c 100%); //IE10+ 
+	// background: linear-gradient(135deg, #989493 0%,#d7b79c 50%,#d7b79c 51%,#a9827c 100%); //W3C 
+	// filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#989493', endColorstr='#a9827c',GradientType=1 ); //IE6-9 fallback on horizontal gradient 
+}
+
+/* прибьём футер к низу*/
+.wrapper{
+	position:relative;
+	min-height:100%;
+	height:auto!important;
+	overflow:hidden;
+
+	&:after {
+		content: "";
+		height: 50px;
+		display: block;
+	}
+}
+
+.hide {
+	position: absolute;
+	left:-9999px;
+}
+
+
+.main-content {
+	width: 960px;
+	margin: 60px  auto 20px;
+	@include clearfix;
+}
+
+
+
+.result {
+
+	background: $result-bg-color;
+	width: 700px;
+	height: 670px;
+	float: left;
+}
+
+.result__title {
+	font-family: 'Segoe UI';
+	color:  #ffffff;
+	font-size: 36px;
+	font-weight: 300;
+	text-align: left;
+	margin: 10px 20px 50px ;
+}
+
+.result__window {
+	background: #ffffff;
+	margin: 20px auto;
+	width: 651px;
+	height: 534px;
+}
+
+.settings {
+	background: $settings-bg-color;
+	width: 260px;
+	height: 670px;
+	float: left;
+}
+
+.settings__title {
+	font-family: Roboto;
+	color:  #2e3641;
+	font-size: 26px; 
+	font-weight: 300;
+	text-align: center;
+}
+
+.page-footer{
+	height: 50px;
+	margin-top: -50px;
+	text-align: center;	
+}
+
+.page-footer__text {
+	@include inline-block (middle);	
+	font-family: FiraSans;
+	color:  #ffffff;
+	font-size: 12px; 
+	line-height: 24px;
+	font-weight: 300;
 }

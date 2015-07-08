@@ -25,7 +25,7 @@ var gulp 		= require('gulp'),
 
 //jade 
 gulp.task('jade', function() {
-		gulp.src('src/templates/pages/*.jade')
+		gulp.src('src/templates/*.jade')
 		.pipe(jade({ pretty: true }))
 		.on('error', log)
 		.pipe(gulp.dest('src/'))
