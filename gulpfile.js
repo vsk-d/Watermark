@@ -44,7 +44,7 @@ gulp.task('css', function() {
 
 // Подключаем ссылки на bower components
 gulp.task('wiredep', function () {
-	gulp.src('src/templates/common/head.jade')
+	gulp.src('src/templates/common/*.jade')
 		.pipe(wiredep({
 			ignorePath: /^(\.\.\/)*\.\./
 		}))
@@ -67,7 +67,6 @@ gulp.task('watch', function () {
 	gulp.watch('bower.json', ['wiredep']);
 	gulp.watch('src/templates/**/*.jade', ['jade']);
 	gulp.watch('src/scss/**/*.scss',['css']);
-	gulp.watch('src/js/*.coffee',['coffee']);
 	gulp.watch([
 		'src/js/**/*.js',
 		'src/css/**/*.css'
