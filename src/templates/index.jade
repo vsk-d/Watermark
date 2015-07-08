@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+html(lang="ru-Ru")
+
+	include includes/head.jade
+
+	body
+		.wrapper
+			main.main-content
+				.result
+					h1.result__title Генератор водяных знаков
+					.result__window
+				.setting-block
+					h2.setting-block__title Настройки
+					form(action="").settings
+						
+						.settings__wrapper
+							.settings__upload
+								label.settings__title Исходное изображение
+									label(for="upload-img" ).upload__wrapper Image.jpg
+										input(type = 'file' id = 'upload-img' name = 'img' size = '30').upload__input.upload__input_image.hide
+								label.settings__title  Водяной знак
+									label(for="upload-water").upload__wrapper Image.png
+										input(type = 'file' id = 'upload-water' name = 'water-img' size = '30').upload__input.upload__input_water-image.hide
+						
+						.settings__wrapper
+							.settings__position
+								.settings__title Положение
+
+								.settings__field
+
+								.settings__axis
+									.axis__wrapper
+										.axis__name X
+										input(type = 'text' value = '0' data-validation = 'axis-x').axis__input
+									.axis__wrapper
+										.axis__name Y
+										input(type = 'text' value = '0' data-validation = 'axis-y').axis__input
+						
+						.settings__wrapper
+							.settings__opacity
+								.settings__title Прозрачность
+
+								//- input(type = 'range' data-validation = 'slider').settings__slider
+						
+						.btn-wrap
+							input(type = "reset" value = "Сброс").settings__btn.settings__btn_reset 
+							input(type = "button" value = "Скачать").settings__btn.settings__btn_download 
+						
+			aside
+				ul.language
+					li.language__item РУС
+						a(href = '#').language__link
+							span.language__name.hide русский
+					li.language__item ENG
+						a(href = '#').language__link
+							span.language__name.hide английский
+				ul.socials
+					li.socials__item
+						a(href = '#').socials__link.socials__link_fb
+							span.socials__name facebook
+					li.socials__item
+						a(href = '#').socials__link.socials__link_tw
+							span.socials__name twitter
+					li.socials__item
+						a(href = '#').socials__link.socials__link_vk
+							span.socials__name вконтакте
+		footer.page-footer
+			p.page-footer__text
+				|&copy Это мой сайт, пожалуйста, не копируйте и не воруйте его
+
