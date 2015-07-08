@@ -12,6 +12,7 @@ head
 	link(rel = "icon" type = "image/x-icon" href = "favicon.ico")
 	script(src = 'bower/jquery/dist/jquery.min.js')
 	script(src="bower/modernizr/modernizr.js")
+	script(src="bower/jquery-ui/jquery-ui.js")
 body
 	.wrapper
 		.window__container
@@ -22,10 +23,13 @@ body
 				.settings__main-header Настройки
 				form(action="").settings__form
 					.settings__inputs
-						span.settings__headers Исходное изображение
-						input(type = 'file' name = 'image' size = '30').settings__inputs_input.settings__inputs_image
-						span.settings__headers Водяной знак
-						input(type = 'file' name = 'image' size = '30').settings__inputs_input.settings__inputs_watermark
+						label.settings__headers Исходное изображение
+						label.settings__inputs_container
+							input(type = 'file' name = 'image' size = '30').settings__inputs_load-file.settings__inputs_image
+						input(type = 'text' placeholder = 'Загрузите изображение').settings__inputs_input-style
+						label.settings__headers Водяной знак
+							input(type = 'file' name = 'image' size = '30').settings__inputs_load-file.settings__inputs_watermark
+						input(type = 'text' placeholder = 'Загрузите водяной знак').settings__inputs_input-style
 					.settings__border-line
 					.settings__position
 						.settings__headers Положение
@@ -47,7 +51,11 @@ body
 					.settings__border-line
 					button(type = 'button' name = 'download_image').settings__download-image Скачать
 					button(type = 'reset' name = 'reset_settings').settings__reset Сброс
-		.language РУС
-		.language ENG
+		.language__wrapper
+			.language РУС
+			.language ENG
 		.socials-sharing
-	.footer &copy Это мой сайт, пожалуйста, не копируйте и не воруйте ег
+			.social-sharing__fb
+			.social-sharing__tw
+			.social-sharing__vk
+	.footer &copy Это мой сайт, пожалуйста, не копируйте и не воруйте его
