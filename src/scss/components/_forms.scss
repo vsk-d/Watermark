@@ -15,7 +15,35 @@
 
 .settings__wrapper{
 	padding: 10px 20px 20px ;
-	border-bottom: 1px solid rgba(249, 126, 118, 0.4);;
+	border-bottom: 1px solid $border-down;
+	position: relative;
+	
+	&:before{
+		content: '';
+		display: block;
+		width: 0;
+		height: 0;
+		position: absolute;
+		@include centerer(true, false);
+		border-style: solid;		  
+		border-width: 10px 10px 0 10px;
+		border-color: $settings-bg-color transparent transparent transparent;
+		bottom: -9px;
+		z-index: 1;
+	}
+	&:after{
+		content: '';
+		display: block;
+		position: absolute;		
+		width: 0;
+		height: 0;
+		@include centerer(true, false);
+		border-style: solid;
+		border-width: 10px 10px 0 10px;
+		border-color: $border-down transparent transparent transparent;
+		bottom: -10px;
+		
+	}
 }
 /* --------- upload --------- */
 
@@ -49,6 +77,7 @@
 /* --------- position --------- */
 .settings__position {
 	@include clearfix;
+	margin-bottom: 20px;
 }
 
 .settings__field {
