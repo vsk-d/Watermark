@@ -1,14 +1,18 @@
-html { height: 100%; }
+html {
+ height: 100%;
+}
 
 body {
 	height: 100%;	
-	background: #989493; // Old browsers 
+	background: url('../img/background.png');
+	background-size: 100% 130%;
+	// background: #989493; // Old browsers 
 	// background: -moz-linear-gradient(-45deg, #989493 0%, #d7b79c 50%, #d7b79c 51%, #a9827c 100%);  //FF3.6+ 
 	// background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#989493), color-stop(50%,#d7b79c), color-stop(51%,#d7b79c), color-stop(100%,#a9827c)); //Chrome,Safari4+ 
 	// background: -webkit-linear-gradient(-45deg, #989493 0%,#d7b79c 50%,#d7b79c 51%,#a9827c 100%); //Chrome10+,Safari5.1+ 
 	// background: -o-linear-gradient(-45deg, #989493 0%,#d7b79c 50%,#d7b79c 51%,#a9827c 100%); //Opera 11.10+ 
 	// background: -ms-linear-gradient(-45deg, #989493 0%,#d7b79c 50%,#d7b79c 51%,#a9827c 100%); //IE10+ 
-	background: linear-gradient(135deg, #989493 0%,#d7b79c 50%,#d7b79c 51%,#a9827c 100%); //W3C 
+	// background: linear-gradient(135deg, #989493 0%,#d7b79c 50%,#d7b79c 51%,#a9827c 100%); //W3C 
 	// filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#989493', endColorstr='#a9827c',GradientType=1 ); //IE6-9 fallback on horizontal gradient 
 }
 
@@ -35,13 +39,12 @@ body {
 .main-content {
 	width: 960px;
 	margin: 60px  auto 20px;
+	background: $result-bg-color;
 	@include clearfix;
 }
 
 .result {
-	background: $result-bg-color;
 	width: 700px;
-	height: 670px;
 	float: left;
 }
 
@@ -57,19 +60,21 @@ body {
 .result__window {
 	background: #ffffff;
 	margin: 20px auto;
-	width: 651px;
+	width: 650px;
 	height: 534px;
 }
 
 .setting-block {
 	background: $settings-bg-color;
 	width: 260px;
-	height: 670px;
+	min-height: 670px;
 	float: left;
+	position: relative;
 }
 
 .setting-block__title {
-	font-family: Roboto;
+	display: block;
+	font-family: 'Roboto';
 	color:  #2e3641;
 	font-size: 26px; 
 	font-weight: 300;
@@ -84,7 +89,7 @@ body {
 
 .page-footer__text {
 	@include inline-block (middle);	
-	font-family: FiraSans;
+	font-family: 'FiraSans';
 	color:  #ffffff;
 	font-size: 12px; 
 	line-height: 24px;

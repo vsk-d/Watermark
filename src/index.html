@@ -45,17 +45,50 @@
               </div>
             </div>
             <div class="settings__wrapper">
+              <div class="settings__title">Положение</div>
               <div class="settings__position">
-                <div class="settings__title">Положение</div>
-                <div class="settings__field"></div>
+                <div class="settings__field">
+                  <div class="field__row">
+                    <input type="radio" name="field__part" id="left-up" class="hide"/>
+                    <label for="left-up" class="field__cell"></label>
+                    <input type="radio" name="field__part" id="middle-up" class="hide"/>
+                    <label for="middle-up" class="field__cell"></label>
+                    <input type="radio" name="field__part" id="right-up" class="hide"/>
+                    <label for="right-up" class="field__cell"></label>
+                  </div>
+                  <div class="field__row">
+                    <input type="radio" name="field__part" id="middle-left" class="hide"/>
+                    <label for="middle-left" class="field__cell"></label>
+                    <input type="radio" name="field__part" id="middle-middle" class="hide"/>
+                    <label for="middle-middle" class="field__cell"></label>
+                    <input type="radio" name="field__part" id="middle-right" class="hide"/>
+                    <label for="middle-right" class="field__cell"></label>
+                  </div>
+                  <div class="field__row">
+                    <input type="radio" name="field__part" id="down-left" class="hide"/>
+                    <label for="down-left" class="field__cell"></label>
+                    <input type="radio" name="field__part" id="down-middle" class="hide"/>
+                    <label for="down-middle" class="field__cell"></label>
+                    <input type="radio" name="field__part" id="down-right" class="hide"/>
+                    <label for="down-right" class="field__cell"></label>
+                  </div>
+                </div>
                 <div class="settings__axis">
                   <div class="axis__wrapper">
                     <div class="axis__name">X</div>
                     <input type="text" value="0" data-validation="axis-x" class="axis__input"/>
+                    <div class="axis__control">
+                      <button name="axis__button_up-x" class="axis__button axis__button_up"></button>
+                      <button name="axis__button_down-x" class="axis__button axis__button_down"></button>
+                    </div>
                   </div>
                   <div class="axis__wrapper">
                     <div class="axis__name">Y</div>
                     <input type="text" value="0" data-validation="axis-y" class="axis__input"/>
+                    <div class="axis__control">
+                      <button name="axis__button_up-y" class="axis__button axis__button_up"></button>
+                      <button name="axis__button_down-y" class="axis__button axis__button_down"></button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -63,6 +96,7 @@
             <div class="settings__wrapper">
               <div class="settings__opacity">
                 <div class="settings__title">Прозрачность</div>
+                <input type="range" data-validation="slider" class="settings__slider"/>
               </div>
             </div>
             <div class="btn-wrap">
@@ -74,13 +108,13 @@
       </main>
       <aside>
         <ul class="language">
-          <li class="language__item">РУС<a href="#" class="language__link"><span class="language__name hide">русский</span></a></li>
-          <li class="language__item">ENG<a href="#" class="language__link"><span class="language__name hide">английский</span></a></li>
-        </ul>
+          <li class="language__item"> <a href="#" class="language__link">РУС</a></li>
+          <li class="language__item"> <a href="#" class="language__link">ENG</a></li>
+        </ul><a href="" class="socials__link socials__link_lk"></a>
         <ul class="socials">
-          <li class="socials__item"><a href="#" class="socials__link socials__link_fb"><span class="socials__name">facebook</span></a></li>
-          <li class="socials__item"><a href="#" class="socials__link socials__link_tw"><span class="socials__name">twitter</span></a></li>
-          <li class="socials__item"><a href="#" class="socials__link socials__link_vk"><span class="socials__name">вконтакте</span></a></li>
+          <li class="socials__item"><a href="#" class="socials__link socials__link_fb"><span class="hide">facebook</span></a></li>
+          <li class="socials__item"><a href="#" class="socials__link socials__link_tw"><span class="hide">twitter</span></a></li>
+          <li class="socials__item"><a href="#" class="socials__link socials__link_vk"><span class="hide">вконтакте</span></a></li>
         </ul>
       </aside>
     </div>
