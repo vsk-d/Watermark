@@ -1,27 +1,15 @@
 var upload = (function(){
     'use strict';
 
-    function _initFileupload() {
-        var
-            url      = 'actions/img.php',
-            dataType = 'json';
-        $('.fileupload').fileupload({
-            url: url,
-            dataType: dataType,
-            success: _ajaxFiles
-        });
-
-    }
-
     function _ajaxFiles (data){
         var
             $this       = $(this),
             fileName    = $this.closest('label'),
             fileUrl     = $this.closest('[type="hidden"]');
 
-        fileName.text(data.name);
+        fileName.text("123");
         fileUrl.val(data.name);
-        
+
         _addPicToWindow ();
     }
 
@@ -35,7 +23,15 @@ var upload = (function(){
             },
 
             uploadImages : function() {
-                _initFileupload();
+                var
+                    url      = 'actions/img.php',
+                    dataType = 'json';
+
+                $('.fileupload').fileupload({
+                    url: url,
+                    dataType: dataType,
+                    always: _ajaxFiles
+                });
             }
         };
 }());
