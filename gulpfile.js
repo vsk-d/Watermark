@@ -3,7 +3,7 @@ var gulp 		= require('gulp'),
 	sass 		= require('gulp-sass'),
 	rename 		= require('gulp-rename'),
 	prefix 		= require('gulp-autoprefixer'),
-	useref 		= require('gulp-useref'),    
+	useref 		= require('gulp-useref'),
 	uglify 		= require('gulp-uglify'),
 	coffee 		= require('gulp-coffee'),
 	clean 		= require('gulp-clean'),
@@ -111,9 +111,9 @@ gulp.task('useref', function () {
 
 // Перенос шрифтов
 gulp.task('fonts', function() {
-	gulp.src('src/font/*')
+	gulp.src('src/fonts/*')
 		.pipe(filter(['*.eot','*.svg','*.ttf','*.otf','*.woff','*.woff2']))
-		.pipe(gulp.dest('dist/font/'))
+		.pipe(gulp.dest('dist/fonts/'))
 });
 
 // Картинки
