@@ -687,7 +687,8 @@ aside {
     border-radius: 0 3px 3px 0;
     background: #f97e76 url("../img/sprite.png") no-repeat 5px 0;
     width: 40px;
-    height: 28px; }
+    height: 28px;
+    cursor: pointer; }
 
 /* --------- position --------- */
 .settings__position {
