@@ -111,8 +111,8 @@ gulp.task('useref', function () {
 
 // Перенос шрифтов
 gulp.task('fonts', function() {
-	gulp.src('src/fonts/*')
-		.pipe(filter(['*.eot','*.svg','*.ttf','*.otf','*.woff','*.woff2']))
+	gulp.src('src/fonts/**/*')
+		// .pipe(filter(['*.eot','*.svg','*.ttf','*.otf','*.woff','*.woff2']))
 		.pipe(gulp.dest('dist/fonts/'))
 });
 
