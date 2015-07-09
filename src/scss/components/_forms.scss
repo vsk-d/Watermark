@@ -1,5 +1,5 @@
 .settings {
-	padding: 0 20px;
+	
 	// border-bottom: 1px solid rgba(249, 126, 118, 0.4);s
 }
 
@@ -13,7 +13,38 @@
 	margin-bottom: 20px; 
 }
 
-
+.settings__wrapper{
+	padding: 10px 20px 20px ;
+	border-bottom: 1px solid $border-down;
+	position: relative;
+	
+	&:before{
+		content: '';
+		display: block;
+		width: 0;
+		height: 0;
+		position: absolute;
+		@include centerer(true, false);
+		border-style: solid;		  
+		border-width: 10px 10px 0 10px;
+		border-color: $settings-bg-color transparent transparent transparent;
+		bottom: -9px;
+		z-index: 1;
+	}
+	&:after{
+		content: '';
+		display: block;
+		position: absolute;		
+		width: 0;
+		height: 0;
+		@include centerer(true, false);
+		border-style: solid;
+		border-width: 10px 10px 0 10px;
+		border-color: $border-down transparent transparent transparent;
+		bottom: -10px;
+		
+	}
+}
 /* --------- upload --------- */
 
 .upload__wrapper {
@@ -44,10 +75,48 @@
 }
 
 /* --------- position --------- */
-
-.settings__position{
+.settings__position {
 	@include clearfix;
+	margin-bottom: 20px;
 }
+
+.settings__field {
+	float: left;
+	display: table; 
+  	border-collapse: collapse; 
+	border-radius: 3px ;
+	border-left: 1px solid #9eb2c0;
+	border-top: 1px solid #9eb2c0;
+	
+	width: 100px;
+	height: 100px;
+
+}
+.field__row {
+	display: table-row; 
+}
+.field__cell {
+	display: table-cell; 
+	width: 33px;
+	border-right: 1px solid #9eb2c0;
+	border-bottom: 1px solid #9eb2c0;
+	background-color:  rgba(193, 207, 217, 0.46);
+}
+
+
+input[type="radio"]:checked + label {
+	background-color:  #f97e76;
+	background-clip:  border-box;
+
+	-webkit-transition:background-color 0.5s linear;
+	-o-transition:background-color 0.5s linear;
+	-moz-transition:background-color 0.5s linear;
+	transition:background-color 0.5s linear;
+
+}
+
+
+
 
 .settings__left{
 	float: left;
@@ -55,6 +124,10 @@
 
 .settings__axis{
 	float: right;
+}
+
+.axis__wrapper{
+	margin-bottom: 5px;
 }
 .axis__name {
 	@include inline-block (middle);
@@ -67,16 +140,24 @@
 	@include inline-block (middle);
 	border-width: 1px solid #9eb2c0;
 	border-radius: 3px;
-	width: 46px;
+	width: 44px;
 	height: 45px;
 	font-family: 'SegoeUI';
 	color:  #444a53;
 	font-size: 24px;
 	font-weight: 300;
 	text-align: center;
-
-
 }
 
+
+
+.axis__control {
+	@include inline-block (middle);
+	width: 20px;
+}
+.axis__button{
+	
+
+}
 
 /* --------- opasity --------- */
