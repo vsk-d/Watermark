@@ -103,9 +103,9 @@ gulp.task('useref', function () {
 
 // Перенос шрифтов
 gulp.task('fonts', function() {
-	gulp.src('src/font/*')
-		.pipe(filter(['*.eot','*.svg','*.ttf','*.otf','*.woff','*.woff2']))
-		.pipe(gulp.dest('dist/font/'));
+	gulp.src('src/fonts/**/*')
+		// .pipe(filter(['*.eot','*.svg','*.ttf','*.otf','*.woff','*.woff2']))
+		.pipe(gulp.dest('dist/fonts/'))
 });
 
 // Картинки

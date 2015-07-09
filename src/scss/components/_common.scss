@@ -39,13 +39,12 @@ body {
 .main-content {
 	width: 960px;
 	margin: 60px  auto 20px;
+	background: $result-bg-color;
 	@include clearfix;
 }
 
 .result {
-	background: $result-bg-color;
 	width: 700px;
-	height: 670px;
 	float: left;
 }
 
@@ -61,19 +60,21 @@ body {
 .result__window {
 	background: #ffffff;
 	margin: 20px auto;
-	width: 651px;
+	width: 650px;
 	height: 534px;
 }
 
 .setting-block {
 	background: $settings-bg-color;
 	width: 260px;
-	height: 670px;
+	min-height: 670px;
 	float: left;
+	position: relative;
 }
 
 .setting-block__title {
-	font-family: Roboto;
+	display: block;
+	font-family: 'Roboto';
 	color:  #2e3641;
 	font-size: 26px; 
 	font-weight: 300;
@@ -88,7 +89,7 @@ body {
 
 .page-footer__text {
 	@include inline-block (middle);	
-	font-family: FiraSans;
+	font-family: 'FiraSans';
 	color:  #ffffff;
 	font-size: 12px; 
 	line-height: 24px;

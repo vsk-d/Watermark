@@ -1,13 +1,15 @@
 .btn-wrap {
 	@include clearfix;
-	padding: 0 10px;
-	margin-top: 30px;
+	padding: 20px 10px;
+	position: absolute;
+	width: 92%;
+	bottom: 0;
 }
 
 .settings__btn {
 	width: 98px;
 	height: 41px;
-	font-family: Roboto;
+	font-family: 'Roboto';
 	font-weight: 400;
 	text-align: center;
 	color:  #f1f1f5;
