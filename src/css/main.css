@@ -513,7 +513,8 @@ body {
 
 .main-content {
   width: 960px;
-  margin: 60px auto 20px; }
+  margin: 60px auto 20px;
+  background: rgba(46, 54, 65, 0.64); }
   .main-content:before,
   .main-content:after {
     content: "";
@@ -522,9 +523,7 @@ body {
     clear: both; }
 
 .result {
-  background: rgba(46, 54, 65, 0.64);
   width: 700px;
-  height: 670px;
   float: left; }
 
 .result__title {
@@ -538,17 +537,19 @@ body {
 .result__window {
   background: #ffffff;
   margin: 20px auto;
-  width: 651px;
+  width: 650px;
   height: 534px; }
 
 .setting-block {
   background: #f1f1f5;
   width: 260px;
-  height: 670px;
-  float: left; }
+  min-height: 670px;
+  float: left;
+  position: relative; }
 
 .setting-block__title {
-  font-family: Roboto;
+  display: block;
+  font-family: 'Roboto';
   color: #2e3641;
   font-size: 26px;
   font-weight: 300;
@@ -562,7 +563,7 @@ body {
 .page-footer__text {
   display: inline-block;
   vertical-align: middle;
-  font-family: FiraSans;
+  font-family: 'FiraSans';
   color: #ffffff;
   font-size: 12px;
   line-height: 24px;
@@ -571,15 +572,53 @@ body {
 aside {
   position: absolute;
   left: 0;
-  top: 0; }
+  top: 100px; }
 
-.language {
+.language, .socials {
   padding-left: 0;
   list-style: none; }
 
-.socials {
-  padding-left: 0;
-  list-style: none; }
+.language__link {
+  font-family: 'SegoeUI';
+  color: #8e9298;
+  font-size: 20px;
+  font-weight: 300;
+  text-decoration: none;
+  display: block;
+  min-width: 43px;
+  padding: 3px 0;
+  text-align: center;
+  background-color: rgba(241, 241, 245, 0.7);
+  margin-bottom: 1px; }
+  .language__link:hover {
+    color: #444a53; }
+
+.socials__link {
+  display: block;
+  width: 43px;
+  height: 41px;
+  background: url("../img/sprite.png") no-repeat;
+  background-color: rgba(255, 255, 255, 0.6); }
+
+.socials__link_fb {
+  background-position: -138px -7px; }
+  .socials__link_fb:hover {
+    background-position: -76px -7px; }
+
+.socials__link_tw {
+  background-position: -143px -105px; }
+  .socials__link_tw:hover {
+    background-position: -81px -105px; }
+
+.socials__link_vk {
+  background-position: -146px -145px; }
+  .socials__link_vk:hover {
+    background-position: -84px -145px; }
+
+.socials__link_lk {
+  background-position: -142px -58px; }
+  .socials__link_lk:hover {
+    background-position: -80px -58px; }
 
 .settings__title {
   display: block;
@@ -723,8 +762,10 @@ input[type="radio"]:checked + label {
 
 /* --------- opasity --------- */
 .btn-wrap {
-  padding: 0 10px;
-  margin-top: 30px; }
+  padding: 20px 10px;
+  position: absolute;
+  width: 92%;
+  bottom: 0; }
   .btn-wrap:before,
   .btn-wrap:after {
     content: "";
@@ -735,7 +776,7 @@ input[type="radio"]:checked + label {
 .settings__btn {
   width: 98px;
   height: 41px;
-  font-family: Roboto;
+  font-family: 'Roboto';
   font-weight: 400;
   text-align: center;
   color: #f1f1f5;
