@@ -11,16 +11,18 @@ html(lang="ru-Ru")
 					.result__window
 				.setting-block
 					h2.setting-block__title Настройки
-					form(action="").settings
+					form(action="" encode="multipart/form-data").settings
 						
 						.settings__wrapper
 							.settings__upload
 								label.settings__title Исходное изображение
 									label(for="upload-img" ).upload__wrapper Image.jpg
-										input(type = 'file' id = 'upload-img' name = 'img' size = '30').upload__input.upload__input_image.hide
+										input.fileupload(type = 'file' id = 'upload-img' name = 'files[]' size = '30').upload__input.upload__input_image.hide
+										input(type='hidden' name='fileurl')
 								label.settings__title  Водяной знак
 									label(for="upload-water").upload__wrapper Image.png
-										input(type = 'file' id = 'upload-water' name = 'water-img' size = '30').upload__input.upload__input_water-image.hide
+										input.fileupload(type = 'file' id = 'upload-water' name = 'files[]' size = '30').upload__input.upload__input_water-image.hide
+										input(type='hidden' name='fileurl')
 						
 						.settings__wrapper
 							
@@ -93,7 +95,6 @@ html(lang="ru-Ru")
 					li.socials__item
 						a(href = '#').socials__link.socials__link_vk
 							span.hide вконтакте
-		footer.page-footer
-			p.page-footer__text
-				|&copy Это мой сайт, пожалуйста, не копируйте и не воруйте его
+							span.socials__name вконтакте
+		include includes/footer.jade
 

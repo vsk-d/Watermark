@@ -5,7 +5,6 @@ var gulp 		= require('gulp'),
 	prefix 		= require('gulp-autoprefixer'),
 	useref 		= require('gulp-useref'),
 	uglify 		= require('gulp-uglify'),
-	coffee 		= require('gulp-coffee'),
 	clean 		= require('gulp-clean'),
 	gulpif 		= require('gulp-if'),
 	filter 		= require('gulp-filter'),
@@ -23,7 +22,7 @@ var gulp 		= require('gulp'),
 // ====================================================
 // ============== Локальная разработка APP ============
 
-//jade 
+//jade
 gulp.task('jade', function() {
 		gulp.src('src/templates/*.jade')
 		.pipe(jade({ pretty: true }))
@@ -36,52 +35,45 @@ gulp.task('jade', function() {
 gulp.task('css', function() {
 		gulp.src('src/scss/main.scss')
 		.pipe(sass())
-		.on('error', log)		
+		.on('error', log)
 		.pipe(prefix('last 2 versions','>1%','ie 7'))
 		.pipe(rename('main.css'))
 		.pipe(gulp.dest('src/css'))
 		.pipe(reload({stream: true}));
-})
-
-gulp.task('coffee', function(){
-    gulp.src('src/js/main.coffee')
-        .pipe(coffee())
-        .pipe(gulp.dest('src/js'));
 });
 
 // Подключаем ссылки на bower components
 gulp.task('wiredep', function () {
-	gulp.src('src/templates/common/head.jade')
+	gulp.src('src/templates/common/*.jade')
 		.pipe(wiredep({
 			ignorePath: /^(\.\.\/)*\.\./
 		}))
-		.pipe(gulp.dest('src/templates/common/'))
+		.pipe(gulp.dest('src/templates/common/'));
 });
 
 // Запускаем локальный сервер (только после компиляции jade)
-gulp.task('server', ['jade'], function () {  
+gulp.task('server', ['jade'], function () {
 	browserSync({
 		notify: false,
 		port: 9000,
 		server: {
 			baseDir: 'src'
 		}
-	});  
+	});
 });
 
-// слежка и запуск задач 
+// слежка и запуск задач
 gulp.task('watch', function () {
-	gulp.watch('bower.json', ['wiredep'])
-	gulp.watch('src/templates/**/*.jade', ['jade'])
-	gulp.watch('src/scss/**/*.scss',['css'])
-	gulp.watch('src/js/*.coffee',['coffee'])
+	gulp.watch('bower.json', ['wiredep']);
+	gulp.watch('src/templates/**/*.jade', ['jade']);
+	gulp.watch('src/scss/**/*.scss',['css']);
 	gulp.watch([
 		'src/js/**/*.js',
 		'src/css/**/*.css'
 	]).on('change', reload);
 });
 
-// Задача по-умолчанию 
+// Задача по-умолчанию
 gulp.task('default', ['server', 'watch']);
 
 
@@ -97,7 +89,7 @@ gulp.task('clean', function () {
 		.pipe(clean());
 });
 
-// Переносим HTML, CSS, JS в папку dist 
+// Переносим HTML, CSS, JS в папку dist
 gulp.task('useref', function () {
 	var assets = useref.assets();
 	return gulp.src('src/*.html')
@@ -144,8 +136,8 @@ gulp.task('build', ['clean', 'jade', 'css'], function () {
 	gulp.start('dist');
 });
 
-// Проверка сборки 
-gulp.task('server-dist', function () {  
+// Проверка сборки
+gulp.task('server-dist', function () {
 	browserSync({
 		notify: false,
 		port: 9000,
@@ -172,4 +164,4 @@ var log = function (error) {
 		''
 	].join('\n'));
 	this.end();
-}
+};
