@@ -5,11 +5,10 @@ var upload = (function(){
         var
             url      = 'actions/img.php',
             dataType = 'json';
-
         $('.fileupload').fileupload({
             url: url,
             dataType: dataType,
-            always: _ajaxFiles
+            success: _ajaxFiles
         });
 
     }
@@ -20,9 +19,9 @@ var upload = (function(){
             fileName    = $this.closest('label'),
             fileUrl     = $this.closest('[type="hidden"]');
 
-        fileName.text("123");
+        fileName.text(data.name);
         fileUrl.val(data.name);
-
+        
         _addPicToWindow ();
     }
 
@@ -36,6 +35,7 @@ var upload = (function(){
             },
 
             uploadImages : function() {
+                console.log('init');
                 _initFileupload();
             }
         };
