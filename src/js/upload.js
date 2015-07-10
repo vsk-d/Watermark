@@ -7,7 +7,7 @@ var upload = (function(){
             fileName    = $this.closest('label'),
             fileUrl     = $this.closest('[type="hidden"]');
 
-        fileName.text("123");
+        fileName.text(data.name);
         fileUrl.val(data.name);
 
         _addPicToWindow ();
@@ -24,14 +24,15 @@ var upload = (function(){
 
             uploadImages : function() {
                 var
-                    url      = 'actions/img.php',
+                    url      = '/actions/upload.php',
                     dataType = 'json';
 
                 $('.fileupload').fileupload({
                     url: url,
                     dataType: dataType,
-                    always: _ajaxFiles
+                    success: _ajaxFiles
                 });
+
             }
         };
 }());
