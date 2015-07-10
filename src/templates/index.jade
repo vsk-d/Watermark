@@ -28,44 +28,97 @@ html(lang="ru-Ru")
 							
 							.settings__title Положение
 							.settings__position
-								.settings__field
+								ul.settings__position_tabs-control
+									li.tabs-control__item.tabs-control__item_active
+										a(href = '#').tabs-control__link
+											span.tabs-control__title Одиночный
+									li.tabs-control__item
+										a(href = '#').tabs-control__link
+											span.tabs-control__title Замостить
+
+								ul.settings__position_tabs-list
+									li.tabs-list__item.tabs-list__item_active
+
+										.settings__field
 									
-									.field__row
-										input(type = 'radio' name = 'field__part' id = 'left-up').hide
-										label(for = 'left-up').field__cell
-										input(type = 'radio' name = 'field__part' id = 'middle-up').hide
-										label(for = 'middle-up').field__cell
-										input(type = 'radio' name = 'field__part' id = 'right-up').hide
-										label(for = 'right-up').field__cell
-									.field__row
-										input(type = 'radio' name = 'field__part' id = 'middle-left').hide
-										label(for = 'middle-left').field__cell
-										input(type = 'radio' name = 'field__part' id = 'middle-middle').hide
-										label(for = 'middle-middle').field__cell
-										input(type = 'radio' name = 'field__part' id = 'middle-right').hide
-										label(for = 'middle-right').field__cell
-									.field__row
-										input(type = 'radio' name = 'field__part' id = 'down-left').hide
-										label(for = 'down-left').field__cell
-										input(type = 'radio' name = 'field__part' id = 'down-middle').hide
-										label(for = 'down-middle').field__cell
-										input(type = 'radio' name = 'field__part' id = 'down-right').hide
-										label(for = 'down-right').field__cell
+											.field__row
+												input(type = 'radio' name = 'field__part' id = 'left-up').hide
+												label(for = 'left-up').field__cell
+												input(type = 'radio' name = 'field__part' id = 'middle-up').hide
+												label(for = 'middle-up').field__cell
+												input(type = 'radio' name = 'field__part' id = 'right-up').hide
+												label(for = 'right-up').field__cell
+											.field__row
+												input(type = 'radio' name = 'field__part' id = 'middle-left').hide
+												label(for = 'middle-left').field__cell
+												input(type = 'radio' name = 'field__part' id = 'middle-middle').hide
+												label(for = 'middle-middle').field__cell
+												input(type = 'radio' name = 'field__part' id = 'middle-right').hide
+												label(for = 'middle-right').field__cell
+											.field__row
+												input(type = 'radio' name = 'field__part' id = 'down-left').hide
+												label(for = 'down-left').field__cell
+												input(type = 'radio' name = 'field__part' id = 'down-middle').hide
+												label(for = 'down-middle').field__cell
+												input(type = 'radio' name = 'field__part' id = 'down-right').hide
+												label(for = 'down-right').field__cell
 
-								.settings__axis
-									.axis__wrapper
-										.axis__name X
-										input(type = 'text' value = '0' data-validation = 'axis-x').axis__input
-										.axis__control
-											button(name = 'axis__button_up-x').axis__button.axis__button_up
-											button(name = 'axis__button_down-x').axis__button.axis__button_down
+										.settings__axis
+											.axis__wrapper
+												.axis__name X
+												input(type = 'text' value = '0' data-validation = 'axis-x').axis__input
+												.axis__control
+													button(name = 'axis__button_up-x').axis__button.axis__button_up
+													button(name = 'axis__button_down-x').axis__button.axis__button_down
 
-									.axis__wrapper
-										.axis__name Y
-										input(type = 'text' value = '0' data-validation = 'axis-y').axis__input
-										.axis__control
-											button(name = 'axis__button_up-y').axis__button.axis__button_up
-											button(name = 'axis__button_down-y').axis__button.axis__button_down
+											.axis__wrapper
+												.axis__name Y
+												input(type = 'text' value = '0' data-validation = 'axis-y').axis__input
+												.axis__control
+													button(name = 'axis__button_up-y').axis__button.axis__button_up
+													button(name = 'axis__button_down-y').axis__button.axis__button_down
+
+									li.tabs-list__item
+
+										.settings__field
+									
+											.field__row
+												input(type = 'radio' name = 'field__part' id = 'left-up').hide
+												label(for = 'left-up').field__cell
+												input(type = 'radio' name = 'field__part' id = 'middle-up').hide
+												label(for = 'middle-up').field__cell
+												input(type = 'radio' name = 'field__part' id = 'right-up').hide
+												label(for = 'right-up').field__cell
+											.field__row
+												input(type = 'radio' name = 'field__part' id = 'middle-left').hide
+												label(for = 'middle-left').field__cell
+												input(type = 'radio' name = 'field__part' id = 'middle-middle').hide
+												label(for = 'middle-middle').field__cell
+												input(type = 'radio' name = 'field__part' id = 'middle-right').hide
+												label(for = 'middle-right').field__cell
+											.field__row
+												input(type = 'radio' name = 'field__part' id = 'down-left').hide
+												label(for = 'down-left').field__cell
+												input(type = 'radio' name = 'field__part' id = 'down-middle').hide
+												label(for = 'down-middle').field__cell
+												input(type = 'radio' name = 'field__part' id = 'down-right').hide
+												label(for = 'down-right').field__cell
+
+										.settings__axis
+											.axis__wrapper
+												.axis__name X
+												input(type = 'text' value = '0' data-validation = 'axis-x').axis__input
+												.axis__control
+													button(name = 'axis__button_up-x').axis__button.axis__button_up
+													button(name = 'axis__button_down-x').axis__button.axis__button_down
+
+											.axis__wrapper
+												.axis__name Y
+												input(type = 'text' value = '0' data-validation = 'axis-y').axis__input
+												.axis__control
+													button(name = 'axis__button_up-y').axis__button.axis__button_up
+													button(name = 'axis__button_down-y').axis__button.axis__button_down
+
 						.settings__wrapper
 							.settings__opacity
 								.settings__title Прозрачность
