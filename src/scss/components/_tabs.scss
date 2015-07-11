@@ -1,0 +1,42 @@
+.tabs{
+	.settings__title{
+		float: left;
+		margin-bottom: 0;
+	}
+}
+.tabs__control{
+	list-style: none;
+	margin-top: 0;
+	padding-left: 0;
+	@include clearfix;
+
+}
+.tabs__control-item{
+	float: right;
+	padding-right: 5px;
+
+	&:first-child{padding-right: 0;}
+}
+.tabs__control-link{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: #ccc url('../img/sprite.png');
+}
+
+
+.tabs__control-link_single{}
+.tabs__control-link_tile {}
+
+
+.tabs__list{
+	padding-left: 0;
+	list-style: none;
+	// @include clearfix;
+
+}
+
+.tabs__item {	
+	display: none;
+	&.active {display: block;}
+}

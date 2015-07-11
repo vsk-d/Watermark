@@ -44,15 +44,15 @@
                 </label>
               </div>
             </div>
-            <div class="settings__wrapper">
-              <div class="settings__title">Положение</div>
-              <div class="settings__position">
-                <ul class="settings__position_tabs-control">
-                  <li class="tabs-control__item tabs-control__item_active"><a href="#" class="tabs-control__link"><span class="tabs-control__title">Одиночный</span></a></li>
-                  <li class="tabs-control__item"><a href="#" class="tabs-control__link"><span class="tabs-control__title">Замостить</span></a></li>
+            <div class="settings__wrapper">					
+              <div class="settings__position tabs">
+                <div class="settings__title">Положение</div>
+                <ul class="tabs__control">
+                  <li class="tabs__control-item active"><a href="#" class="tabs__control-link tabs__control-link_single"><span class="tabs__control-name hide">Одиночный</span></a></li>
+                  <li class="tabs__control-item"><a href="#" class="tabs__control-link tabs__control-link_tile"><span class="tabs__control-name hide">Замостить</span></a></li>
                 </ul>
-                <ul class="settings__position_tabs-list">
-                  <li class="tabs-list__item tabs-list__item_active">
+                <ul class="tabs__list">
+                  <li class="tabs__item active">
                     <div class="settings__field">
                       <div class="field__row">
                         <input type="radio" name="field__part" id="left-up" class="hide"/>
@@ -98,8 +98,8 @@
                       </div>
                     </div>
                   </li>
-                  <li class="tabs-list__item">
-                    <div class="settings__field">
+                  <li class="tabs__item">
+                    <div class="settings__field settings__field_tile">
                       <div class="field__row">
                         <input type="radio" name="field__part" id="left-up" class="hide"/>
                         <label for="left-up" class="field__cell"></label>

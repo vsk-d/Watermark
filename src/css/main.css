@@ -762,6 +762,42 @@ input[type="radio"]:checked + label {
   width: 20px; }
 
 /* --------- opasity --------- */
+.tabs .settings__title {
+  float: left;
+  margin-bottom: 0; }
+
+.tabs__control {
+  list-style: none;
+  margin-top: 0;
+  padding-left: 0; }
+  .tabs__control:before,
+  .tabs__control:after {
+    content: "";
+    display: table; }
+  .tabs__control:after {
+    clear: both; }
+
+.tabs__control-item {
+  float: right;
+  padding-right: 5px; }
+  .tabs__control-item:first-child {
+    padding-right: 0; }
+
+.tabs__control-link {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: #ccc url("../img/sprite.png"); }
+
+.tabs__list {
+  padding-left: 0;
+  list-style: none; }
+
+.tabs__item {
+  display: none; }
+  .tabs__item.active {
+    display: block; }
+
 .btn-wrap {
   padding: 20px 10px;
   position: absolute;

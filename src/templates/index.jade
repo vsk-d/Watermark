@@ -24,20 +24,20 @@ html(lang="ru-Ru")
 										input.fileupload(type = 'file' id = 'upload-water' name = 'files[]' size = '30').upload__input.upload__input_water-image.hide
 										input(type='hidden' name='fileurl')
 						
-						.settings__wrapper
+						.settings__wrapper					
 							
-							.settings__title Положение
-							.settings__position
-								ul.settings__position_tabs-control
-									li.tabs-control__item.tabs-control__item_active
-										a(href = '#').tabs-control__link
-											span.tabs-control__title Одиночный
-									li.tabs-control__item
-										a(href = '#').tabs-control__link
-											span.tabs-control__title Замостить
+							.settings__position.tabs
+								.settings__title Положение
+								ul.tabs__control
+									li.tabs__control-item.active
+										a(href = '#').tabs__control-link.tabs__control-link_single
+											span.tabs__control-name.hide Одиночный
+									li.tabs__control-item
+										a(href = '#').tabs__control-link.tabs__control-link_tile
+											span.tabs__control-name.hide Замостить
 
-								ul.settings__position_tabs-list
-									li.tabs-list__item.tabs-list__item_active
+								ul.tabs__list
+									li.tabs__item.active
 
 										.settings__field
 									
@@ -78,9 +78,9 @@ html(lang="ru-Ru")
 													button(name = 'axis__button_up-y').axis__button.axis__button_up
 													button(name = 'axis__button_down-y').axis__button.axis__button_down
 
-									li.tabs-list__item
+									li.tabs__item
 
-										.settings__field
+										.settings__field.settings__field_tile
 									
 											.field__row
 												input(type = 'radio' name = 'field__part' id = 'left-up').hide
