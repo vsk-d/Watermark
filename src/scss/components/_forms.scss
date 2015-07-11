@@ -1,8 +1,3 @@
-.settings {
-	
-	// border-bottom: 1px solid rgba(249, 126, 118, 0.4);s
-}
-
 .settings__title {
 	display: block;
 	font-family: Roboto;
@@ -13,12 +8,12 @@
 	margin-bottom: 20px; 
 }
 
-.settings__wrapper{
+.settings__wrapper {
 	padding: 10px 20px 20px ;
 	border-bottom: 1px solid $border-down;
 	position: relative;
 	
-	&:before{
+	&:before {
 		content: '';
 		display: block;
 		width: 0;
@@ -31,7 +26,7 @@
 		bottom: -9px;
 		z-index: 1;
 	}
-	&:after{
+	&:after {
 		content: '';
 		display: block;
 		position: absolute;		
@@ -121,18 +116,8 @@ input[type="radio"]:checked + label {
 
 
 
-
-.settings__left{
-	float: left;
-}
-
-.settings__axis{
-	float: right;
-}
-
-.axis__wrapper{
-	margin-bottom: 5px;
-}
+.settings__axis { float: right; }
+.axis__wrapper:first-child { margin-bottom: 5px;}
 .axis__name {
 	@include inline-block (middle);
 	font-family: Roboto;
@@ -142,26 +127,32 @@ input[type="radio"]:checked + label {
 }
 .axis__input {
 	@include inline-block (middle);
-	border-width: 1px solid #9eb2c0;
-	border-radius: 3px;
-	width: 44px;
-	height: 45px;
+	width: 42px;
+	height: 42px;
 	font-family: 'SegoeUI';
 	color:  #444a53;
 	font-size: 24px;
 	font-weight: 300;
 	text-align: center;
+	border: 1px solid #9eb2c0;
+	border-radius: 3px;
+	background: $settings-bg-color ;
 }
 
+.tabs__item_tile {
+	.axis__name {
+		width: 30px;
+		height: 30px;
+		background: url('../img/sprite.png') no-repeat;
+	}
 
+	.axis__name_width {	background-position: -126px -239px; }
+	.axis__name_height { background-position: -108px -199px; }
+}
 
 .axis__control {
 	@include inline-block (middle);
 	width: 20px;
-}
-.axis__button{
-	
-
 }
 
 /* --------- opasity --------- */
