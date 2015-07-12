@@ -28,7 +28,16 @@ else if(!in_array($file['type'][0], $types)){
     $data['message'] = "Загружать можно только изображения (gif|png|jpg|jpeg) размером до 2МБ";
     $data['url'] = '';
 }
-
+if(isset($_POST)){
+    $count=1;
+    foreach($_POST as $key => $value){
+        if($key=="type"){
+            
+           $data['type']=$value;       
+        }
+    }
+   
+}
 // Если ошибок нет
 else if($file['error'][0] == 0){
 

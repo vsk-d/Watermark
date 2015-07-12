@@ -32,19 +32,21 @@
               <div class="settings__upload">
                 <label class="settings__title"><?php echo $data['original_image'][$lang]; ?>
                   <label for="upload-img" class="upload__wrapper">Image.jpg
-                    <input type="file" id="upload-img" name="files[]" size="30" class="fileupload upload__input upload__input_image hide"/>
+                    <input type="file" id="upload-img" name="files[]" size="30" data-type="main-image" class="fileupload upload__input upload__input_image hide"/>
                     <input type="hidden" name="fileurl"/>
                   </label>
                 </label>
                 <label class="settings__title"><?php echo $data['watermark'][$lang]; ?>
                   <label for="upload-water" class="upload__wrapper">Image.png
-                    <input type="file" id="upload-water" name="files[]" size="30" class="fileupload upload__input upload__input_water-image hide"/>
+                    <input type="file" id="upload-water" name="files[]" size="30" data-type="water-image" class="fileupload upload__input upload__input_water-image hide"/>
                     <input type="hidden" name="fileurl"/>
                   </label>
                 </label>
               </div>
             </div>
+
             <div class="settings__wrapper">
+
               <div class="settings__title"><?php echo $data['position'][$lang]; ?></div>
               <div class="settings__position">
                 <div class="settings__field">
@@ -93,6 +95,7 @@
                 </div>
               </div>
             </div>
+             
             <div class="settings__wrapper">
               <div class="settings__opacity">
                 <div class="settings__title"><?php echo $data['opacity'][$lang]; ?></div>
