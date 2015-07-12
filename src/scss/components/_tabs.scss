@@ -1,0 +1,53 @@
+.tabs {
+	.settings__title {
+		float: left;
+		margin-bottom: 0;
+	}
+}
+
+.tabs__control {
+	list-style: none;
+	margin-top: 0;
+	padding-left: 0;
+	@include clearfix;
+
+}
+
+.tabs-control__item {
+	float: right;
+	padding-right: 5px;
+
+	&:first-child { padding-right: 0; }
+}
+
+.tabs-control__link {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url('../img/sprite.png') no-repeat;
+}
+
+.tabs-control__link_tile {
+	background-position: -10px -199px;
+	&:hover {background-position: -49px  -199px;}
+}
+
+.tabs-control__link_single {
+	background-position: -9px -238px;
+	&:hover { background-position: -49px  -238px;}	
+}
+
+.active {
+	.tabs-control__link_single { background-position: -88px -238px;	}
+	.tabs-control__link_tile { background-position: -88px -199px; }
+}	
+
+.tabs__list {
+	padding-left: 0;
+	list-style: none;
+}
+
+.tabs__item {	
+	display: none;
+	&.active {display: block;}
+}

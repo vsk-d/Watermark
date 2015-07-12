@@ -1,3 +1,5 @@
+
+
 .btn-wrap {
 	@include clearfix;
 	padding: 20px 10px;
@@ -50,4 +52,21 @@
 }
 
 
+.axis__button {
+	border: none;
+	width: 13px;
+	height: 9px;
+	margin-left: 3px;
+	background: url('../img/sprite.png') no-repeat;
+} 
 
+.axis__button_up {
+	margin-bottom: 17px;
+	background-position: -46px -70px; 
+	&:hover {background-position: -46px -98px; } 
+}
+
+.axis__button_down {
+	background-position: -46px -14px; 
+	&:hover {background-position: -46px -42px; } 
+}
