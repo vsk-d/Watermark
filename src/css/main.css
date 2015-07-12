@@ -710,6 +710,24 @@ aside {
   width: 100px;
   height: 100px; }
 
+.tabs__item_tile .settings__field {
+  display: block;
+  border: 1px solid #9eb2c0;
+  border-radius: 3px;
+  background: url("../img/grid.png");
+  background-color: rgba(193, 207, 217, 0.46);
+  position: relative; }
+  .tabs__item_tile .settings__field .indicator {
+    width: 10px;
+    height: 10px;
+    background: #f97e76;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }
+
 .field__row {
   display: table-row; }
 
@@ -883,3 +901,19 @@ input[type="radio"]:checked + label {
   .axis__button_down:hover {
     background-position: -46px -42px; }
 
+.result__wrap {
+  max-width: 650px;
+  max-height: 534px;
+  position: relative;
+  overflow: hidden; }
+  .result__wrap .result__img {
+    width: 100%; }
+
+.result__wrap-water {
+  max-width: 300px;
+  max-height: 300px;
+  position: absolute;
+  bottom: 0;
+  left: 0; }
+  .result__wrap-water .result__img-water {
+    width: 100%; }
