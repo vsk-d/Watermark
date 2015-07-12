@@ -1,18 +1,6 @@
 var upload = (function(){
     'use strict';
 
-    function _initFileupload() {
-        var
-            url      = 'actions/img.php',
-            dataType = 'json';
-        $('.fileupload').fileupload({
-            url: url,
-            dataType: dataType,
-            success: _ajaxFiles
-        });
-
-    }
-
     function _ajaxFiles (data){
         var
             $this       = $(this),
@@ -21,7 +9,7 @@ var upload = (function(){
 
         fileName.text(data.name);
         fileUrl.val(data.name);
-        
+
         _addPicToWindow ();
     }
 
@@ -35,8 +23,16 @@ var upload = (function(){
             },
 
             uploadImages : function() {
-                console.log('init');
-                _initFileupload();
+                var
+                    url      = '/actions/upload.php',
+                    dataType = 'json';
+
+                $('.fileupload').fileupload({
+                    url: url,
+                    dataType: dataType,
+                    success: _ajaxFiles
+                });
+
             }
         };
 }());
