@@ -717,8 +717,18 @@ aside {
   background: url("../img/grid.png");
   background-color: rgba(193, 207, 217, 0.46);
   position: relative; }
-  .tabs__item_tile .settings__field .indicator {
+  .tabs__item_tile .settings__field .indicator_height {
     width: 10px;
+    height: 100px;
+    background: #f97e76;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }
+  .tabs__item_tile .settings__field .indicator_width {
+    width: 100px;
     height: 10px;
     background: #f97e76;
     position: absolute;
@@ -727,6 +737,10 @@ aside {
     -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%); }
+
+.indicator .indicator_height {
+  width: 10px;
+  height: 100px; }
 
 .field__row {
   display: table-row; }

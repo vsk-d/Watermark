@@ -101,14 +101,26 @@
 		background-color:  rgba(193, 207, 217, 0.46);
 		position: relative;
 
-		.indicator {
+		.indicator_height {
 			width: 10px;
+			height: 100px;
+			background:  #f97e76;
+			@include centerer(true, true);
+		}
+		.indicator_width {
+			width: 100px;
 			height: 10px;
 			background:  #f97e76;
 			@include centerer(true, true);
 		}
 	}
 }
+.indicator {
+			.indicator_height {
+			width: 10px;
+			height: 100px;
+		}
+	}
 
 .field__row {
 	display: table-row; 
