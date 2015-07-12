@@ -4,39 +4,38 @@ var upload = (function(){
 //забираем данные о картинке с сервера, добавляем картинку в окошко
     function _ajaxImg (data) {
         var
-            firstPoint  = $('.fileupload-img'),
-            fileName    = firstPoint.closest('label'),
-            fileUrl     = firstPoint.closest('[type="hidden"]'),
-            imageName   = data.name,
-            markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img">';
+            imageName   = data.name;
 
-        fileName.text(imageName);
-        fileUrl.val(imageName);
+        if(data.type === 'main-image') {
+            var
+                firstPoint  = $('.upload__input_image'),
+                markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img">';
 
-        $('.result__img').remove();
-        $('.result__wrap').append(markup);
-    }
+            $('.result__img').remove();
+            $('.result__wrap').append(markup);
 
-    function _ajaxWater (data) {
+        } else {
+
+            var
+                firstPoint  = $('.upload__input_water-image'),
+                markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img-water">';
+
+            $('.result__img-water').remove();
+            $('.result__wrap-water').append(markup).draggable();
+        }
+
         var
-            firstPoint  = $('.fileupload-water'),
             fileName    = firstPoint.closest('label'),
-            fileUrl     = firstPoint.closest('[type="hidden"]'),
-            imageName   = data.name,
-            markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img-water">';
+            fileUrl     = firstPoint.closest('[type="hidden"]');
 
         fileName.text(imageName);
         fileUrl.val(imageName);
-
-        $('.result__img-water').remove();
-        $('.result__wrap-water').append(markup).draggable();
 
     }
 
         return {
             init : function() {
                 this.uploadImages();
-                this.uploadWater();
             },
             //отправляем картинку на сервер
             uploadImages : function() {
@@ -44,24 +43,10 @@ var upload = (function(){
                     url      = 'actions/upload.php',
                     dataType = 'json';
 
-                $('.fileupload-img').fileupload({
+                $('.fileupload').fileupload({
                     url: url,
                     dataType: dataType,
                     success: _ajaxImg,
-                    fail: function() {
-                        console.log('что то не так');
-                    }
-                });
-            },
-            uploadWater : function () {
-                var
-                    url      = 'actions/upload.php',
-                    dataType = 'json';
-
-                $('.fileupload-water').fileupload({
-                    url: url,
-                    dataType: dataType,
-                    success: _ajaxWater,
                     fail: function() {
                         console.log('что то не так');
                     }
