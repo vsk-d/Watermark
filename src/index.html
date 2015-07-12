@@ -23,7 +23,11 @@
       <main class="main-content">
         <div class="result">
           <h1 class="result__title">Генератор водяных знаков</h1>
-          <div class="result__window"></div>
+          <div class="result__window">
+            <div class="result__wrap">
+              <div class="result__wrap-water"></div>
+            </div>
+          </div>
         </div>
         <div class="setting-block">
           <h2 class="setting-block__title">Настройки</h2>
@@ -32,13 +36,13 @@
               <div class="settings__upload">
                 <label class="settings__title">Исходное изображение
                   <label for="upload-img" class="upload__wrapper">Image.jpg
-                    <input type="file" id="upload-img" name="files[]" size="30" class="fileupload upload__input upload__input_image hide"/>
+                    <input type="file" id="upload-img" name="files[]" size="30" data-type="main-image" class="fileupload upload__input upload__input_image hide"/>
                     <input type="hidden" name="fileurl"/>
                   </label>
                 </label>
                 <label class="settings__title"> Водяной знак
                   <label for="upload-water" class="upload__wrapper">Image.png
-                    <input type="file" id="upload-water" name="files[]" size="30" class="fileupload upload__input upload__input_water-image hide"/>
+                    <input type="file" id="upload-water" name="files[]" size="30" data-type="water-image" class="fileupload upload__input upload__input_water-image hide"/>
                     <input type="hidden" name="fileurl"/>
                   </label>
                 </label>
@@ -155,7 +159,7 @@
             </div>
             <div class="btn-wrap">
               <input type="reset" value="Сброс" class="settings__btn settings__btn_reset"/>
-              <input type="button" value="Скачать" class="settings__btn settings__btn_download"/>
+              <input type="submit" value="Скачать" class="settings__btn settings__btn_download"/>
             </div>
           </form>
         </div>
@@ -187,6 +191,7 @@
     <!-- build:js js/main.js -->
     <script src="js/main.js"></script>
     <script src="js/upload.js"></script>
+    <script src="js/form.js"></script>
     <!-- endbuild -->
   </body>
 </html>

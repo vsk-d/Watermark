@@ -803,3 +803,20 @@ input[type="radio"]:checked + label {
     border-color: #a6b2bb;
     background: -webkit-linear-gradient(90deg, #c1cfd9 0%, #a0acb5 5%, #9eaab3 100%);
     background: linear-gradient(0deg, #c1cfd9 0%, #a0acb5 5%, #9eaab3 100%); }
+
+.result__wrap {
+  max-width: 650px;
+  max-height: 534px;
+  position: relative;
+  overflow: hidden; }
+  .result__wrap .result__img {
+    width: 100%; }
+
+.result__wrap-water {
+  max-width: 300px;
+  max-height: 300px;
+  position: absolute;
+  bottom: 0;
+  left: 0; }
+  .result__wrap-water .result__img-water {
+    width: 100%; }
