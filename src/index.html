@@ -5,6 +5,7 @@
     <meta charset="UTF-8"/>
     <!--SEO-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="icon" href="img/favicon.ico"/>
     <!-- build:css css/vendor.min.css -->
     <!-- bower:css-->
     <!-- endbower -->
@@ -49,11 +50,11 @@
               </div>
             </div>
             <div class="settings__wrapper">
-              <div class="settings__title">Положение</div>
-              <div class="settings__position">
-                <ul class="settings__position_tabs-control">
-                  <li class="tabs-control__item tabs-control__item_active"><a href="#" class="tabs-control__link"><span class="tabs-control__title">Одиночный</span></a></li>
-                  <li class="tabs-control__item"><a href="#" class="tabs-control__link"><span class="tabs-control__title">Замостить</span></a></li>
+              <div class="settings__position tabs">
+                <div class="settings__title">Положение</div>
+                <ul class="tabs__control">
+                  <li class="tabs-control__item active"><a href="#" class="tabs-control__link tabs-control__link_single"><span class="hide">Одиночный</span></a></li>
+                  <li class="tabs-control__item"><a href="#" class="tabs-control__link tabs-control__link_tile"><span class="hide">Замостить</span></a></li>
                 </ul>
                 <ul class="settings__position_tabs-list">
                   <li class="tabs-list__item tabs-list__item_active">
@@ -104,30 +105,8 @@
                   </li>
                   <li class="tabs-list__item">
                     <div class="settings__field">
-                      <div class="field__row">
-                        <input type="radio" name="field__part" id="left-up" class="hide"/>
-                        <label for="left-up" class="field__cell"></label>
-                        <input type="radio" name="field__part" id="middle-up" class="hide"/>
-                        <label for="middle-up" class="field__cell"></label>
-                        <input type="radio" name="field__part" id="right-up" class="hide"/>
-                        <label for="right-up" class="field__cell"></label>
-                      </div>
-                      <div class="field__row">
-                        <input type="radio" name="field__part" id="middle-left" class="hide"/>
-                        <label for="middle-left" class="field__cell"></label>
-                        <input type="radio" name="field__part" id="middle-middle" class="hide"/>
-                        <label for="middle-middle" class="field__cell"></label>
-                        <input type="radio" name="field__part" id="middle-right" class="hide"/>
-                        <label for="middle-right" class="field__cell"></label>
-                      </div>
-                      <div class="field__row">
-                        <input type="radio" name="field__part" id="down-left" class="hide"/>
-                        <label for="down-left" class="field__cell"></label>
-                        <input type="radio" name="field__part" id="down-middle" class="hide"/>
-                        <label for="down-middle" class="field__cell"></label>
-                        <input type="radio" name="field__part" id="down-right" class="hide"/>
-                        <label for="down-right" class="field__cell"></label>
-                      </div>
+                      <div class="indicator indicator_width"></div>
+                      <div class="indicator indicator_height"></div>
                     </div>
                     <div class="settings__axis">
                       <div class="axis__wrapper">
