@@ -12,9 +12,10 @@ var form = (function(){
 
         submitForm : function (e) {
             e.preventDefault();
+            // TODO actions сделать аякс /img.php
 
         }
     };
-    
+
     app.initialize();
 }());

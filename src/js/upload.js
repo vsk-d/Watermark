@@ -4,21 +4,25 @@ var upload = (function(){
 //забираем данные о картинке с сервера, добавляем картинку в окошко
     function _ajaxImg (data) {
         var
-            imageName = data.name;
+            imageName = data.name,
+            firstPoint = '',
+            markup      = '';
+
         console.log(data.type+'  зашло');
+        console.log(imageName+'  зашло');
+
         if(data.type === 'main-image') {
-            var
-                firstPoint  = $('.upload__input_image'),
-                markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img">';
+
+            firstPoint  = $('.upload__input_image'),
+            markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img">';
 
             $('.result__img').remove();
             $('.result__wrap').append(markup);
 
         } else {
 
-            var
-                firstPoint  = $('.upload__input_water-image'),
-                markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img-water">';
+            firstPoint  = $('.upload__input_water-image'),
+            markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img-water">';
 
             $('.result__img-water').remove();
             $('.result__wrap-water').append(markup).draggable();
@@ -46,7 +50,6 @@ var upload = (function(){
                 $('.fileupload').fileupload({
                     url: url,
                     dataType: dataType,
-                    formData:{type:$('#upload-img').data("type")},
                     success: _ajaxImg,
                     fail: function() {
                         console.log('что то не так');
