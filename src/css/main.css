@@ -883,3 +883,19 @@ input[type="radio"]:checked + label {
   .axis__button_down:hover {
     background-position: -46px -42px; }
 
+.result__wrap {
+  max-width: 650px;
+  max-height: 534px;
+  position: relative;
+  overflow: hidden; }
+  .result__wrap .result__img {
+    width: 100%; }
+
+.result__wrap-water {
+  max-width: 300px;
+  max-height: 300px;
+  position: absolute;
+  bottom: 0;
+  left: 0; }
+  .result__wrap-water .result__img-water {
+    width: 100%; }

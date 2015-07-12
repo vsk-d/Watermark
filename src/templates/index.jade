@@ -19,27 +19,27 @@ html(lang="ru-Ru")
 							.settings__upload
 								label.settings__title Исходное изображение
 									label(for="upload-img" ).upload__wrapper Image.jpg
-										input.fileupload(type = 'file' id = 'upload-img' name = 'files[]' size = '30' data-type = "main-image").upload__input.upload__input_image.hide
+										input.fileupload-img(type = 'file' id = 'upload-img' name = 'files[]' size = '30').upload__input.upload__input_image.hide
 										input(type='hidden' name='fileurl')
 								label.settings__title  Водяной знак
 									label(for="upload-water").upload__wrapper Image.png
-										input.fileupload(type = 'file' id = 'upload-water' name = 'files[]' size = '30' data-type = "water-image").upload__input.upload__input_water-image.hide
+										input.fileupload-water(type = 'file' id = 'upload-water' name = 'files[]' size = '30').upload__input.upload__input_water-image.hide
 										input(type='hidden' name='fileurl')
 						
-						.settings__wrapper					
+						.settings__wrapper
 							
-							.settings__position.tabs
-								.settings__title Положение
-								ul.tabs__control
-									li.tabs-control__item.active
-										a(href = '#').tabs-control__link.tabs-control__link_single
-											span.hide Одиночный
+							.settings__title Положение
+							.settings__position
+								ul.settings__position_tabs-control
+									li.tabs-control__item.tabs-control__item_active
+										a(href = '#').tabs-control__link
+											span.tabs-control__title Одиночный
 									li.tabs-control__item
-										a(href = '#').tabs-control__link.tabs-control__link_tile
-											span.hide Замостить
+										a(href = '#').tabs-control__link
+											span.tabs-control__title Замостить
 
-								ul.tabs__list
-									li.tabs__item.active
+								ul.settings__position_tabs-list
+									li.tabs-list__item.tabs-list__item_active
 
 										.settings__field
 									
@@ -80,7 +80,7 @@ html(lang="ru-Ru")
 													button(name = 'axis__button_up-y').axis__button.axis__button_up
 													button(name = 'axis__button_down-y').axis__button.axis__button_down
 
-									li.tabs__item.tabs__item_tile
+									li.tabs-list__item
 
 										.settings__field
 									
@@ -108,14 +108,14 @@ html(lang="ru-Ru")
 
 										.settings__axis
 											.axis__wrapper
-												.axis__name.axis__name_height
+												.axis__name X
 												input(type = 'text' value = '0' data-validation = 'axis-x').axis__input
 												.axis__control
 													button(name = 'axis__button_up-x').axis__button.axis__button_up
 													button(name = 'axis__button_down-x').axis__button.axis__button_down
 
 											.axis__wrapper
-												.axis__name.axis__name_width
+												.axis__name Y
 												input(type = 'text' value = '0' data-validation = 'axis-y').axis__input
 												.axis__control
 													button(name = 'axis__button_up-y').axis__button.axis__button_up
