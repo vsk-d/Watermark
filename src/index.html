@@ -37,13 +37,13 @@
               <div class="settings__upload">
                 <label class="settings__title">Исходное изображение
                   <label for="upload-img" class="upload__wrapper">Image.jpg
-                    <input type="file" id="upload-img" name="files[]" size="30" data-type="main-image" class="fileupload upload__input upload__input_image hide"/>
+                    <input type="file" id="upload-img" name="files[]" size="30" class="fileupload-img upload__input upload__input_image hide"/>
                     <input type="hidden" name="fileurl"/>
                   </label>
                 </label>
                 <label class="settings__title"> Водяной знак
                   <label for="upload-water" class="upload__wrapper">Image.png
-                    <input type="file" id="upload-water" name="files[]" size="30" data-type="water-image" class="fileupload upload__input upload__input_water-image hide"/>
+                    <input type="file" id="upload-water" name="files[]" size="30" class="fileupload-water upload__input upload__input_water-image hide"/>
                     <input type="hidden" name="fileurl"/>
                   </label>
                 </label>
@@ -56,8 +56,8 @@
                   <li class="tabs-control__item active"><a href="#" class="tabs-control__link tabs-control__link_single"><span class="hide">Одиночный</span></a></li>
                   <li class="tabs-control__item"><a href="#" class="tabs-control__link tabs-control__link_tile"><span class="hide">Замостить</span></a></li>
                 </ul>
-                <ul class="tabs__list">
-                  <li class="tabs__item active">
+                <ul class="settings__position_tabs-list">
+                  <li class="tabs-list__item tabs-list__item_active">
                     <div class="settings__field">
                       <div class="field__row">
                         <input type="radio" name="field__part" id="left-up" class="hide"/>
@@ -103,14 +103,14 @@
                       </div>
                     </div>
                   </li>
-                  <li class="tabs__item tabs__item_tile">
+                  <li class="tabs-list__item">
                     <div class="settings__field">
                       <div class="indicator indicator_width"></div>
                       <div class="indicator indicator_height"></div>
                     </div>
                     <div class="settings__axis">
                       <div class="axis__wrapper">
-                        <div class="axis__name axis__name_height"></div>
+                        <div class="axis__name">X</div>
                         <input type="text" value="0" data-validation="axis-x" class="axis__input"/>
                         <div class="axis__control">
                           <button name="axis__button_up-x" class="axis__button axis__button_up"></button>
@@ -118,7 +118,7 @@
                         </div>
                       </div>
                       <div class="axis__wrapper">
-                        <div class="axis__name axis__name_width"></div>
+                        <div class="axis__name">Y</div>
                         <input type="text" value="0" data-validation="axis-y" class="axis__input"/>
                         <div class="axis__control">
                           <button name="axis__button_up-y" class="axis__button axis__button_up"></button>
