@@ -5,7 +5,7 @@ var upload = (function(){
     function _ajaxImg (data) {
         var
             imageName   = data.name;
-        console.log(data.type+'  зашло');
+        console.log(data.type+'  зашло '+data.name);
         if(data.type === 'main-image') {
             var
                 firstPoint  = $('.upload__input_image'),
