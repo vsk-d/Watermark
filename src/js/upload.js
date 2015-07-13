@@ -25,14 +25,14 @@ var upload = (function(){
             $('.result__wrap-water').append(markup).draggable();
         }
 
-        var
-            fileName    = firstPoint.closest('label'),
-            fileUrl     = firstPoint.closest('[type="hidden"]');
+            var
+                firstPoint  = $('.upload__input_water-image'),
+                markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img-water">';
 
-        fileName.text(imageName);
-        fileUrl.val(imageName);
-
-    }
+            $('.result__img-water').remove();
+            $('.result__wrap-water').append(markup);
+            $('.result__img-water').draggable({ containment:".result__window", scroll:false });
+        }
 
         return {
             init : function() {

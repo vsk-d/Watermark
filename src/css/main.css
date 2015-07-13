@@ -677,7 +677,10 @@ aside {
   font-weight: 300;
   text-align: left;
   padding: 5px;
-  margin-top: 5px; }
+  margin-top: 5px; 
+  overflow: hidden;
+  white-space: nowrap;
+  }
   .upload__wrapper:after {
     content: '';
     display: block;
@@ -685,7 +688,7 @@ aside {
     right: -1px;
     top: -1px;
     border-radius: 0 3px 3px 0;
-    background: #f97e76 url("../img/sprite.png") no-repeat 5px 0;
+    background: #f97e76 url("/img/sprite.png") no-repeat 5px 0;
     width: 40px;
     height: 28px;
     cursor: pointer; }
@@ -714,7 +717,7 @@ aside {
   display: block;
   border: 1px solid #9eb2c0;
   border-radius: 3px;
-  background: url("../img/grid.png");
+  background: url("/img/grid.png");
   background-color: rgba(193, 207, 217, 0.46);
   position: relative; }
   .tabs__item_tile .settings__field .indicator_height {
