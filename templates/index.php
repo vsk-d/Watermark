@@ -23,8 +23,12 @@
       <main class="main-content">
         <div class="result">
           <h1 class="result__title"><?php echo $data['generator'][$lang]; ?></h1>
-          <div class="result__window"></div>
-        </div>
+            <div class="result__window">
+              <div class="result__wrap">
+                <div class="result__wrap-water"></div>
+              </div>
+            </div>
+        </div>    
         <div class="setting-block">
           <h2 class="setting-block__title"><?php echo $data['settings'][$lang]; ?></h2>
           <form action="" encode="multipart/form-data" class="settings">
@@ -32,13 +36,13 @@
               <div class="settings__upload">
                 <label class="settings__title"><?php echo $data['original_image'][$lang]; ?>
                   <label for="upload-img" class="upload__wrapper">Image.jpg
-                    <input type="file" id="upload-img" name="files[]" size="30" data-type="main-image" class="fileupload upload__input upload__input_image hide"/>
+                    <input type="file" id="upload-img" name="files[]" size="30" data-form-data="{&quot;type&quot;: &quot;main-image&quot;}" class="fileupload upload__input upload__input_image hide"/>
                     <input type="hidden" name="fileurl"/>
                   </label>
                 </label>
                 <label class="settings__title"><?php echo $data['watermark'][$lang]; ?>
                   <label for="upload-water" class="upload__wrapper">Image.png
-                    <input type="file" id="upload-water" name="files[]" size="30" data-type="water-image" class="fileupload upload__input upload__input_water-image hide"/>
+                    <input type="file" id="upload-water" name="files[]" size="30" data-form-data="{&quot;type&quot;: &quot;water-image&quot;}" class="fileupload upload__input upload__input_water-image hide"/>
                     <input type="hidden" name="fileurl"/>
                   </label>
                 </label>
@@ -46,53 +50,84 @@
             </div>
 
             <div class="settings__wrapper">
-
-              <div class="settings__title"><?php echo $data['position'][$lang]; ?></div>
-              <div class="settings__position">
-                <div class="settings__field">
-                  <div class="field__row">
-                    <input type="radio" name="field__part" id="left-up" class="hide"/>
-                    <label for="left-up" class="field__cell"></label>
-                    <input type="radio" name="field__part" id="middle-up" class="hide"/>
-                    <label for="middle-up" class="field__cell"></label>
-                    <input type="radio" name="field__part" id="right-up" class="hide"/>
-                    <label for="right-up" class="field__cell"></label>
-                  </div>
-                  <div class="field__row">
-                    <input type="radio" name="field__part" id="middle-left" class="hide"/>
-                    <label for="middle-left" class="field__cell"></label>
-                    <input type="radio" name="field__part" id="middle-middle" class="hide"/>
-                    <label for="middle-middle" class="field__cell"></label>
-                    <input type="radio" name="field__part" id="middle-right" class="hide"/>
-                    <label for="middle-right" class="field__cell"></label>
-                  </div>
-                  <div class="field__row">
-                    <input type="radio" name="field__part" id="down-left" class="hide"/>
-                    <label for="down-left" class="field__cell"></label>
-                    <input type="radio" name="field__part" id="down-middle" class="hide"/>
-                    <label for="down-middle" class="field__cell"></label>
-                    <input type="radio" name="field__part" id="down-right" class="hide"/>
-                    <label for="down-right" class="field__cell"></label>
-                  </div>
-                </div>
-                <div class="settings__axis">
-                  <div class="axis__wrapper">
-                    <div class="axis__name">X</div>
-                    <input type="text" value="0" data-validation="axis-x" class="axis__input"/>
-                    <div class="axis__control">
-                      <button name="axis__button_up-x" class="axis__button axis__button_up"></button>
-                      <button name="axis__button_down-x" class="axis__button axis__button_down"></button>
+              <div class="settings__position tabs">
+                <div class="settings__title"><?php echo $data['position'][$lang]; ?></div>
+                <ul class="tabs__control">
+                  <li class="tabs-control__item active"><a href="#" class="tabs-control__link tabs-control__link_single"><span class="hide">Одиночный</span></a></li>
+                  <li class="tabs-control__item"><a href="#" class="tabs-control__link tabs-control__link_tile"><span class="hide">Замостить</span></a></li>
+                </ul>
+                <ul class="tabs__list">
+                  <li class="tabs__item active">
+                    <div class="settings__field">
+                      <div class="field__row">
+                        <input type="radio" name="field__part" id="left-up" class="hide"/>
+                        <label for="left-up" class="field__cell" id="left-upup"></label>
+                        <input type="radio" name="field__part" id="middle-up" class="hide"/>
+                        <label for="middle-up" class="field__cell"></label>
+                        <input type="radio" name="field__part" id="right-up" class="hide"/>
+                        <label for="right-up" class="field__cell"></label>
+                      </div>
+                      <div class="field__row">
+                        <input type="radio" name="field__part" id="middle-left" class="hide"/>
+                        <label for="middle-left" class="field__cell"></label>
+                        <input type="radio" name="field__part" id="middle-middle" class="hide"/>
+                        <label for="middle-middle" class="field__cell"></label>
+                        <input type="radio" name="field__part" id="middle-right" class="hide"/>
+                        <label for="middle-right" class="field__cell"></label>
+                      </div>
+                      <div class="field__row">
+                        <input type="radio" name="field__part" id="down-left" class="hide"/>
+                        <label for="down-left" class="field__cell"></label>
+                        <input type="radio" name="field__part" id="down-middle" class="hide"/>
+                        <label for="down-middle" class="field__cell"></label>
+                        <input type="radio" name="field__part" id="down-right" class="hide"/>
+                        <label for="down-right" class="field__cell"></label>
+                      </div>
                     </div>
-                  </div>
-                  <div class="axis__wrapper">
-                    <div class="axis__name">Y</div>
-                    <input type="text" value="0" data-validation="axis-y" class="axis__input"/>
-                    <div class="axis__control">
-                      <button name="axis__button_up-y" class="axis__button axis__button_up"></button>
-                      <button name="axis__button_down-y" class="axis__button axis__button_down"></button>
+                    <div class="settings__axis">
+                      <div class="axis__wrapper">
+                        <div class="axis__name">X</div>
+                        <input type="text" value="0" data-validation="axis-x" class="axis__input"/>
+                        <div class="axis__control">
+                          <button name="axis__button_up-x" class="axis__button axis__button_up"></button>
+                          <button name="axis__button_down-x" class="axis__button axis__button_down"></button>
+                        </div>
+                      </div>
+                      <div class="axis__wrapper">
+                        <div class="axis__name">Y</div>
+                        <input type="text" value="0" data-validation="axis-y" class="axis__input"/>
+                        <div class="axis__control">
+                          <button name="axis__button_up-y" class="axis__button axis__button_up"></button>
+                          <button name="axis__button_down-y" class="axis__button axis__button_down"></button>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  </li>
+                  <li class="tabs__item tabs__item_tile">
+                    <div class="settings__field">
+                      <div class="indicator_width"></div>
+                      <div class="indicator_height"></div>
+                    </div>
+                    <div class="settings__axis">
+                      <div class="axis__wrapper">
+                        <div class="axis__name axis__name_height"></div>
+                        <input type="text" value="0" data-validation="axis-x" class="axis__input"/>
+                        <div class="axis__control">
+                          <button name="axis__button_up-x" class="axis__button axis__button_up"></button>
+                          <button name="axis__button_down-x" class="axis__button axis__button_down"></button>
+                        </div>
+                      </div>
+                      <div class="axis__wrapper">
+                        <div class="axis__name axis__name_width"></div>
+                        <input type="text" value="0" data-validation="axis-y" class="axis__input"/>
+                        <div class="axis__control">
+                          <button name="axis__button_up-y" class="axis__button axis__button_up"></button>
+                          <button name="axis__button_down-y" class="axis__button axis__button_down"></button>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
              
@@ -137,6 +172,8 @@
     <!-- build:js js/main.js -->
     <script src="js/main.js"></script>
     <script src="js/upload.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/position.js"></script>
     <!-- endbuild -->
   </body>
 </html>
