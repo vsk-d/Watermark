@@ -1,21 +1,51 @@
 var form = (function(){
     'use strict';
 
-    var app = {
-        initialize : function () {
-            this.setUpListeners();
-        },
-
-        setUpListeners : function () {
-            $('form').on('submit', this.submitForm);
-        },
-
-        submitForm : function (e) {
+        function _submitForm (e) {
             e.preventDefault();
-            // TODO actions сделать аякс /img.php
 
+            var
+                form = $(this);
+
+            _ajaxForm(form);
         }
-    };
 
-    app.initialize();
+        function _ajaxForm (form) {
+
+            var
+                data 		= form.serialize(),
+				dataType 	= 'JSON',
+                type        = 'POST',
+                url         = 'actions/img.php',
+				defObject	= $.ajax({
+					type: type,
+					url: url,
+					data: data,
+					dataType: dataType
+                }).always(function() {
+					console.log('пошла родная');
+				})
+				.done(function() {
+					alert('Ваше сообщение отправлено');
+				})
+				.fail(function() {
+					console.log('Проблема на стороне сервера');
+				});
+
+            return defObject;
+        }
+
+        return {
+
+            initialize : function () {
+                this.setUpListeners();
+            },
+
+            setUpListeners : function () {
+                $('form').on('submit', _submitForm);
+            }
+        };
+
 }());
+
+form.initialize();

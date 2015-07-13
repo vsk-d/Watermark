@@ -8,9 +8,6 @@ var upload = (function(){
             firstPoint = '',
             markup      = '';
 
-        console.log(data.type+'  зашло');
-        console.log(imageName+'  зашло');
-
         if(data.type === 'main-image') {
 
             firstPoint  = $('.upload__input_image'),
