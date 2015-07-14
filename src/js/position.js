@@ -4,7 +4,7 @@ var modulePosition = (function(){
 		var
 			$this = $(this),
 			water = $('.result__img-water'),
-			result = $('.result__window'),
+			result = $('.result__wrap'),
 			newPosition = $this.data('position');
 		console.log(newPosition);
 		water.position({
