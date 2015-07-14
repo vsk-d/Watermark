@@ -24,6 +24,7 @@ var form = (function(){
 					dataType: dataType
                 }).always(function() {
 					console.log('пошла родная');
+                    console.log(data);
 				})
 				.done(function() {
 					alert('Ваше сообщение отправлено');

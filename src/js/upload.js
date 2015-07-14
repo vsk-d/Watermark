@@ -5,12 +5,14 @@ var upload = (function(){
     function _ajaxImg (data) {
         var
             imageName = data.name,
-            firstPoint = '',
-            markup      = '';
+            firstPoint,
+            markup,
+            fileName,
+            fileUrl;
 
         if(data.type === 'main-image') {
 
-            firstPoint  = $('.upload__input_image'),
+            firstPoint  = $('.upload__input_image');
             markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img">';
 
             $('.result__img').remove();
@@ -18,21 +20,20 @@ var upload = (function(){
 
         } else {
 
-            firstPoint  = $('.upload__input_water-image'),
+            firstPoint  = $('.upload__input_water-image');
             markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img-water">';
-
-            $('.result__img-water').remove();
-            $('.result__wrap-water').append(markup).draggable();
-        }
-
-            var
-                firstPoint  = $('.upload__input_water-image'),
-                markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img-water">';
 
             $('.result__img-water').remove();
             $('.result__wrap-water').append(markup);
             $('.result__img-water').draggable({ containment:".result__window", scroll:false });
         }
+
+        fileName    = firstPoint.closest('label');
+        fileUrl     = firstPoint.closest('[type="hidden"]');
+
+        fileName.text(imageName);
+        fileUrl.val(imageName);
+    }
 
         return {
             init : function() {
