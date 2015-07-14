@@ -71,15 +71,19 @@ html(lang="ru-Ru")
 												.axis__name X
 												input(type = 'text' value = '0' data-validation = 'axis-x').axis__input
 												.axis__control
-													a.axis__button.axis__button_up
-													a.axis__button.axis__button_down
+													a(href="#").axis__button.axis__button_up
+														span.hide Up X
+													a(href="#").axis__button.axis__button_down
+														span.hide Down X
 
 											.axis__wrapper
 												.axis__name Y
 												input(type = 'text' value = '0' data-validation = 'axis-y').axis__input
 												.axis__control
-													a.axis__button.axis__button_up
-													a.axis__button.axis__button_down
+													a(href="#").axis__button.axis__button_up
+														span.hide Up Y
+													a(href="#").axis__button.axis__button_down
+														span.hide Down Y
 
 									li.tabs__item.tabs__item_tile
 
@@ -92,15 +96,19 @@ html(lang="ru-Ru")
 												.axis__name.axis__name_height
 												input(type = 'text' value = '0' data-validation = 'axis-x').axis__input
 												.axis__control
-													a.axis__button.axis__button_up
-													a.axis__button.axis__button_down
+													a(href="#").axis__button.axis__button_up
+														span.hide Up Height
+													a(href="#").axis__button.axis__button_down
+														span.hide Up Height
 
 											.axis__wrapper
 												.axis__name.axis__name_width
 												input(type = 'text' value = '0' data-validation = 'axis-y').axis__input
 												.axis__control
-													a.axis__button.axis__button_up
-													a.axis__button.axis__button_down
+													a(href="#").axis__button.axis__button_up
+														span.hide Up Width
+													a(href="#").axis__button.axis__button_down
+														span.hide Up Width
 
 						.settings__wrapper
 							.settings__opacity

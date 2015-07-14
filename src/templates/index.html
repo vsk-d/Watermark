@@ -26,9 +26,7 @@
           <h1 class="result__title">Генератор водяных знаков</h1>
           <div class="result__window">
             <div class="result__wrap">
-              <div class="result__wrap_upload-water">
-                <div class="result__wrap-water"></div>
-              </div>
+              <div class="result__wrap-water"></div>
             </div>
           </div>
         </div>
@@ -39,13 +37,13 @@
               <div class="settings__upload">
                 <label class="settings__title">Исходное изображение
                   <label for="upload-img" class="upload__wrapper">Image.jpg
-                    <input type="file" id="upload-img" name="files[]" size="30" data-form-data="{&quot;type&quot;: &quot;main-image&quot;}" class="fileupload upload__input upload__input_image hide"/>
+                    <input type="file" id="upload-img" name="files[]" size="30" data-type="main-image" class="fileupload upload__input upload__input_image hide"/>
                     <input type="hidden" name="fileurl"/>
                   </label>
                 </label>
                 <label class="settings__title"> Водяной знак
                   <label for="upload-water" class="upload__wrapper">Image.png
-                    <input type="file" id="upload-water" name="files[]" size="30" data-form-data="{&quot;type&quot;: &quot;water-image&quot;}" class="fileupload upload__input upload__input_water-image hide"/>
+                    <input type="file" id="upload-water" name="files[]" size="30" data-type="water-image" class="fileupload upload__input upload__input_water-image hide"/>
                     <input type="hidden" name="fileurl"/>
                   </label>
                 </label>
@@ -62,27 +60,27 @@
                   <li class="tabs__item active">
                     <div class="settings__field">
                       <div class="field__row">
-                        <input type="radio" name="field__part" id="left-up" data-position="left top" class="hide positioningBtn"/>
+                        <input type="radio" name="field__part" id="left-up" class="hide"/>
                         <label for="left-up" class="field__cell"></label>
-                        <input type="radio" name="field__part" id="middle-up" data-position="center top" class="hide positioningBtn"/>
+                        <input type="radio" name="field__part" id="middle-up" class="hide"/>
                         <label for="middle-up" class="field__cell"></label>
-                        <input type="radio" name="field__part" id="right-up" data-position="right top" class="hide positioningBtn"/>
+                        <input type="radio" name="field__part" id="right-up" class="hide"/>
                         <label for="right-up" class="field__cell"></label>
                       </div>
                       <div class="field__row">
-                        <input type="radio" name="field__part" id="middle-left" data-position="left center" class="hide positioningBtn"/>
+                        <input type="radio" name="field__part" id="middle-left" class="hide"/>
                         <label for="middle-left" class="field__cell"></label>
-                        <input type="radio" name="field__part" id="middle-middle" data-position="center center" class="hide positioningBtn"/>
+                        <input type="radio" name="field__part" id="middle-middle" class="hide"/>
                         <label for="middle-middle" class="field__cell"></label>
-                        <input type="radio" name="field__part" id="middle-right" data-position="right center" class="hide positioningBtn"/>
+                        <input type="radio" name="field__part" id="middle-right" class="hide"/>
                         <label for="middle-right" class="field__cell"></label>
                       </div>
                       <div class="field__row">
-                        <input type="radio" name="field__part" id="down-left" data-position="left bottom" class="hide positioningBtn"/>
+                        <input type="radio" name="field__part" id="down-left" class="hide"/>
                         <label for="down-left" class="field__cell"></label>
-                        <input type="radio" name="field__part" id="down-middle" data-position="center bottom" class="hide positioningBtn"/>
+                        <input type="radio" name="field__part" id="down-middle" class="hide"/>
                         <label for="down-middle" class="field__cell"></label>
-                        <input type="radio" name="field__part" id="down-right" data-position="right bottom" class="hide positioningBtn"/>
+                        <input type="radio" name="field__part" id="down-right" class="hide"/>
                         <label for="down-right" class="field__cell"></label>
                       </div>
                     </div>
@@ -108,12 +106,12 @@
                       <div class="axis__wrapper">
                         <div class="axis__name axis__name_height"></div>
                         <input type="text" value="0" data-validation="axis-x" class="axis__input"/>
-                        <div class="axis__control"><a href="#" class="axis__button axis__button_up"><span class="hide">Up Height</span></a><a href="#" class="axis__button axis__button_down"><span class="hide">Up Height</span></a></div>
+                        <div class="axis__control"><a href="#" class="axis__button axis__button_up"><span class="hide">Up X</span></a><a href="#" class="axis__button axis__button_down"><span class="hide">Up X</span></a></div>
                       </div>
                       <div class="axis__wrapper">
                         <div class="axis__name axis__name_width"></div>
                         <input type="text" value="0" data-validation="axis-y" class="axis__input"/>
-                        <div class="axis__control"><a href="#" class="axis__button axis__button_up"><span class="hide">Up Width</span></a><a href="#" class="axis__button axis__button_down"><span class="hide">Up Width</span></a></div>
+                        <div class="axis__control"><a href="#" class="axis__button axis__button_up"></a><span class="hide">Up X</span><a href="#" class="axis__button axis__button_down"></a></div>
                       </div>
                     </div>
                   </li>
