@@ -28,6 +28,7 @@ var modulePosition = (function(){
 
 			console.log(curentPosX);
 			console.log(curentPosY);
+
 		if ( $this.hasClass('axis__button_up')) {
 			img.css('left', newPosX + 'px'
 			);
