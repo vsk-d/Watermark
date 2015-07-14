@@ -900,6 +900,7 @@ input[type="radio"]:checked + label {
     background: linear-gradient(0deg, #c1cfd9 0%, #a0acb5 5%, #9eaab3 100%); }
 
 .axis__button {
+  display: block;
   border: none;
   width: 13px;
   height: 9px;
@@ -925,11 +926,15 @@ input[type="radio"]:checked + label {
   .result__wrap .result__img {
     width: 100%; }
 
-.result__wrap-water {
-  max-width: 300px;
-  max-height: 300px;
-  position: absolute;
-  top: 0;
-  left: 0; }
-  .result__wrap-water .result__img-water {
-    width: 100%; }
+.result__wrap_upload-water {
+  position: relative;
+  width: 100%;
+  height: 100%; }
+  .result__wrap_upload-water .result__wrap-water {
+    position: absolute;
+    max-width: 300px;
+    max-height: 300px;
+    top: 0;
+    left: 0; }
+    .result__wrap_upload-water .result__wrap-water .result__img-water {
+      width: 100%; }

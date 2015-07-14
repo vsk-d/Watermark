@@ -2,9 +2,9 @@ var modulePosition = (function(){
 
 	function _positioning () {
 		var
-			$this 		= $(this),
-			water 		= $('.result__img-water'),
-			result 		= $('.result__window'),
+			$this = $(this),
+			water = $('.result__wrap-water'),
+			result = $('.result__wrap_upload-water'),
 			newPosition = $this.data('position');
 
 		console.log(newPosition);
@@ -18,10 +18,20 @@ var modulePosition = (function(){
 	function _positioningStep() {
 		var
 			$this 		= $(this),
-			result 		= $this.closest('input').val();
+			img			= $('.result__wrap-water'),
+			step 		= 1,
+			curentPosX	= img.css('left'),
+			curentPosY	= img.css('top'),
+			newPosX		= curentPosX + step,
+			newPosY		= curentPosY + step,
+			resultInput	= $this.closest('input');
 
+			console.log(curentPosX);
+			console.log(curentPosY);
 		if ( $this.hasClass('axis__button_up')) {
-
+			img.css('left', newPosX + 'px'
+			);
+			resultInput.val(newPosX);
 		}
 
 	}
