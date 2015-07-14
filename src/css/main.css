@@ -924,13 +924,18 @@ input[type="radio"]:checked + label {
   position: relative;
   overflow: hidden; }
   .result__wrap .result__img {
-    width: 100%; }
+    width: 100%;
+    height: 100%; }
 
-.result__wrap-water {
-  max-width: 300px;
-  max-height: 300px;
+.result__wrap_upload-water {
   position: absolute;
-  top: 0;
-  left: 0; }
-  .result__wrap-water .result__img-water {
-    width: 100%; }
+  width: 100%;
+  height: 100%; }
+  .result__wrap_upload-water .result__wrap-water {
+    position: absolute;
+    max-width: 300px;
+    max-height: 300px;
+    top: 0;
+    left: 0; }
+    .result__wrap_upload-water .result__wrap-water .result__img-water {
+      width: 100%; }

@@ -3,7 +3,7 @@ var modulePosition = (function(){
 	function _positioning () {
 		var
 			$this = $(this),
-			water = $('.result__img-water'),
+			water = $('.result__wrap-water'),
 			result = $('.result__wrap'),
 			newPosition = $this.data('position');
 
