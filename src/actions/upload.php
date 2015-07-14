@@ -39,7 +39,7 @@ else if($file['error'][0] == 0){
     $extension = pathinfo($file['name'][0], PATHINFO_EXTENSION);
     // перемещаем файл из временной папки в  нужную
      // $data['name']=$file['tmp_name'][0].' '. $uploadDir.$filename;
-    
+
     if(move_uploaded_file($file['tmp_name'][0], $uploadDir.'origin_'.$filename)){
             $data['message'] = "ОК";
             $data['url'] = $filename;
@@ -52,7 +52,17 @@ else if($file['error'][0] == 0){
         $data['message'] = "Возникла неизвестная ошибка при загрузке файла";
         $data['url'] = '';
     }
-      
+
+}
+if(isset($_POST)){
+    $count=1;
+    foreach($_POST as $key => $value){
+        if($key=="type"){
+
+           $data['type']=$value;
+        }
+    }
+
 }
 // Выводим результат в JSON и заверщаем в скрипт
 echo json_encode($data);
