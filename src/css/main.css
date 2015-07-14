@@ -884,6 +884,7 @@ input[type="radio"]:checked + label {
     background: linear-gradient(0deg, #c1cfd9 0%, #a0acb5 5%, #9eaab3 100%); }
 
 .axis__button {
+  display: block;
   border: none;
   width: 13px;
   height: 9px;
