@@ -5,11 +5,10 @@
 	font-size: 14px; 
 	font-weight: 300;
 	text-align: left;
-	margin-bottom: 20px; 
 }
 
 .settings__wrapper {
-	padding: 10px 20px 20px ;
+	padding: 10px 20px 30px ;
 	border-bottom: 1px solid $border-down;
 	position: relative;
 	
@@ -44,7 +43,11 @@
 
 
 /* --------- upload --------- */
-
+.settings__upload{
+	.settings__title:first-child{
+		margin-bottom: 20px;
+	}
+}
 .upload__wrapper {
 	position: relative;	
 	display: block;
@@ -150,7 +153,8 @@ input[type="radio"]:checked + label {
 
 
 .settings__axis { float: right; }
-.axis__wrapper:first-child { margin-bottom: 5px;}
+
+.axis__wrapper:first-child { margin-bottom: 10px;}
 .axis__name {
 	@include inline-block (middle);
 	font-family: Roboto;
@@ -190,9 +194,10 @@ input[type="radio"]:checked + label {
 
 /* --------- opasity --------- */
 
+.settings__opacity {
+	margin: 3px 0 5px;
 
-.slider {
-	position: relative;
-	width: 200px;
-
+	.settings__title{ margin-bottom: 27px; }
 }
+
+

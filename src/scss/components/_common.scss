@@ -4,14 +4,6 @@ body {
 	height: 100%;	
 	background: url('../img/background.png');
 	background-size: 100% 140%;
-	// background: #989493; // Old browsers 
-	// background: -moz-linear-gradient(-45deg, #989493 0%, #d7b79c 50%, #d7b79c 51%, #a9827c 100%);  //FF3.6+ 
-	// background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#989493), color-stop(50%,#d7b79c), color-stop(51%,#d7b79c), color-stop(100%,#a9827c)); //Chrome,Safari4+ 
-	// background: -webkit-linear-gradient(-45deg, #989493 0%,#d7b79c 50%,#d7b79c 51%,#a9827c 100%); //Chrome10+,Safari5.1+ 
-	// background: -o-linear-gradient(-45deg, #989493 0%,#d7b79c 50%,#d7b79c 51%,#a9827c 100%); //Opera 11.10+ 
-	// background: -ms-linear-gradient(-45deg, #989493 0%,#d7b79c 50%,#d7b79c 51%,#a9827c 100%); //IE10+ 
-	// background: linear-gradient(135deg, #989493 0%,#d7b79c 50%,#d7b79c 51%,#a9827c 100%); //W3C 
-	// filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#989493', endColorstr='#a9827c',GradientType=1 ); //IE6-9 fallback on horizontal gradient 
 }
 
 /* прибьём футер к низу*/
@@ -52,13 +44,13 @@ body {
 	font-size: 36px;
 	font-weight: 300;
 	text-align: left;
-	margin: 10px 20px 50px ;
+	margin: 10px 20px 52px ;
 }
 
 .result__window {
 	background: #ffffff;
 	margin: 20px auto;
-	width: 650px;
+	width: 651px;
 	height: 534px;
 	position: relative;
 }
