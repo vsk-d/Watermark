@@ -37,10 +37,6 @@ var modulePosition = (function(){
 			maxX			= $('.result__wrap').width() - img.width(),
 			maxY			= $('.result__wrap').height() - img.height();
 
-		console.log(maxX);
-		console.log(maxY);
-		// console.log($this);
-
 		if ( defAxis.hasClass('axis__control-x') ) {
 			console.log('двигаем в сторону');
 			if ($this.hasClass('axis__button_up') && newPositionX <= maxX ) {
@@ -77,10 +73,15 @@ var modulePosition = (function(){
 	return {
 		init : function () {
 			this.setUpListeners();
+			$('.result__wrap-water').draggable({
+				containment:".result__wrap",
+				scroll:false,
+			});
 		},
 		setUpListeners : function () {
 			$('.positioningBtn').on('click', _positioning);
 			$('.axis__button').on('click', _positioningStep);
+			$('.result__wrap-water').on('drag', _displayInInput);
 		}
 	};
 }());

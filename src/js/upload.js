@@ -25,7 +25,7 @@ var upload = (function(){
 
             $('.result__img-water').remove();
             $('.result__wrap-water').append(markup);
-            $('.result__wrap-water').draggable({ containment:".result__wrap", scroll:false });
+
         }
 
         fileName    = firstPoint.closest('label');
