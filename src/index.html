@@ -15,6 +15,7 @@
     <!-- endbuild -->
     <!-- build:css css/main.min.css-->
     <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.css"/>
     <!-- endbuild -->
     <!-- build:js js/modernizr.min.js -->
     <!-- endbuild -->
@@ -121,7 +122,9 @@
             <div class="settings__wrapper">
               <div class="settings__opacity">
                 <div class="settings__title">Прозрачность</div>
-                <input type="range" data-validation="slider" class="settings__slider"/>
+                <div class="slider">
+                  <div id="slider-range-min"></div>
+                </div>
               </div>
             </div>
             <div class="btn-wrap">
@@ -150,6 +153,7 @@
     <!-- bower:js-->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/jquery-ui/ui/slider.js"></script>
     <script src="bower_components/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
     <script src="bower_components/jquery-file-upload/js/jquery.iframe-transport.js"></script>
     <script src="bower_components/jquery-file-upload/js/jquery.fileupload.js"></script>
@@ -160,6 +164,7 @@
     <script src="js/upload.js"></script>
     <script src="js/form.js"></script>
     <script src="js/position.js"></script>
+    <script src="js/slider.js"></script>
     <!-- endbuild -->
   </body>
 </html>
