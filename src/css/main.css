@@ -805,6 +805,10 @@ input[type="radio"]:checked + label {
   width: 20px; }
 
 /* --------- opasity --------- */
+.slider {
+  position: relative;
+  width: 200px; }
+
 .tabs .settings__title {
   float: left;
   margin-bottom: 0; }
