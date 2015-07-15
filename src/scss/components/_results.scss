@@ -1,14 +1,16 @@
-.result__wrap {
-    max-width: 650px;
-    max-height: 534px;
+.result__window {
     position: relative;
-    overflow: hidden;
+}
+
+.result__wrap {
+    @include centerer(true, true);
 
     .result__img {
         width: 100%;
-        height: 100%;
+        height: auto;
     }
 }
+
 .result__wrap_upload-water{
     position: absolute;
     width: 100%;
@@ -18,6 +20,7 @@
         position: absolute;
         max-width: 300px;
         max-height: 300px;
+        font-size: 0;
         top: 0;
         left: 0;
 
