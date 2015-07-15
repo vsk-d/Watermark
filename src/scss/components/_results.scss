@@ -1,7 +1,8 @@
 .result__wrap {
 	position: absolute;
-	float: left;	
-	@include centerer(true, true);	
+	float: left;
+	@include centerer(true, true);
+	font-size: 0;
 }
 
 .result__img {

@@ -927,7 +927,8 @@ input[type="radio"]:checked + label {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%); }
+          transform: translate(-50%, -50%);
+  font-size: 0; }
 
 .result__img {
   max-width: 650px;
