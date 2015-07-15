@@ -28,26 +28,33 @@ var modulePosition = (function(){
 			topCoord		= img.css('top'),
 			leftCoord		= img.css('left'),
 			currentY		= parseInt(topCoord),
-			currentX		= parseInt(leftCoord);
+			currentX		= parseInt(leftCoord),
+			newPositionY	= currentY + step,
+			newPositionX	= currentX + step,
+			newPositionYmin	= currentY - step,
+			newPositionXmin = currentX - step,
+			min				= 0,
+			maxX			= $('.result__wrap').width() - img.width(),
+			maxY			= $('.result__wrap').height() - img.height();
 
-		console.log(topCoord);
-		console.log(leftCoord);
+		console.log(maxX);
+		console.log(maxY);
 		// console.log($this);
 
-		if ( defAxis.hasClass('axis__control-x')) {
-			console.log('выполняем спуск');
-			if ($this.hasClass('axis__button_up')) {
-				img.css({'left': currentY + step + 'px'});
-			} else {
-				img.css({'left': currentY - step + 'px'});
+		if ( defAxis.hasClass('axis__control-x') ) {
+			console.log('двигаем в сторону');
+			if ($this.hasClass('axis__button_up') && newPositionX <= maxX ) {
+				img.css('left', newPositionX);
+			} else if ( $this.hasClass('axis__button_down') && newPositionXmin >= min){
+				img.css('left', newPositionXmin);
 			}
 
 		} else {
-			console.log('двигаем в сторону');
-			if ($this.hasClass('axis__button_up')) {
-				img.css({'top': currentY - step + 'px'});
-			} else {
-				img.css({'top': currentY + step + 'px'});
+			console.log('выполняем спуск');
+			if ($this.hasClass('axis__button_up') && newPositionY <= maxY ) {
+				img.css('top', newPositionY );
+			} else  if ( $this.hasClass('axis__button_down') && newPositionYmin >= min){
+				img.css('top', newPositionYmin );
 			}
 		}
 		_displayInInput();
