@@ -25,6 +25,7 @@
 		bottom: -9px;
 		z-index: 1;
 	}
+
 	&:after {
 		content: '';
 		display: block;
@@ -48,6 +49,7 @@
 		margin-bottom: 20px;
 	}
 }
+
 .upload__wrapper {
 	position: relative;	
 	display: block;
@@ -78,6 +80,16 @@
 	}
 }
 
+.disabled {
+	border-color:$disabled-color;
+	color:$disabled-color;
+
+	&:after {
+		@extend .upload__wrapper:after;		
+		background-color:  $disabled-color ;	
+	}
+}
+
 /* --------- position --------- */
 .settings__position {
 	@include clearfix;
@@ -91,10 +103,8 @@
 	border-radius: 3px ;
 	border-left: 1px solid #9eb2c0;
 	border-top: 1px solid #9eb2c0;
-	
 	width: 100px;
 	height: 100px;
-
 }
 
 .tabs__item_tile {
@@ -105,31 +115,26 @@
 		background: url('../img/grid.png');
 		background-color:  rgba(193, 207, 217, 0.46);
 		position: relative;
-
-		.indicator_height {
-			width: 10px;
-			height: 100px;
-			background:  #f97e76;
-			@include centerer(true, true);
-		}
-		.indicator_width {
-			width: 100px;
-			height: 10px;
-			background:  #f97e76;
-			@include centerer(true, true);
-		}
-	}
-}
-.indicator {
-			.indicator_height {
-			width: 10px;
-			height: 100px;
-		}
+		overflow: hidden;
 	}
 
-.field__row {
-	display: table-row; 
+	.indicator_height {
+		width: 10px;
+		height: 100px;
+		background:  #f97e76;
+		@include centerer(true, true);
+	}
+	.indicator_width {
+		width: 100px;
+		height: 10px;
+		background:  #f97e76;
+		@include centerer(true, true);
+	}
 }
+
+
+.field__row { 	display: table-row; }
+
 .field__cell {
 	display: table-cell; 
 	width: 33px;
@@ -155,6 +160,7 @@ input[type="radio"]:checked + label {
 .settings__axis { float: right; }
 
 .axis__wrapper:first-child { margin-bottom: 10px;}
+
 .axis__name {
 	@include inline-block (middle);
 	font-family: Roboto;

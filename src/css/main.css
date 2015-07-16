@@ -683,7 +683,7 @@ aside {
   margin-top: 5px;
   overflow: hidden;
   white-space: nowrap; }
-  .upload__wrapper:after {
+  .upload__wrapper:after, .disabled:after {
     content: '';
     display: block;
     position: absolute;
@@ -694,6 +694,12 @@ aside {
     width: 40px;
     height: 28px;
     cursor: pointer; }
+
+.disabled {
+  border-color: #dbe1e8;
+  color: #dbe1e8; }
+  .disabled:after {
+    background-color: #dbe1e8; }
 
 /* --------- position --------- */
 .settings__position {
@@ -721,31 +727,30 @@ aside {
   border-radius: 3px;
   background: url("../img/grid.png");
   background-color: rgba(193, 207, 217, 0.46);
-  position: relative; }
-  .tabs__item_tile .settings__field .indicator_height {
-    width: 10px;
-    height: 100px;
-    background: #f97e76;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%); }
-  .tabs__item_tile .settings__field .indicator_width {
-    width: 100px;
-    height: 10px;
-    background: #f97e76;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%); }
+  position: relative;
+  overflow: hidden; }
 
-.indicator .indicator_height {
+.tabs__item_tile .indicator_height {
   width: 10px;
-  height: 100px; }
+  height: 100px;
+  background: #f97e76;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
+
+.tabs__item_tile .indicator_width {
+  width: 100px;
+  height: 10px;
+  background: #f97e76;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
 
 .field__row {
   display: table-row; }
