@@ -16,7 +16,6 @@ var modulePosition = (function(){
 		});
 
 		_displayInInput ();
-
 	}
 
 	function _positioningStep() {
@@ -54,6 +53,12 @@ var modulePosition = (function(){
 			}
 		}
 		_displayInInput();
+		_hideChecked();
+	}
+
+	function _drag () {
+		_displayInInput();
+		_hideChecked();
 	}
 
 	function _displayInInput () {
@@ -69,6 +74,13 @@ var modulePosition = (function(){
 		inputX.val(currentX);
 		inputY.val(Math.abs(currentY));
 	}
+// убираем выделение с чек-боксов
+	function _hideChecked () {
+		var
+			checkedInput = $('input:checked');
+
+		checkedInput.removeAttr('checked');
+	}
 
 	return {
 		init : function () {
@@ -81,7 +93,7 @@ var modulePosition = (function(){
 		setUpListeners : function () {
 			$('.positioningBtn').on('click', _positioning);
 			$('.axis__button').on('click', _positioningStep);
-			$('.result__wrap-water').on('drag', _displayInInput);
+			$('.result__wrap-water').on('drag', _drag);
 		}
 	};
 }());
