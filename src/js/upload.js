@@ -10,21 +10,35 @@ var upload = (function(){
             fileName,
             fileUrl;
 
+        var
+            genImg          = $('.result__img'),
+            waterImg        = $('.result__img-water'),
+            genImgWrap      = $('.result__wrap'),
+            waterImgWrap    = $('.result__wrap-water'),
+            idWater         = $('#upload-water');
+
+
+
+
         if(data.type === 'main-image') {
 
             firstPoint  = $('.upload__input_image');
             markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img">';
 
-            $('.result__img').remove();
-            $('.result__wrap').append(markup);
+            genImg.remove();
+            genImgWrap.append(markup);
+
+            idWater.removeAttr('disabled')
+                .closest('label')
+                .removeClass('disabled');
 
         } else {
 
             firstPoint  = $('.upload__input_water-image');
             markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img-water">';
 
-            $('.result__img-water').remove();
-            $('.result__wrap-water').append(markup);
+            waterImg.remove();
+            waterImgWrap.append(markup);
 
         }
 
