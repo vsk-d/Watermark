@@ -7,7 +7,7 @@ $(document).ready(function() {
 	$('.tabs-control__link').on('click',function(e){
 		e.preventDefault();
 
-		var 
+		var
 			item = $(this).closest('.tabs-control__item'),
 			contentItem = $('.tabs__item'),
 			itemPosition = item.index();

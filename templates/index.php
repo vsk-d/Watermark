@@ -5,6 +5,7 @@
     <meta charset="UTF-8"/>
     <!--SEO-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="icon" href="img/favicon.ico"/>
     <!-- build:css css/vendor.min.css -->
     <!-- bower:css-->
     <!-- endbower -->
@@ -13,6 +14,7 @@
     <!-- build:css fonts/fonts.min.css -->
     <!-- endbuild -->
     <!-- build:css css/main.min.css-->
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.css"/>
     <link rel="stylesheet" href="css/main.css"/>
     <!-- endbuild -->
     <!-- build:js js/modernizr.min.js -->
@@ -22,36 +24,35 @@
     <div class="wrapper">
       <main class="main-content">
         <div class="result">
-          <h1 class="result__title"><?php echo $data['generator'][$lang]; ?></h1>
-            <div class="result__window">
-              <div class="result__wrap">
-                <div class="result__wrap-water"></div>
-              </div>
+          <h1 class="result__title"><? echo $data['generator'][$lang]; ?></h1>
+          <div class="result__window">
+            <div class="result__wrap">
+              <div class="result__wrap-water"></div>
             </div>
-        </div>    
+          </div>
+        </div>
         <div class="setting-block">
-          <h2 class="setting-block__title"><?php echo $data['settings'][$lang]; ?></h2>
-          <form action="" encode="multipart/form-data" class="settings">
+          <h2 class="setting-block__title">Настройки</h2>
+          <form action="actions/img.php" encode="multipart/form-data" class="settings">
             <div class="settings__wrapper">
               <div class="settings__upload">
-                <label class="settings__title"><?php echo $data['original_image'][$lang]; ?>
+                <label class="settings__title">Исходное изображение
                   <label for="upload-img" class="upload__wrapper">Image.jpg
                     <input type="file" id="upload-img" name="files[]" size="30" data-form-data="{&quot;type&quot;: &quot;main-image&quot;}" class="fileupload upload__input upload__input_image hide"/>
                     <input type="hidden" name="fileurl"/>
                   </label>
                 </label>
-                <label class="settings__title"><?php echo $data['watermark'][$lang]; ?>
-                  <label for="upload-water" class="upload__wrapper">Image.png
-                    <input type="file" id="upload-water" name="files[]" size="30" data-form-data="{&quot;type&quot;: &quot;water-image&quot;}" class="fileupload upload__input upload__input_water-image hide"/>
+                <label class="settings__title"> Водяной знак
+                  <label for="upload-water" class="upload__wrapper disabled">Image.png
+                    <input type="file" id="upload-water" name="files[]" size="30" data-form-data="{&quot;type&quot;: &quot;water-image&quot;}" disabled="disabled" class="fileupload upload__input upload__input_water-image hide"/>
                     <input type="hidden" name="fileurl"/>
                   </label>
                 </label>
               </div>
             </div>
-
             <div class="settings__wrapper">
               <div class="settings__position tabs">
-                <div class="settings__title"><?php echo $data['position'][$lang]; ?></div>
+                <div class="settings__title">Положение</div>
                 <ul class="tabs__control">
                   <li class="tabs-control__item active"><a href="#" class="tabs-control__link tabs-control__link_single"><span class="hide">Одиночный</span></a></li>
                   <li class="tabs-control__item"><a href="#" class="tabs-control__link tabs-control__link_tile"><span class="hide">Замостить</span></a></li>
@@ -60,86 +61,75 @@
                   <li class="tabs__item active">
                     <div class="settings__field">
                       <div class="field__row">
-                        <input type="radio" name="field__part" id="left-up" class="hide"/>
-                        <label for="left-up" class="field__cell" id="left-upup"></label>
-                        <input type="radio" name="field__part" id="middle-up" class="hide"/>
+                        <input type="radio" name="field__part" id="left-up" data-position="left top" class="hide positioningBtn"/>
+                        <label for="left-up" class="field__cell"></label>
+                        <input type="radio" name="field__part" id="middle-up" data-position="center top" class="hide positioningBtn"/>
                         <label for="middle-up" class="field__cell"></label>
-                        <input type="radio" name="field__part" id="right-up" class="hide"/>
+                        <input type="radio" name="field__part" id="right-up" data-position="right top" class="hide positioningBtn"/>
                         <label for="right-up" class="field__cell"></label>
                       </div>
                       <div class="field__row">
-                        <input type="radio" name="field__part" id="middle-left" class="hide"/>
+                        <input type="radio" name="field__part" id="middle-left" data-position="left center" class="hide positioningBtn"/>
                         <label for="middle-left" class="field__cell"></label>
-                        <input type="radio" name="field__part" id="middle-middle" class="hide"/>
+                        <input type="radio" name="field__part" id="middle-middle" data-position="center center" class="hide positioningBtn"/>
                         <label for="middle-middle" class="field__cell"></label>
-                        <input type="radio" name="field__part" id="middle-right" class="hide"/>
+                        <input type="radio" name="field__part" id="middle-right" data-position="right center" class="hide positioningBtn"/>
                         <label for="middle-right" class="field__cell"></label>
                       </div>
                       <div class="field__row">
-                        <input type="radio" name="field__part" id="down-left" class="hide"/>
+                        <input type="radio" name="field__part" id="down-left" data-position="left bottom" class="hide positioningBtn"/>
                         <label for="down-left" class="field__cell"></label>
-                        <input type="radio" name="field__part" id="down-middle" class="hide"/>
+                        <input type="radio" name="field__part" id="down-middle" data-position="center bottom" class="hide positioningBtn"/>
                         <label for="down-middle" class="field__cell"></label>
-                        <input type="radio" name="field__part" id="down-right" class="hide"/>
+                        <input type="radio" name="field__part" id="down-right" data-position="right bottom" class="hide positioningBtn"/>
                         <label for="down-right" class="field__cell"></label>
                       </div>
                     </div>
                     <div class="settings__axis">
                       <div class="axis__wrapper">
                         <div class="axis__name">X</div>
-                        <input type="text" value="0" data-validation="axis-x" class="axis__input"/>
-                        <div class="axis__control">
-                          <button name="axis__button_up-x" class="axis__button axis__button_up"></button>
-                          <button name="axis__button_down-x" class="axis__button axis__button_down"></button>
-                        </div>
+                        <input type="text" value="0" data-validation="axis-x" id="control-x" class="axis__input"/>
+                        <div class="axis__control axis__control-x"><a href="#" class="axis__button axis__button_up"></a><a href="#" class="axis__button axis__button_down"></a></div>
                       </div>
                       <div class="axis__wrapper">
                         <div class="axis__name">Y</div>
-                        <input type="text" value="0" data-validation="axis-y" class="axis__input"/>
-                        <div class="axis__control">
-                          <button name="axis__button_up-y" class="axis__button axis__button_up"></button>
-                          <button name="axis__button_down-y" class="axis__button axis__button_down"></button>
-                        </div>
+                        <input type="text" value="0" data-validation="axis-y" id="control-y" class="axis__input"/>
+                        <div class="axis__control axis__control-y"><a href="#" class="axis__button axis__button_up"></a><a href="#" class="axis__button axis__button_down"></a></div>
                       </div>
                     </div>
                   </li>
                   <li class="tabs__item tabs__item_tile">
                     <div class="settings__field">
-                      <div class="indicator_width"></div>
-                      <div class="indicator_height"></div>
+                      <div class="indicator indicator_width"></div>
+                      <div class="indicator indicator_height"></div>
                     </div>
                     <div class="settings__axis">
                       <div class="axis__wrapper">
                         <div class="axis__name axis__name_height"></div>
                         <input type="text" value="0" data-validation="axis-x" class="axis__input"/>
-                        <div class="axis__control">
-                          <button name="axis__button_up-x" class="axis__button axis__button_up"></button>
-                          <button name="axis__button_down-x" class="axis__button axis__button_down"></button>
-                        </div>
+                        <div class="axis__control"><a href="#" class="axis__button axis__button_up"></a><a href="#" class="axis__button axis__button_down"></a></div>
                       </div>
                       <div class="axis__wrapper">
                         <div class="axis__name axis__name_width"></div>
                         <input type="text" value="0" data-validation="axis-y" class="axis__input"/>
-                        <div class="axis__control">
-                          <button name="axis__button_up-y" class="axis__button axis__button_up"></button>
-                          <button name="axis__button_down-y" class="axis__button axis__button_down"></button>
-                        </div>
+                        <div class="axis__control"><a href="#" class="axis__button axis__button_up"></a><a href="#" class="axis__button axis__button_down"></a></div>
                       </div>
                     </div>
                   </li>
                 </ul>
               </div>
             </div>
-             
             <div class="settings__wrapper">
               <div class="settings__opacity">
-                <div class="settings__title"><?php echo $data['opacity'][$lang]; ?></div>
-                <input type="range" data-validation="slider" class="settings__slider"/>
+                <div class="settings__title">Прозрачность</div>
+                <div class="slider">
+                  <div id="slider-range-min"></div>
+                </div>
               </div>
             </div>
             <div class="btn-wrap">
               <input type="reset" value="Сброс" class="settings__btn settings__btn_reset"/>
-              <input type="button" value="Скачать" class="settings__btn settings__btn_download"/>
+              <input type="submit" value="Скачать" class="settings__btn settings__btn_download"/>
             </div>
           </form>
         </div>
@@ -158,12 +148,12 @@
     </div>
     <footer class="page-footer">
       <p class="page-footer__text">&copy Это мой сайт, пожалуйста, не копируйте и не воруйте его</p>
-
     </footer>
     <!-- build:js js/vendor.js -->
     <!-- bower:js-->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/jquery-ui/ui/slider.js"></script>
     <script src="bower_components/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
     <script src="bower_components/jquery-file-upload/js/jquery.iframe-transport.js"></script>
     <script src="bower_components/jquery-file-upload/js/jquery.fileupload.js"></script>
@@ -174,6 +164,7 @@
     <script src="js/upload.js"></script>
     <script src="js/form.js"></script>
     <script src="js/position.js"></script>
+    <script src="js/slider.js"></script>
     <!-- endbuild -->
   </body>
 </html>

@@ -40,10 +40,10 @@ else if($file['error'][0] == 0){
     // перемещаем файл из временной папки в  нужную
      // $data['name']=$file['tmp_name'][0].' '. $uploadDir.$filename;
     
-    if(move_uploaded_file($file['tmp_name'][0], $uploadDir.'origin_'.$filename)){
+    if(move_uploaded_file($file['tmp_name'][0], $uploadDir.translit($filename))){
             $data['message'] = "ОК";
-            $data['url'] = $filename;
-            $data['name'] = $filename;
+            $data['url'] = translit($filename);
+            $data['name'] = translit($filename);
     }
     // ошибка при перемещении файла
     else {

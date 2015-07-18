@@ -4,34 +4,49 @@ var upload = (function(){
 //забираем данные о картинке с сервера, добавляем картинку в окошко
     function _ajaxImg (data) {
         var
-            imageName   = data.name;
-        console.log(data.type+'  зашло '+data.name);
-        if(data.type === 'main-image') {
-            var
-                firstPoint  = $('.upload__input_image'),
-                markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img">';
+            imageName = data.name,
+            firstPoint,
+            markup,
+            fileName,
+            fileUrl;
 
-            $('.result__img').remove();
-            $('.result__wrap').append(markup);
+        var
+            genImg          = $('.result__img'),
+            waterImg        = $('.result__img-water'),
+            genImgWrap      = $('.result__wrap'),
+            waterImgWrap    = $('.result__wrap-water'),
+            idWater         = $('#upload-water');
+
+
+
+
+        if(data.type === 'main-image') {
+
+            firstPoint  = $('.upload__input_image');
+            markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img">';
+
+            genImg.remove();
+            genImgWrap.append(markup);
+
+            idWater.removeAttr('disabled')
+                .closest('label')
+                .removeClass('disabled');
 
         } else {
 
-            var
-                firstPoint  = $('.upload__input_water-image'),
-                markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img-water">';
+            firstPoint  = $('.upload__input_water-image');
+            markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img-water">';
 
-            $('.result__img-water').remove();
-            $('.result__wrap-water').append(markup);
-            $('.result__img-water').draggable({ containment:".result__window", scroll:false });
+            waterImg.remove();
+            waterImgWrap.append(markup);
+
         }
 
-        var
-            fileName    = firstPoint.closest('label'),
-            fileUrl     = firstPoint.closest('[type="hidden"]');
+        fileName    = firstPoint.closest('label');
+        fileUrl     = firstPoint.closest('[type="hidden"]');
 
         fileName.text(imageName);
         fileUrl.val(imageName);
-
     }
 
         return {
@@ -47,7 +62,6 @@ var upload = (function(){
                 $('.fileupload').fileupload({
                     url: url,
                     dataType: dataType,
-                    formData:{type:$('#upload-img').data("type")},
                     success: _ajaxImg,
                     fail: function() {
                         console.log('что то не так');
