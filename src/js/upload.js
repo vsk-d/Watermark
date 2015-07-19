@@ -17,9 +17,7 @@ var upload = (function(){
             waterImgWrap    = $('.result__wrap-water'),
             idWater         = $('#upload-water');
 
-
-
-
+//Добавление основной картинки
         if(data.type === 'main-image') {
 
             firstPoint  = $('.upload__input_image');
@@ -28,12 +26,14 @@ var upload = (function(){
             genImg.remove();
             genImgWrap.append(markup);
 
+//включаем загрузку вотер марка
             idWater.removeAttr('disabled')
                 .closest('label')
                 .removeClass('disabled');
 
         } else {
 
+// добавление вотермарка
             firstPoint  = $('.upload__input_water-image');
             markup      = '<img src="img/upload/' + imageName + '" class="result__img-water">';
 
