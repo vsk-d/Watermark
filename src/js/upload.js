@@ -21,7 +21,7 @@ var upload = (function(){
         if(data.type === 'main-image') {
 
             firstPoint  = $('.upload__input_image');
-            markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img">';
+            markup      = '<img src="img/upload/' + imageName + '" class="result__img">';
 
             genImg.remove();
             genImgWrap.append(markup);
@@ -35,7 +35,7 @@ var upload = (function(){
 
 // добавление вотермарка
             firstPoint  = $('.upload__input_water-image');
-            markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img-water">';
+            markup      = '<img src="img/upload/' + imageName + '" class="result__img-water">';
 
             waterImg.remove();
             waterImgWrap.append(markup);
