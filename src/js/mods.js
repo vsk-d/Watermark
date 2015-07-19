@@ -1,5 +1,5 @@
-var mods = (function(){
-
+// var mods = (function(){
+//
 //     function _multiMod() {
 //         var
 //             markup = '<img src="img/upload/origin_1.jpg" class="result__img-water">';
@@ -52,15 +52,15 @@ var mods = (function(){
 //     }
 //
 // }
-
-
-	return {
-		init : function () {
-			this.setUpListeners();
-		},
-		setUpListeners : function () {
-            $('.tabs-control__link').on('click', _modChanger);
-		}
-	};
-}());
-mods.init();
+//
+//
+// 	return {
+// 		init : function () {
+// 			this.setUpListeners();
+// 		},
+// 		setUpListeners : function () {
+//             $('.tabs-control__link').on('click', _modChanger);
+// 		}
+// 	};
+// }());
+// mods.init();
