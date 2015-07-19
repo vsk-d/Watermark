@@ -1,3 +1,4 @@
+
 var _var = (function() {
     return {
         drag_div: '.result__img-water',
@@ -29,6 +30,8 @@ var _var = (function() {
                         'opacity': opacity
                     });
                 _var.urlOpacity = opacity;
+
+                $(".opacity__input").val(ui.value);
       }
     });
 

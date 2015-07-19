@@ -22,6 +22,7 @@ var form = (function(){
 					url: url,
 					data: data,
 					dataType: dataType
+
                 }).always(function() {
 					console.log('пошла родная');
                     console.log(data);

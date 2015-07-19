@@ -818,6 +818,10 @@ input[type="radio"]:checked + label {
   .settings__opacity .settings__title {
     margin-bottom: 27px; }
 
+.opacity__input {
+  position: absolute;
+  left: -9999px; }
+
 .tabs {
   margin: 5px 0 7px; }
   .tabs .settings__title {
@@ -986,7 +990,8 @@ input[type="radio"]:checked + label {
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.38);
   width: 8px;
   height: 8px;
-  top: -10px; }
+  top: -10px;
+  outline: none; }
   .ui-slider .ui-slider-handle:hover {
     background-color: #f97e76;
     box-shadow: 0.5px 0.866px 1px 0px black; }

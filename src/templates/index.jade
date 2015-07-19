@@ -31,10 +31,10 @@ html(lang="ru-Ru")
 							.settings__position.tabs
 								.settings__title Положение
 								ul.tabs__control
-									li.tabs-control__item.active
+									li.tabs-control__item.single.active
 										a(href = '#').tabs-control__link.tabs-control__link_single
 											span.hide Одиночный
-									li.tabs-control__item
+									li.tabs-control__item.multy
 										a(href = '#').tabs-control__link.tabs-control__link_tile
 											span.hide Замостить
 
@@ -107,6 +107,7 @@ html(lang="ru-Ru")
 
 								.slider
 									div#slider-range-min
+										input(type = 'text' value = '100' data-validation = 'opacity' name="opacity").opacity__input
 						
 						.btn-wrap
 							input(type = "reset" value = "Сброс" name="reset").settings__btn.settings__btn_reset 
