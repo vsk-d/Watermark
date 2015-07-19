@@ -14,12 +14,10 @@ var upload = (function(){
             genImg          = $('.result__img'),
             waterImg        = $('.result__img-water'),
             genImgWrap      = $('.result__wrap'),
-            waterImgWrap    = $('.result__wrap-water'),
+            waterImgWrap    = $('.result__water-inner'),
             idWater         = $('#upload-water');
 
-
-
-
+//Добавление основной картинки
         if(data.type === 'main-image') {
 
             firstPoint  = $('.upload__input_image');
@@ -28,12 +26,14 @@ var upload = (function(){
             genImg.remove();
             genImgWrap.append(markup);
 
+//включаем загрузку вотер марка
             idWater.removeAttr('disabled')
                 .closest('label')
                 .removeClass('disabled');
 
         } else {
 
+// добавление вотермарка
             firstPoint  = $('.upload__input_water-image');
             markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img-water">';
 
