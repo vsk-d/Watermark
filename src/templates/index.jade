@@ -18,14 +18,17 @@ html(lang="ru-Ru")
 						.settings__wrapper
 							.settings__upload
 								label.settings__title Исходное изображение
-									label(for="upload-img" ).upload__wrapper Image.jpg
+									label(for="upload-img" ).upload__wrapper
+										span Image.jpg
 										input.fileupload(type = 'file' id = 'upload-img' name = 'files[]' size = '30'  data-form-data='{"type": "main-image"}').upload__input.upload__input_image.hide
-										input(type='hidden' name='fileurl')
-								label.settings__title  Водяной знак
-									label(for="upload-water").upload__wrapper.disabled Image.png
+										input(type='hidden' name='genImg')
+								
+								label.settings__title Водяной знак
+									label(for="upload-water").upload__wrapper.disabled
+										span Image.png
 										input.fileupload(type = 'file' id = 'upload-water' name = 'files[]' size = '30' data-form-data='{"type": "water-image"}' disabled).upload__input.upload__input_water-image.hide
-										input(type='hidden' name='fileurl')
-						
+										input(type='hidden' name='waterImg')
+										
 						.settings__wrapper
 							
 							.settings__position.tabs

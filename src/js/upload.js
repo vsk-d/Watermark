@@ -20,7 +20,7 @@ var upload = (function(){
 //Добавление основной картинки
         if(data.type === 'main-image') {
 
-            firstPoint  = $('.upload__input_image');
+            firstPoint  = $('.upload__input_image').closest('label');
             markup      = '<img src="img/upload/' + imageName + '" class="result__img">';
 
             genImg.remove();
@@ -34,7 +34,7 @@ var upload = (function(){
         } else {
 
 // добавление вотермарка
-            firstPoint  = $('.upload__input_water-image');
+            firstPoint  = $('.upload__input_water-image').closest('label');
             markup      = '<img src="img/upload/' + imageName + '" class="result__img-water">';
 
             waterImg.remove();
@@ -42,8 +42,8 @@ var upload = (function(){
 
         }
 
-        fileName    = firstPoint.closest('label');
-        fileUrl     = firstPoint.closest('[type="hidden"]');
+        fileName    = firstPoint.find('span');
+        fileUrl     = firstPoint.find('[type="hidden"]');
 
         fileName.text(imageName);
         fileUrl.val(imageName);

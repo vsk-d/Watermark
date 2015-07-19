@@ -5,7 +5,9 @@ var form = (function(){
             e.preventDefault();
 
             var
-                form = $(this);
+                form = $(this),
+                _var = $('#upload-img');
+
 
             _ajaxForm(form);
         }
