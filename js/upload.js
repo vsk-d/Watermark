@@ -17,33 +17,33 @@ var upload = (function(){
             waterImgWrap    = $('.result__wrap-water'),
             idWater         = $('#upload-water');
 
-
-
-
+//Добавление основной картинки
         if(data.type === 'main-image') {
 
-            firstPoint  = $('.upload__input_image');
-            markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img">';
+            firstPoint  = $('.upload__input_image').closest('label');
+            markup      = '<img src="img/upload/' + imageName + '" class="result__img">';
 
             genImg.remove();
             genImgWrap.append(markup);
 
+//включаем загрузку вотер марка
             idWater.removeAttr('disabled')
                 .closest('label')
                 .removeClass('disabled');
 
         } else {
 
-            firstPoint  = $('.upload__input_water-image');
-            markup      = '<img src="img/upload/origin_' + imageName + '" class="result__img-water">';
+// добавление вотермарка
+            firstPoint  = $('.upload__input_water-image').closest('label');
+            markup      = '<img src="img/upload/' + imageName + '" class="result__img-water">';
 
             waterImg.remove();
             waterImgWrap.append(markup);
 
         }
 
-        fileName    = firstPoint.closest('label');
-        fileUrl     = firstPoint.closest('[type="hidden"]');
+        fileName    = firstPoint.find('span');
+        fileUrl     = firstPoint.find('[type="hidden"]');
 
         fileName.text(imageName);
         fileUrl.val(imageName);

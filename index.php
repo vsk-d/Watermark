@@ -32,6 +32,8 @@ $data = array(
 	"watermark" => array("rus" => "Водяной знак","eng"=>"Watermark"),
 	"position" => array("rus" => "Положение","eng"=>"Position"),
 	"opacity" => array("rus" => "Прозрачность","eng"=>"Opacity"),
+	"download" => array("rus" => "Скачать","eng"=>"Download"),
+	"cancel" => array("rus" => "Сброс","eng"=>"Cancel"),
 
 	); 
 

@@ -2,13 +2,14 @@ var module = (function(){
 
 }());
 
-$(document).ready(function() {
+$(document).ready(function(){
 
 	$('.tabs-control__link').on('click',function(e){
-		e.preventDefault();
+	    e.preventDefault();
 
 		var
-			item = $(this).closest('.tabs-control__item'),
+	        $this = $(this),
+			item = $this.closest('.tabs-control__item'),
 			contentItem = $('.tabs__item'),
 			itemPosition = item.index();
 
@@ -17,7 +18,5 @@ $(document).ready(function() {
 			.addClass('active')
 			.siblings()
 			.removeClass('active');
-
 	});
-
 });

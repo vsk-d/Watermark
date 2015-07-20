@@ -1,14 +1,16 @@
+var resetModul = (function(){
+    'use strict';
+    function _resetAll () { 
 
-var _var = (function() {
-    return {
-        drag_div: '.result__img-water',
-        slider_div: '#slider-range-min',
-        urlOpacity: 1,
-    };
-})();
+    var
+    	waterImg = ".result__img-water",
+    	waterDiv = ".result__wrap-water",
+    	sliderOp = "#slider-range-min"
 
-  $(function() {
-    $( "#slider-range-min" ).slider({
+    	$(waterDiv).css('top', '0');
+    	$(waterDiv).css('left', '0');
+    	$(waterImg).css('opacity', '100');
+    	$(sliderOp).slider({
       range: "min",
       value: 100,
       min: 1,
@@ -35,4 +37,20 @@ var _var = (function() {
       }
     });
 
-});
+           
+    }
+
+       return {
+
+            initialize : function () {
+                this.setUpListeners();
+            },
+
+            setUpListeners : function () {
+                $('.settings__btn_reset').on('click', _resetAll);
+            }
+        };
+
+}());
+
+resetModul.initialize();
