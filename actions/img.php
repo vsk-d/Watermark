@@ -19,7 +19,19 @@ $image->rotate(45)
 	if(isset($_POST)){
 		$name_of_new_file='result.jpg';
 		$mainLayer = PHPImageWorkshop\ImageWorkshop::initFromPath($url.$_POST['genImg']);
-		$mainLayer->resizeInPixel(650, null, true);
+		
+		$width = $mainLayer->getWidth();
+		$height = $mainLayer->getHeight();
+
+	    if(($width > $primary_width)or($heiht>$primary_height)){
+	        if($width>=$height){
+	            $mainLayer->resizeInPixel($primary_width, null, true);
+
+	        } else {
+	            $mainLayer->resizeInPixel(null, $primary_height, true);
+	        }  
+	    }
+
 		// Создание слоя с первым изображением
 		$imageLayer1 = PHPImageWorkshop\ImageWorkshop::initFromPath($url.$_POST['waterImg']);
 		$imageLayer1->opacity($_POST['opacity']);

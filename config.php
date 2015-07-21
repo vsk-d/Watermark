@@ -26,4 +26,6 @@ function translit($string) {
     );
     return strtr($string, $converter);
 }
+$primary_width=651;
+$primary_height=534;
 ?>
