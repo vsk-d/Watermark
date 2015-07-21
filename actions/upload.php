@@ -6,7 +6,6 @@ $uploadDir = "../img/upload/";
 $file = $_FILES['files'];
 $filename = translit(basename($file['name'][0]));
 $data = array();
-
 $createFolders = true;
 $backgroundColor = null; // transparent, only for PNG (otherwise it will be white if set null)
 $imageQuality = 100; // useless for GIF, usefull for PNG and JPEG (0 to 100%)
@@ -15,22 +14,47 @@ $mainLayer = PHPImageWorkshop\ImageWorkshop::initFromPath($file['tmp_name'][0]);
 $width = $mainLayer->getWidth();
 $height = $mainLayer->getHeight();
 if($_POST['type']=='main-image'){
-    $data['koeff']=0;
-    if($width>=$height){
-        $mainLayer->resizeInPixel(651, null, true);
-        $data['koeff'] =$width/651;
+    $data['koeff']=1;
+    if(($width > $primary_width)or($heiht>$primary_height)){
+        if($width>=$height){
+            $mainLayer->resizeInPixel($primary_width, null, true);
+            $data['koeff'] =$width/$primary_width;
 
-    } else {
-        $mainLayer->resizeInPixel(null, 534, true);
-        $data['koeff']=$height/534;
-    }  
-} else {
-    if(isset($_POST['basicName'])){
-        $basicLayer = PHPImageWorkshop\ImageWorkshop::initFromPath($uploadDir.$_POST['basicName']); 
-        $basic_width = $mainLayer->getWidth();
-        $basic_height = $mainLayer->getHeight();
+        } else {
+            $mainLayer->resizeInPixel(null, $primary_height, true);
+            $data['koeff']=$height/$primary_height;
+        }  
     }
-    $mainLayer->resizeInPixel(($width/$_POST['koeff']), ($height/$_POST['koeff']), false);
+
+} else {
+
+    if((isset($_POST['genImgName'])) and (isset($_POST['koeff']))){
+
+        $basicLayer = PHPImageWorkshop\ImageWorkshop::initFromPath($uploadDir.$_POST['genImgName']); 
+        $basic_width = $basicLayer->getWidth();
+        $basic_height = $basicLayer->getHeight();
+     //   $mainLayer->resizeInPixel($basic_width,$basic_height, false);
+        if(($width>$basic_width) or ($height>$basic_height)){
+
+            if($width>(1.22*$height)){
+                if($width>$basic_width){
+                    $k=$width/$basic_width;
+                    $width=$basic_width;
+                    $height=$height/$k;
+                }
+            } else {
+                if($height>$basic_height){
+                    $k=$height/$basic_height;
+                    $height=$basic_height;
+                    $width=$width/$k;
+                }
+            }
+
+            $mainLayer->resizeInPixel($width, $height, false);
+        }
+    } else {
+        $data['message'] = "Нет данных";
+    }
 
 }
 
@@ -41,7 +65,6 @@ $data['message'] = "ОК";
 $data['url'] = $filename;
 $data['name'] = $filename;
 if(isset($_POST)){
-    $count=1;
     foreach($_POST as $key => $value){
         if($key=="type"){
            $data['type']=$value;       

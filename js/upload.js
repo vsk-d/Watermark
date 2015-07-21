@@ -15,16 +15,15 @@ var upload = (function(){
             waterImg        = $('.result__img-water'),
             genImgWrap      = $('.result__wrap'),
             waterImgWrap    = $('.result__wrap-water'),
-            idWater         = $('#upload-water');
+            idWater         = $('#upload-water'),
+            waterData       = {};
 
 //Добавление основной картинки
         if(data.type === 'main-image') {
-            var $water={};
-            $water=$('#upload-water').data('form-data');
-            $water.basicName=''+data.name;
-            $('#upload-water').data('form-data',$water);
-           console.log($water);
-           console.log($('#upload-water').data('form-data'));
+            waterData = idWater.data('formData');
+            waterData.genImgName = data.name;
+            waterData.koeff = data.koeff;
+            console.log($('#upload-water').data('form-data'));
             firstPoint  = $('.upload__input_image').closest('label');
             markup      = '<img src="img/upload/' + imageName + '" class="result__img">';
 
