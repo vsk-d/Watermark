@@ -1,10 +1,77 @@
 <?php
 require_once '../config.php';
-
+require_once('../vendor/autoload.php');
 // устанавливаем путь к папке для загрузки
 $uploadDir = "../img/upload/";
-// устанавливаем валидные MYME-types
+$file = $_FILES['files'];
+$filename = translit(basename($file['name'][0]));
+$data = array();
+$createFolders = true;
+$backgroundColor = null; // transparent, only for PNG (otherwise it will be white if set null)
+$imageQuality = 100; // useless for GIF, usefull for PNG and JPEG (0 to 100%)
 
+$mainLayer = PHPImageWorkshop\ImageWorkshop::initFromPath($file['tmp_name'][0]);  
+$width = $mainLayer->getWidth();
+$height = $mainLayer->getHeight();
+if($_POST['type']=='main-image'){
+    if(($width > $primary_width)or($heiht>$primary_height)){
+        if($width>=$height){
+            $mainLayer->resizeInPixel($primary_width, null, true);
+        } else {
+            $mainLayer->resizeInPixel(null, $primary_height, true);
+        }  
+    }
+
+} else {
+
+    if(isset($_POST['genImgName'])){
+
+        $basicLayer = PHPImageWorkshop\ImageWorkshop::initFromPath($uploadDir.$_POST['genImgName']); 
+        $basic_width = $basicLayer->getWidth();
+        $basic_height = $basicLayer->getHeight();
+     //   $mainLayer->resizeInPixel($basic_width,$basic_height, false);
+        if(($width>$basic_width) or ($height>$basic_height)){
+
+            if($width>(1.22*$height)){
+                if($width>$basic_width){
+                    $k=$width/$basic_width;
+                    $width=$basic_width;
+                    $height=$height/$k;
+                }
+            } else {
+                if($height>$basic_height){
+                    $k=$height/$basic_height;
+                    $height=$basic_height;
+                    $width=$width/$k;
+                }
+            }
+
+            $mainLayer->resizeInPixel($width, $height, false);
+        }
+    } else {
+        $data['message'] = "Нет данных";
+    }
+
+}
+
+$mainLayer->save($uploadDir, $filename, $createFolders, $backgroundColor, $imageQuality);
+
+
+$data['message'] = "ОК";
+$data['url'] = $filename;
+$data['name'] = $filename;
+if(isset($_POST)){
+    foreach($_POST as $key => $value){
+        if($key=="type"){
+           $data['type']=$value;       
+        }
+    }
+   
+}
+echo json_encode($data);
+exit;
+
+/*
 $types = array("image/gif", "image/png", "image/jpeg", "image/pjpeg", "image/x-png");
 // Устанавливаем максимальный размер файла
 $file_size = 2097152; // 2МБ
@@ -66,3 +133,4 @@ if(isset($_POST)){
 // Выводим результат в JSON и заверщаем в скрипт
 echo json_encode($data);
 exit;
+*/
