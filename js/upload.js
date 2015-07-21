@@ -19,7 +19,12 @@ var upload = (function(){
 
 //Добавление основной картинки
         if(data.type === 'main-image') {
-
+            var $water={};
+            $water=$('#upload-water').data('form-data');
+            $water.basicName=''+data.name;
+            $('#upload-water').data('form-data',$water);
+           console.log($water);
+           console.log($('#upload-water').data('form-data'));
             firstPoint  = $('.upload__input_image').closest('label');
             markup      = '<img src="img/upload/' + imageName + '" class="result__img">';
 
