@@ -14,21 +14,17 @@ $mainLayer = PHPImageWorkshop\ImageWorkshop::initFromPath($file['tmp_name'][0]);
 $width = $mainLayer->getWidth();
 $height = $mainLayer->getHeight();
 if($_POST['type']=='main-image'){
-    $data['koeff']=1;
     if(($width > $primary_width)or($heiht>$primary_height)){
         if($width>=$height){
             $mainLayer->resizeInPixel($primary_width, null, true);
-            $data['koeff'] =$width/$primary_width;
-
         } else {
             $mainLayer->resizeInPixel(null, $primary_height, true);
-            $data['koeff']=$height/$primary_height;
         }  
     }
 
 } else {
 
-    if((isset($_POST['genImgName'])) and (isset($_POST['koeff']))){
+    if(isset($_POST['genImgName'])){
 
         $basicLayer = PHPImageWorkshop\ImageWorkshop::initFromPath($uploadDir.$_POST['genImgName']); 
         $basic_width = $basicLayer->getWidth();
