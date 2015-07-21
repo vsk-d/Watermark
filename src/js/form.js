@@ -5,9 +5,7 @@ var form = (function(){
             e.preventDefault();
 
             var
-                form = $(this),
-                _var = $('#upload-img');
-
+                form = $(this);
 
             _ajaxForm(form);
         }
@@ -29,8 +27,8 @@ var form = (function(){
 					console.log('пошла родная');
                     console.log(data);
 				})
-				.done(function() {
-					alert('Ваше сообщение отправлено');
+				.done(function(data) {
+					
 				})
 				.fail(function() {
 					console.log('Проблема на стороне сервера');
