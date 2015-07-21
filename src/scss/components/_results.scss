@@ -1,0 +1,29 @@
+.result__wrap {
+	position: absolute;
+	float: left;
+	@include centerer(true, true);
+	font-size: 0;
+}
+
+.result__img {
+	max-width: 651px;
+	max-height: 534px;
+}
+
+.result__wrap-water {
+	position: absolute;
+	float: left;
+	font-size: 0;
+	top: 0;
+	left: 0;
+}
+
+// .result__water-inner {
+// 	width: 800px;
+//     height: 800px;
+// }
+
+.result__img-water {
+	max-width: 300px;
+	max-height: 300px;
+}

@@ -1,4 +1,6 @@
 app/bower
+src/bower_components
 node_modules
 dist
 bower_components
+

@@ -1,0 +1,32 @@
+.slider{
+	top: 5px; 
+	width: 218px;
+}
+
+.ui-slider {
+
+	.ui-slider-handle {
+		border-radius: 50%;
+		border-width: 7px;
+		border-color:  #dbe1e8;
+		border-style: solid;
+		background-color:  #9eb2c0;
+		box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.38);
+		width: 8px;
+		height: 8px;
+		top: -10px;	
+
+		&:hover {
+		  background-color:  #f97e76;
+		  box-shadow: 0.5px 0.866px 1px 0px rgb( 0, 0, 0 );		
+		}
+	}
+}
+
+.ui-widget-content {
+	border: none;		
+	background-color:  #dbe1e8;
+}
+
+.ui-slider-horizontal {	height: 3px; }
+.ui-slider-range { background-color:  #9eb2c0; }

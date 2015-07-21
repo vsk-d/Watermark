@@ -15,6 +15,7 @@ $image->rotate(45)
 	$quality   = 100;               // качество изображения создаваемого коллажа
 */
 	// Создание базового слоя с фоном
+	
 	$mainLayer = PHPImageWorkshop\ImageWorkshop::initFromPath('ban.png');
 
 	// Создание слоя с первым изображением
