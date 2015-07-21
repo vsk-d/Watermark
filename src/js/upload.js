@@ -23,8 +23,11 @@ var upload = (function(){
 
             firstPoint  = $('.upload__input_image').closest('label');
             markup      = '<img src="img/upload/' + imageName + '" class="result__img">';
+
+
             waterData = idWater.data('formData');
-            waterData.name = data.name;
+            waterData.genImgName = data.name;
+            //waterData.koeff = data.koeff;
 
             genImg.remove();
             genImgWrap.append(markup);

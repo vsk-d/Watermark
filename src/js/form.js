@@ -27,8 +27,11 @@ var form = (function(){
 					console.log('пошла родная');
                     console.log(data);
 				})
-				.done(function(data) {
-					
+				.done(function(e) {
+                    form.attr('action','actions/download.php');
+                    $.fileDownload($(this).prop('action'));
+
+                    return false;
 				})
 				.fail(function() {
 					console.log('Проблема на стороне сервера');

@@ -7,4 +7,4 @@ if(isset($_GET)){
         $file_info = pathinfo($filename);
         header('Content-Disposition: attachment; filename="' . $file_info['basename'] . '"');
         readfile($filename);
-  }
+}
