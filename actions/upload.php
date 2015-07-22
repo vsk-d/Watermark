@@ -3,7 +3,6 @@ session_start();
 require_once '../config.php';
 require_once('../vendor/autoload.php');
 // устанавливаем путь к папке для загрузки
-$uploadDir = "../img/upload/";
 $file = $_FILES['files'];
 $filename = translit(basename($file['name'][0]));
 $data = array();
@@ -54,6 +53,7 @@ if($_POST['type']=='main-image'){
 
 }
 
+$filename=checkFile($uploadDir,$filename);
 $mainLayer->save($uploadDir, $filename, $createFolders, $backgroundColor, $imageQuality);
 $_SESSION[$_POST['type']]=$filename;
 

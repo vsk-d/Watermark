@@ -28,4 +28,14 @@ function translit($string) {
 }
 $primary_width=651;
 $primary_height=534;
+$uploadDir = "../img/upload/";
+function checkFile($url,$name){
+    if (file_exists($url.$name)) {
+        $name=time().$name;
+        return checkFile($url,$name);   
+    } else {
+        return $name;
+    }
+}
+
 ?>
