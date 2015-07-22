@@ -1,8 +1,8 @@
 <?php
+session_start();
 require_once '../config.php';
 require_once('../vendor/autoload.php');
 // устанавливаем путь к папке для загрузки
-$uploadDir = "../img/upload/";
 $file = $_FILES['files'];
 $filename = translit(basename($file['name'][0]));
 $data = array();
@@ -24,15 +24,14 @@ if($_POST['type']=='main-image'){
 
 } else {
 
-    if(isset($_POST['genImgName'])){
+    if(isset($_SESSION['main-image'])){
 
-        $basicLayer = PHPImageWorkshop\ImageWorkshop::initFromPath($uploadDir.$_POST['genImgName']); 
+        $basicLayer = PHPImageWorkshop\ImageWorkshop::initFromPath($uploadDir.$_SESSION['main-image']); 
         $basic_width = $basicLayer->getWidth();
         $basic_height = $basicLayer->getHeight();
-     //   $mainLayer->resizeInPixel($basic_width,$basic_height, false);
         if(($width>$basic_width) or ($height>$basic_height)){
 
-            if($width>(1.22*$height)){
+            if($width>(($basic_width/$basic_height)*$height)){
                 if($width>$basic_width){
                     $k=$width/$basic_width;
                     $width=$basic_width;
@@ -54,8 +53,9 @@ if($_POST['type']=='main-image'){
 
 }
 
+$filename=checkFile($uploadDir,$filename);
 $mainLayer->save($uploadDir, $filename, $createFolders, $backgroundColor, $imageQuality);
-
+$_SESSION[$_POST['type']]=$filename;
 
 $data['message'] = "ОК";
 $data['url'] = $filename;
