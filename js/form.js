@@ -30,7 +30,7 @@ var form = (function(){
                     console.log(data);
 				})
 				.done(function(d) {
-                     $('body').append('<iframe src="actions/download.php?filename=' + d.name+'" class="hide"></iframe>');
+                     $('body').append('<iframe src="actions/download.php" class="hide"></iframe>');
 				})
 				.fail(function() {
 					console.log('Проблема на стороне сервера');
