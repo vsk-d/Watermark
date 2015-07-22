@@ -25,13 +25,12 @@ var form = (function(){
 
                 }).always(function() {
 					console.log('пошла родная');
-                    console.log(data);
-				})
-				.done(function(e) {
-                    form.attr('action','actions/download.php');
-                    $.fileDownload($(this).prop('action'));
 
-                    return false;
+				})
+				.done(function(d) {
+
+                    $('body').append('<iframe src="actions/download.php" class="hide"></iframe>');
+
 				})
 				.fail(function() {
 					console.log('Проблема на стороне сервера');
@@ -39,6 +38,8 @@ var form = (function(){
 
             return defObject;
         }
+
+
 
         return {
 
