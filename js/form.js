@@ -5,9 +5,7 @@ var form = (function(){
             e.preventDefault();
 
             var
-                form = $(this),
-                _var = $('#upload-img');
-
+                form = $(this);
 
             _ajaxForm(form);
         }
@@ -27,10 +25,12 @@ var form = (function(){
 
                 }).always(function() {
 					console.log('пошла родная');
-                    console.log(data);
+
 				})
 				.done(function(d) {
-                     $('body').append('<iframe src="actions/download.php" class="hide"></iframe>');
+
+                    $('body').append('<iframe src="actions/download.php" class="hide"></iframe>');
+
 				})
 				.fail(function() {
 					console.log('Проблема на стороне сервера');
@@ -38,6 +38,8 @@ var form = (function(){
 
             return defObject;
         }
+
+
 
         return {
 

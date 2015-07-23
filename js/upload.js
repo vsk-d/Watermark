@@ -17,9 +17,9 @@ var upload = (function(){
             waterImgWrap    = $('.result__wrap-water'),
             idWater         = $('#upload-water');
 
-
 //Добавление основной картинки
         if(data.type === 'main-image') {
+
             firstPoint  = $('.upload__input_image').closest('label');
             markup      = '<img src="img/upload/' + imageName + '" class="result__img">';
 
@@ -39,6 +39,7 @@ var upload = (function(){
 
             waterImg.remove();
             waterImgWrap.append(markup);
+
 
         }
 
