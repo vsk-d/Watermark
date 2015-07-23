@@ -1,6 +1,8 @@
 <?php
+session_start();
 require_once('../vendor/autoload.php');
-$url="../img/upload/";
+require_once '../config.php';
+
 /*$imagine = new Imagine\Gd\Imagine();
 echo "fsgfdgfdg";
 $image=$imagine->open('vova.jpg');
@@ -17,8 +19,7 @@ $image->rotate(45)
 */
 	// Создание базового слоя с фоном
 	if(isset($_POST)){
-		$name_of_new_file='result.jpg';
-		$mainLayer = PHPImageWorkshop\ImageWorkshop::initFromPath($url.$_POST['genImg']);
+		$mainLayer = PHPImageWorkshop\ImageWorkshop::initFromPath($uploadDir.$_SESSION['main-image']);
 		
 		$width = $mainLayer->getWidth();
 		$height = $mainLayer->getHeight();
@@ -33,15 +34,18 @@ $image->rotate(45)
 	    }
 
 		// Создание слоя с первым изображением
-		$imageLayer1 = PHPImageWorkshop\ImageWorkshop::initFromPath($url.$_POST['waterImg']);
+		$imageLayer1 = PHPImageWorkshop\ImageWorkshop::initFromPath($uploadDir.$_SESSION['water-image']);
 		$imageLayer1->opacity($_POST['opacity']);
 		$mainLayer->addLayerOnTop($imageLayer1,$_POST['axis-x'], $_POST['axis-y'], "LT");
-	    $mainLayer->save($url, 'result_'.$_POST['genImg'], true, null, 100);
-		$image = $mainLayer->getResult();
+
+		$result='result_'.$_SESSION['main-image'];
+		$result=checkFile($uploadDir,$result);
+	    $mainLayer->save($uploadDir, $result, true, null, 100);
 	}
 
+		$_SESSION['result']=$result;
+		$data['name']=$result;
 
-		$data['name']='result_'.$_POST['genImg'];
 		echo json_encode($data);
 	/*header('Content-type: image/jpeg');
 	header('Content-Disposition: filename="collage.jpg"');

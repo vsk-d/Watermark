@@ -1,11 +1,9 @@
 <?php
+session_start();
 require_once '../config.php';
-if(isset($_GET)){
-  $url="../img/upload/";
-    $name_of_new_file=$_GET['filename'];
-    $filename=$url.$name_of_new_file;
+    $name_of_new_file=$_SESSION['result'];
+    $filename=$uploadDir.$name_of_new_file;
         $file_info = pathinfo($filename);
-        header('Content-Disposition: attachment; filename="' . $file_info['basename'] . '"');
+        header('Content-Disposition: attachment; filename="watermark.' . $file_info['extension'] . '"');
         readfile($filename);
 
-  }
