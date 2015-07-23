@@ -10,7 +10,7 @@ You can easily download your chosen image and impose on him a watermark, you can
 
 ----
 
->The project site: *watermarkgen.ru*
+>The project site: *http://watermarkgen.ru*
 
 >To launch the project:
 
