@@ -3,7 +3,6 @@ var resetModul = (function(){
     function _resetAll () { 
 
     var
-    	// waterImg = ".result__wrap-water",
     	waterDiv = ".result__wrap-water",
     	sliderOp = "#slider-range-min"
 
@@ -33,7 +32,7 @@ var resetModul = (function(){
                     });
                 _var.urlOpacity = opacity;
 
-                $(".opacity__input").val(ui.value);
+                $(".opacity__input").val(ui.value); 
       }
     });
 

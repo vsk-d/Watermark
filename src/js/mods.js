@@ -1,3 +1,4 @@
+// Глобальные переменные
 var _var = (function() {
     return {
     	drag_div: '.result__wrap-water',
@@ -10,31 +11,16 @@ var mods = (function(){
 
 	function _singleMod() {
 
-
+// Тут пока ХЗ
 
 	}
 
     function _multiMod() {
-        // var
-        //     markup      = '<img src="img/upload/' + imageName + '" class="result__img-water">';
-
         var
-            // wrap            = $('.result__wrap'),
-            // imgWrap         = $('.result__water-inner'),
-            // img             = $('.result__img'),
-            // spinnerW		= $('.indicator_width'),
-            // spinnerH		= $('.indicator_height'),
-            // divHeight       = imgWrap.height(),
-            // divWidth        = imgWrap.width(),
-            // imgHeight       = img.height(),
-            // imgwidth        = img.width(),
-            // horCount        = divWidth / imgwidth,
-            // vertCount       = divHeight / imgHeight,
-            // imageCount      = horCount * vertCount;
+
             $parentWrap			= $('.result__wrap'),
             widthWrap 			= $parentWrap.width(),
             heightWrap 			= $parentWrap.height(),
-            // $dragBlock 			= $('.result__wrap-water'),
             imgDrop 			= $(_var.drag_div).find('img'),
             widthImg 			= imgDrop.width(),
             heightImg 			= imgDrop.height(),
@@ -52,13 +38,13 @@ var mods = (function(){
                 html += '</div>'; // Закрываем див и снова!
             }
 
+// очишаем все из обертки вотермарка
             $(_var.drag_div)
                 .empty()
                 .html(html)
                 .css({
                     'width': widthIncrease + 'px',
                     'height': heightIncrease + 'px',
-                    // 'opacity':  _var.urlOpacity
                 })
                 .position({
                     my: 'left top',
@@ -95,12 +81,6 @@ var mods = (function(){
                     'height': 'auto'
                 });
         $(_var.drag_div)
-                .css({
-                    'top': '0',
-                    'left': '0',
-                    'width': 'auto',
-                    'height': 'auto'
-                })
                 .find('img')
                 .css({
                     'margin': '0'
@@ -116,9 +96,7 @@ var mods = (function(){
 
 
        function _destroy__singleMod() {  
-    	
-    	// $(_var.drag_div)
-     //            .draggable("destroy")
+
         $(_var.drag_div)
                         .css({
                     'top': '0',
@@ -130,6 +108,8 @@ var mods = (function(){
                 .css({
                     'margin': '0'
                 });
+
+                // тут я пытался посчитать ограничения для драггебл по примеру Зара, но что-то не так
         var $fileUpload = $('.result__window'),
                 offsetLeft = $fileUpload.offset()
                 .left,
@@ -154,6 +134,7 @@ var mods = (function(){
                 });   
 }
 
+// Собственно к переключению режимов добавлены методы для перехода
     function _modChanger(e) {
         e.preventDefault();
 

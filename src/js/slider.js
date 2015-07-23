@@ -1,4 +1,4 @@
-
+// Глобальные переменные
 var _var = (function() {
     return {
         drag_div: '.result__wrap-water',
@@ -30,8 +30,6 @@ var _var = (function() {
                         'opacity': opacity
                     });
                 _var.urlOpacity = opacity;
-
-                console.log(_var.urlOpacity)
 
                 $(".opacity__input").val(ui.value);
       }
