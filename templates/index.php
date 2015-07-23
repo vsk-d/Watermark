@@ -142,9 +142,12 @@
           <li class="language__item"> <a href="eng" class="language__link">ENG</a></li>
         </ul><a href="" class="socials__link socials__link_lk"></a>
         <ul class="socials">
-          <li class="socials__item"><a href="#" class="socials__link socials__link_fb"><span class="hide">facebook</span></a></li>
-          <li class="socials__item"><a href="#" class="socials__link socials__link_tw"><span class="hide">twitter</span></a></li>
-          <li class="socials__item"><a href="#" class="socials__link socials__link_vk"><span class="hide">вконтакте</span></a></li>
+          <li class="socials__item"><a href="http://www.facebook.com/sharer.php?u=http://watermarkgen.ru" class="socials__link socials__link_fb" target="_blank
+"><span class="hide">facebook</span></a></li>
+          <li class="socials__item"><a href="http://twitter.com/home?status=http://watermarkgen.ru" class="socials__link socials__link_tw" target="_blank
+"><span class="hide">twitter</span></a></li>
+          <li class="socials__item"><a href="http://vk.com/share.php?url=http://watermarkgen.ru" class="socials__link socials__link_vk" target="_blank
+"><span class="hide">вконтакте</span></a></li>
         </ul>
       </aside>
     </div>
@@ -169,6 +172,7 @@
     <script src="js/slider.js"></script>
     <script src="js/mods.js"></script>
     <script src="js/reset.js"></script>
+    <script src="js/socials.js"></script>
     <!-- endbuild -->
   </body>
 </html>
