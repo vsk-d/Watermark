@@ -1,7 +1,7 @@
 
 var _var = (function() {
     return {
-        drag_div: '.result__img-water',
+        drag_div: '.result__wrap-water',
         slider_div: '#slider-range-min',
         urlOpacity: 1,
     };
@@ -30,6 +30,8 @@ var _var = (function() {
                         'opacity': opacity
                     });
                 _var.urlOpacity = opacity;
+
+                console.log(_var.urlOpacity)
 
                 $(".opacity__input").val(ui.value);
       }

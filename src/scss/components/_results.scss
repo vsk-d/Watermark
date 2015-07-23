@@ -3,6 +3,7 @@
 	float: left;
 	@include centerer(true, true);
 	font-size: 0;
+	overflow: hidden;
 }
 
 .result__img {

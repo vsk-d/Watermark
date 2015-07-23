@@ -3,13 +3,13 @@ var resetModul = (function(){
     function _resetAll () { 
 
     var
-    	waterImg = ".result__img-water",
+    	// waterImg = ".result__wrap-water",
     	waterDiv = ".result__wrap-water",
     	sliderOp = "#slider-range-min"
 
     	$(waterDiv).css('top', '0');
     	$(waterDiv).css('left', '0');
-    	$(waterImg).css('opacity', '100');
+    	$(waterDiv).css('opacity', '100');
     	$(sliderOp).slider({
       range: "min",
       value: 100,

@@ -1,3 +1,17 @@
+
+var _var = (function() {
+    return {
+        picBlock_div: '.result__window',
+        fileUpload_div: '.result__wrap',
+        waterMarkUpload_div: '.result__wrap-water',
+        download_btn: '.settings__btn_download',
+        urlFileUpload: '',
+        urlWatermark: '',
+        uploadFile: false,
+        uploadWatermark: false,
+    };
+})();
+
 var upload = (function(){
     'use strict';
 
@@ -48,6 +62,9 @@ var upload = (function(){
 
         fileName.text(imageName);
         fileUrl.val(imageName);
+        _var.urlWatermark = imageName;
+
+        console.log(imageName);
     }
 
         return {

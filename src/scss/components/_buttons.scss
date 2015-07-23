@@ -59,13 +59,14 @@
 	background: url('../img/sprite.png') no-repeat;
 } 
 
-.axis__button_up {
+.axis__button_up, .axis__button_heigt_up, .axis__button_width_up {
 	margin-bottom: 17px;
 	background-position: -46px -70px; 
 	&:hover {background-position: -46px -98px; } 
 }
 
-.axis__button_down {
+.axis__button_down, .axis__button_heigt_down, .axis__button_width_down {
 	background-position: -46px -14px; 
 	&:hover {background-position: -46px -42px; } 
 }
+
