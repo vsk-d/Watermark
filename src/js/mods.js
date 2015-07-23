@@ -4,6 +4,8 @@ var _var = (function() {
     	drag_div: '.result__wrap-water',
     	widthWatermark: '',
     	heightWatermark: '',
+    	indicatorW: '.indicator_width',
+    	indicatorH: '.indicator_height'
     };
 })();
 
@@ -85,6 +87,7 @@ var mods = (function(){
                 .css({
                     'margin': '0'
                 });
+       			      
        $('.result__wrap-water').draggable({
 				containment:".result__wrap",
 				scroll:false,
@@ -97,8 +100,19 @@ var mods = (function(){
 
        function _destroy__singleMod() {  
 
+       	$(_var.indicatorW)
+       			.css({
+       				'height': '0.1'
+       			});
+
+
+       	$(_var.indicatorH)
+       			.css({
+       				'width': '0.1'
+       			});
+
         $(_var.drag_div)
-                        .css({
+                .css({
                     'top': '0',
                     'left': '0',
                     'width': '5000',
@@ -106,7 +120,8 @@ var mods = (function(){
                 })
         		.find('img')
                 .css({
-                    'margin': '0'
+                    'margin-right': '0',
+                    'margin-bottom': '0',
                 });
 
                 // тут я пытался посчитать ограничения для драггебл по примеру Зара, но что-то не так

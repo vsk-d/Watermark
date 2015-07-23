@@ -117,21 +117,20 @@
 		position: relative;
 		overflow: hidden;
 	}
+}
 
 	.indicator_height {
-		width: 10px;
+		width: 0.1px;
 		height: 100px;
 		background:  #f97e76;
 		@include centerer(true, true);
 	}
 	.indicator_width {
 		width: 100px;
-		height: 10px;
+		height: 0.1px;
 		background:  #f97e76;
 		@include centerer(true, true);
 	}
-}
-
 
 .field__row { 	display: table-row; }
 
