@@ -1,4 +1,5 @@
 #WATERMARK GENERATOR
+
 ---
 
 We are pleased to present an easy to use and flexible tool for creating secure watermark image.
@@ -8,12 +9,15 @@ You can easily download your chosen image and impose on him a watermark, you can
 >The project site: *watermarkgen.ru*
 
 >To launch the project:
+
 0. git clone https://github.com/vsk-d/watermark.git
 1. cd watermark
 2. bower i
 3. npm i
 4. gulp
+
 ---
+
 >To build the project:
 gulp build
 
