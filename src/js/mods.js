@@ -33,11 +33,11 @@ var mods = (function(){
             html = '';
 
 			for (var i = 0; i < countHeight; i++) { // Циклом пробегаемся создавая каждую строку
-                 html += '<div class="row">';
+                 // html += '<div class="row">';
                 for (var c = 0; c < countWidth; c++) { // Здесь циклом пробегаемся и создаем каждую картинку
-                    html += '<img src="img/upload/' + _var.urlWatermark + '">';
+                    html += '<img src="img/upload/' + _var.urlWatermark + '"class="multy__water">';
                 }
-                html += '</div>'; // Закрываем див и снова!
+                // html += '</div>'; // Закрываем див и снова!
             }
 
 // очишаем все из обертки вотермарка
