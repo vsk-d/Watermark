@@ -5,9 +5,10 @@ var resetModul = (function(){
     var
     	waterDiv   = '.result__wrap-water',
     	sliderOp   = '#slider-range-min';
-
-
-        $(waterDiv).css('top', '0');
+        
+    	$(waterDiv).css('top', '0');
+        $(_var.indicatorW).css('height', '0.1');
+        $(_var.indicatorH).css('width', '0.1');
     	$(waterDiv).css('left', '0');
     	$(waterDiv).css('opacity', '100');
 
