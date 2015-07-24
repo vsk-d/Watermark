@@ -54,10 +54,10 @@ var mods = (function(){
                 });
             _var.widthWatermark = widthIncrease; // Присваиваем глобальным переменным что бы потом знать их оригинальные значения
             _var.heightWatermark = heightIncrease; // Присваиваем глобальным переменным что бы потом знать их оригинальные значения
-       
+
         }
 
-    function _destroy__multiMod() { 
+    function _destroy__multiMod() {
 
     	var $dragBlock = $(_var.drag_div), // Драгбл блок
                 rememberHtml = '<img src="img/upload/' + _var.urlWatermark + '">'; // Возвращаем одну картинку
@@ -70,8 +70,8 @@ var mods = (function(){
                 })
                 .empty() // обязательно очищаем блок от всего внутри
                 .html(rememberHtml); // вставляем нашу картинку
-          
-    	
+
+
     	$(_var.drag_div)
                 .draggable("destroy")
                 .css({
@@ -90,12 +90,12 @@ var mods = (function(){
 				scroll:false,
 			});
 
-        console.log('destroy_multy');  
+        console.log('destroy_multy');
 
-    }  
+    }
 
 
-       function _destroy__singleMod() {  
+       function _destroy__singleMod() {
 
         $(_var.drag_div)
                         .css({
@@ -103,10 +103,6 @@ var mods = (function(){
                     'left': '0',
                     'width': '5000',
                     'height': '5000'
-                })
-        		.find('img')
-                .css({
-                    'margin': '0'
                 });
 
                 // тут я пытался посчитать ограничения для драггебл по примеру Зара, но что-то не так
@@ -131,7 +127,7 @@ var mods = (function(){
                 .draggable({
                     containment: arrayPosition,
                     scroll: false
-                });   
+                });
 }
 
 // Собственно к переключению режимов добавлены методы для перехода
@@ -161,6 +157,7 @@ var mods = (function(){
 
         _multiMod();
         _destroy__singleMod();
+
             console.log(_var.widthWatermark);
             console.log(_var.heightWatermark);
     }

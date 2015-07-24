@@ -29,7 +29,7 @@ var __var = (function () {
 
 // ==============================================
 // ==============================================
-// Модуль загрузки 
+// Модуль загрузки
 // ==============================================
 
 var fileUpload = (function() {
@@ -37,7 +37,7 @@ var fileUpload = (function() {
     var fileUploadUrl = '/php/upload.php',
         waterUpload = $(_var.waterMarkUpload_div),
         fileUpload = $(_var.fileUpload_div),
-        fileText = $('input[name="file[]"]')
+        fileText = $('input[name="file[]"]');
 
 
 })();

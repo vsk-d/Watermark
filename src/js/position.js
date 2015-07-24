@@ -18,7 +18,9 @@ var modulePosition = (function(){
 		_displayInInput ();
 	}
 
-	function _positioningStep() {
+	function _positioningStep(e) {
+		e.preventDefault();
+
 		var
 			$this			= $(this),
 			defAxis			= $this.parent(),
@@ -82,6 +84,53 @@ var modulePosition = (function(){
 		checkedInput.removeAttr('checked');
 	}
 
+// увеличиваем маржины для мульти режима.
+
+	function _marginChanger (e) {
+		e.preventDefault();
+
+		var
+			$this 				= $(this),
+			defAxis 			= $this.parent(),
+			input				= defAxis.parent().find('input'),
+			img 				= $('.row img'),
+			curMargBot 			= img.css('margin-bottom'),
+			curMargRight 		= img.css('margin-right'),
+			intCurMargBot 		= parseInt(curMargBot),
+			intCurMargRight 	= parseInt(curMargRight),
+			step 				= 1,
+			min 				= 0,
+			newMargBot 			= 0,
+			newMargRight 		= 0;
+
+
+		if ( defAxis.hasClass('axis__name_height') ) {
+
+			console.log('маргин бок');
+			if ($this.hasClass('axis__button_heigt_up') ) {
+
+				newMargRight = intCurMargRight + step;
+				img.css('margin-right', newMargRight);
+
+			} else if ( $this.hasClass('axis__button_heigt_down') && intCurMargRight > min){
+				newMargRight = intCurMargRight - step;
+				img.css('margin-right', newMargRight);
+			}
+			input.val(newMargRight);
+
+		} else {
+			console.log('маргин ботом');
+			if ($this.hasClass('axis__button_width_up') ) {
+				newMargBot = intCurMargBot + step;
+				img.css('margin-bottom', newMargBot );
+			} else  if ( $this.hasClass('axis__button_width_down') && intCurMargBot > min){
+				newMargBot = intCurMargBot - step;
+				img.css('margin-bottom', newMargBot );
+			}
+			input.val(newMargBot);
+		}
+	}
+
 	return {
 		init : function () {
 			this.setUpListeners();
@@ -92,8 +141,9 @@ var modulePosition = (function(){
 		},
 		setUpListeners : function () {
 			$('.positioningBtn').on('click', _positioning);
-			$('.axis__button').on('click', _positioningStep);
+			$('.singleBtn').on('click', _positioningStep);
 			$('.result__wrap-water').on('drag', _drag);
+			$('.MultiBtn').on('click', _marginChanger);
 		}
 	};
 }());

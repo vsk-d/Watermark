@@ -983,6 +983,9 @@ input[type="radio"]:checked + label {
   max-width: 651px;
   max-height: 534px; }
 
+.row img {
+  margin: 0; }
+
 .slider {
   top: 5px;
   width: 218px; }

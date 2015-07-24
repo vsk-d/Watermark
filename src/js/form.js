@@ -25,6 +25,7 @@ var form = (function(){
 
                 }).always(function() {
 					console.log('пошла родная');
+                    console.log(data);
 
 				})
 				.done(function(d) {

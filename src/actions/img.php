@@ -1,5 +1,7 @@
 <?php
-require_once('vendor/autoload.php');
+session_start();
+require_once('../vendor/autoload.php');
+$url="../img/upload/";
 /*$imagine = new Imagine\Gd\Imagine();
 echo "fsgfdgfdg";
 $image=$imagine->open('vova.jpg');
@@ -15,22 +17,50 @@ $image->rotate(45)
 	$quality   = 100;               // качество изображения создаваемого коллажа
 */
 	// Создание базового слоя с фоном
-	
-	$mainLayer = PHPImageWorkshop\ImageWorkshop::initFromPath('ban.png');
+	if(isset($_POST)){
+		$mainLayer = PHPImageWorkshop\ImageWorkshop::initFromPath($url.$_SESSION['main-image']);
+		
+		$width = $mainLayer->getWidth();
+		$height = $mainLayer->getHeight();
 
-	// Создание слоя с первым изображением
-	$imageLayer1 = PHPImageWorkshop\ImageWorkshop::initFromPath('st.png');
-	// Ресайз картинки на первом слое
-	$imageLayer1->resizeInPixel(180, null, true);
-	// Поворот картинки на первом слое
-	$imageLayer1->rotate(-15);
-	$imageLayer1->opacity(30);
-	// Добавление первого слоя поверх основного слоя с фоном
-	$mainLayer->addLayerOnTop($imageLayer1, 105, 145, "LT");
-    $mainLayer->save('test', 'ban3.png', true, null, 100);
-	$image = $mainLayer->getResult();
-	header('Content-type: image/jpeg');
+	    if(($width > $primary_width)or($heiht>$primary_height)){
+	        if($width>=$height){
+	            $mainLayer->resizeInPixel($primary_width, null, true);
+
+	        } else {
+	            $mainLayer->resizeInPixel(null, $primary_height, true);
+	        }  
+	    }
+
+		// Создание слоя с первым изображением
+		$imageLayer1 = PHPImageWorkshop\ImageWorkshop::initFromPath($url.$_SESSION['water-image']);
+		$imageLayer1->opacity($_POST['opacity']);
+		$mainLayer->addLayerOnTop($imageLayer1,$_POST['axis-x'], $_POST['axis-y'], "LT");
+
+		$result='result_'.$_SESSION['main-image'];
+
+	    $mainLayer->save($url, $result, true, null, 100);
+	}
+
+		$_SESSION['result']=$result;
+		$data['name']=$result;
+
+		echo json_encode($data);
+	/*header('Content-type: image/jpeg');
 	header('Content-Disposition: filename="collage.jpg"');
-	imagejpeg($image, null, 100);
-	exit;
+	imagejpeg($image, null, 100);*/
+/*	$file=$url.$name_of_new_file;
+	if (file_exists($file)) {
+		header('X-SendFile: ' . realpath($url));
+		header('Content-Type: application/octet-stream');
+		header('Content-Disposition: attachment; filename=' . basename($name_of_new_file));
+
+		exit;
+*/
+	/*	$filename = $file;
+		$file_info = pathinfo($filename);
+		header('Content-Disposition: attachment; filename="' . $file_info['basename'] . '"');
+		readfile($filename);*/
+
+	//}
 ?>
