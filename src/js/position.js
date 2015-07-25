@@ -2,10 +2,10 @@ var modulePosition = (function(){
 
 	function _positioning () {
 		var
-			$this = $(this),
-			water = $('.result__wrap-water'),
-			result = $('.result__wrap'),
-			newPosition = $this.data('position');
+			$this 		= $(this),
+			water 		= $('.result__wrap-water'),
+			result 		= $('.result__wrap'),
+			newPosition 	= $this.data('position');
 
 		console.log(newPosition);
 
@@ -25,16 +25,16 @@ var modulePosition = (function(){
 			$this			= $(this),
 			defAxis			= $this.parent(),
 			step			= 1,
-			img				= $('.result__wrap-water'),
+			img			= $('.result__wrap-water'),
 			topCoord		= img.css('top'),
 			leftCoord		= img.css('left'),
 			currentY		= parseInt(topCoord),
 			currentX		= parseInt(leftCoord),
-			newPositionY	= currentY + step,
-			newPositionX	= currentX + step,
+			newPositionY		= currentY + step,
+			newPositionX		= currentX + step,
 			newPositionYmin	= currentY - step,
-			newPositionXmin = currentX - step,
-			min				= 0,
+			newPositionXmin	 = currentX - step,
+			min			= 0,
 			maxX			= $('.result__wrap').width() - img.width(),
 			maxY			= $('.result__wrap').height() - img.height();
 
@@ -65,7 +65,7 @@ var modulePosition = (function(){
 
 	function _displayInInput () {
 		var
-			img			= $('.result__wrap-water'),
+			img		= $('.result__wrap-water'),
 			topCoord	= img.css('left'),
 			leftCoord	= img.css('top'),
 			inputX		= $('#control-x'),
@@ -90,19 +90,19 @@ var modulePosition = (function(){
 		e.preventDefault();
 
 		var
-			$this 				= $(this),
-			defAxis 			= $this.parent(),
-			input				= defAxis.parent().find('input'),
-			img 				= $('.multy__water'),
-			curMargBot 			= img.css('margin-bottom'),
+			$this 			= $(this),
+			defAxis 		= $this.parent(),
+			input			= defAxis.parent().find('input'),
+			img 			= $('.multy__water'),
+			curMargBot 		= img.css('margin-bottom'),
 			curMargRight 		= img.css('margin-right'),
-			indexBot			= $('.indicator_width'),
-			indexRight			= $('.indicator_height'),
+			indexBot		= $('.indicator_width'),
+			indexRight		= $('.indicator_height'),
 			intCurMargBot 		= parseInt(curMargBot),
 			intCurMargRight 	= parseInt(curMargRight),
-			step 				= 1,
-			min 				= 0,
-			newMargBot 			= 0,
+			step 			= 1,
+			min 			= 0,
+			newMargBot 		= 0,
 			newMargRight 		= 0;
 
 
