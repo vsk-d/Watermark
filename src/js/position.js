@@ -89,7 +89,7 @@ function _keyPressNumber(e) {
             //обрабатываются событие надатие клавиши, узнаетеся ее код и сравнивается, оно или не оно, в случае когда это не цифры возвращаем false
             if (e.which > 57 || e.which < 48) {
                 return false;
-            } 
+            }
          }
 
 // увеличиваем маржины для мульти режима.
@@ -103,45 +103,52 @@ function _keyPressNumber(e) {
 			input			= defAxis.parent().find('input'),
 			img 			= $('.multy__water'),
 			curMargBot 		= img.css('margin-bottom'),
-			curMargRight 		= img.css('margin-right'),
+			curMargRight 	= img.css('margin-right'),
 			indexBot		= $('.indicator_width'),
 			indexRight		= $('.indicator_height'),
-			intCurMargBot 		= parseInt(curMargBot),
-			intCurMargRight 	= parseInt(curMargRight),
+			intCurMargBot 	= parseInt(curMargBot),
+			intCurMargRight = parseInt(curMargRight),
 			step 			= 1,
 			min 			= 0,
 			newMargBot 		= 0,
-			newMargRight 		= 0;
+			newMargRight 	= 0;
 
 
-		if ( defAxis.hasClass('axis__name_height') ) {
+		if ( defAxis.hasClass('axis__control_height') ) {
 
-			console.log('маргин бок');
+			console.log('маргин ботом');
 			if ($this.hasClass('axis__button_heigt_up') ) {
+
+				newMargBot = intCurMargBot + step;
+				img.css('margin-bottom', newMargBot );
+				indexBot.css('height', newMargBot);
+
+			} else if ( $this.hasClass('axis__button_heigt_down') && intCurMargRight > min){
+
+				newMargBot = intCurMargBot - step;
+				img.css('margin-bottom', newMargBot );
+				indexBot.css('height', newMargBot);
+
+			}
+			input.val(newMargBot);
+
+
+		} else {
+			console.log('маргин бок');
+			if ($this.hasClass('axis__button_width_up') ) {
 
 				newMargRight = intCurMargRight + step;
 				img.css('margin-right', newMargRight);
 				indexRight.css('width', newMargRight);
 
-			} else if ( $this.hasClass('axis__button_heigt_down') && intCurMargRight > min){
+			} else  if ( $this.hasClass('axis__button_width_down') && intCurMargBot > min) {
+
 				newMargRight = intCurMargRight - step;
 				img.css('margin-right', newMargRight);
 				indexRight.css('width', newMargRight);
+
 			}
 			input.val(newMargRight);
-
-		} else {
-			console.log('маргин ботом');
-			if ($this.hasClass('axis__button_width_up') ) {
-				newMargBot = intCurMargBot + step;
-				img.css('margin-bottom', newMargBot );
-				indexBot.css('height', newMargBot);
-			} else  if ( $this.hasClass('axis__button_width_down') && intCurMargBot > min){
-				newMargBot = intCurMargBot - step;
-				img.css('margin-bottom', newMargBot );
-				indexBot.css('height', newMargBot);
-			}
-			input.val(newMargBot);
 		}
 	}
 
@@ -158,7 +165,7 @@ function _keyPressNumber(e) {
 			$('.singleBtn').on('click', _positioningStep);
 			$('.result__wrap-water').on('drag', _drag);
 			$('.MultiBtn').on('click', _marginChanger);
-			$('.axis__input').on('keypress', _keyPressNumber); 
+			$('.axis__input').on('keypress', _keyPressNumber);
 		}
 	};
 }());
