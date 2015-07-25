@@ -74,7 +74,7 @@ var modulePosition = (function(){
 			currentY	= Math.round(parseInt(leftCoord));
 
 		inputX.val(currentX);
-		inputY.val(Math.abs(currentY));
+		inputY.val(currentY);
 	}
 // убираем выделение с чек-боксов
 	function _hideChecked () {
