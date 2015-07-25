@@ -34,8 +34,8 @@ var mods = (function(){
 			imgDrop 		= $(_var.drag_div).find('img'),
 			widthImg 		= imgDrop.width(),
 			heightImg 		= imgDrop.height(),
-			countWidth 		= Math.ceil(widthWrap / widthImg) * 5,
-			countHeight 		= Math.ceil(heightWrap / heightImg) * 5,
+			countWidth 		= Math.ceil(widthWrap / widthImg) * 2,
+			countHeight 		= Math.ceil(heightWrap / heightImg) * 2,
 			count 			= countWidth * countHeight ;
 			widthIncrease 		= (countWidth * widthImg) + widthImg,
 			heightIncrease 		= (countHeight * heightImg) + widthImg,
@@ -127,12 +127,12 @@ var mods = (function(){
 				});
 
 		var 
-			$fileUpload 	= $('.result__window'),
+			$fileUpload 	= $('.result__wrap'),
 			offsetLeft 	= $fileUpload.offset().left,
 			offsetTop 	= $fileUpload.offset().top,
 			fileWidth 	= $fileUpload.width(),
 			fileHeight 	= $fileUpload.height(),
-			$dragBlock 	= $(_var.drag_div),
+			$dragBlock 	= $('.result__wrap-water'),
 			dragWidth 	= $dragBlock.width(),
 			dragHeight 	= $dragBlock.height(),
 			x1 		= (offsetLeft + fileWidth) - dragWidth,
@@ -140,7 +140,7 @@ var mods = (function(){
 			x2 		= offsetLeft,
 			y2 		= offsetTop,
 			arrayPosition 	= [x1, y1, x2, y2];
-			
+			console.log(arrayPosition)
 			$(_var.drag_div)
 				.draggable('destroy');
 			$(_var.drag_div)
