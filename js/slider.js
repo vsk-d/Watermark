@@ -1,7 +1,7 @@
-
+// Глобальные переменные
 var _var = (function() {
     return {
-        drag_div: '.result__img-water',
+        drag_div: '.result__wrap-water',
         slider_div: '#slider-range-min',
         urlOpacity: 1,
     };

@@ -575,9 +575,14 @@ aside {
   left: 0;
   top: 100px; }
 
-.language, .socials {
+.language {
   padding-left: 0;
   list-style: none; }
+
+.socials {
+  padding-left: 0;
+  list-style: none;
+  display: none; }
 
 .language__link {
   font-family: 'SegoeUI';
@@ -730,8 +735,8 @@ aside {
   position: relative;
   overflow: hidden; }
 
-.tabs__item_tile .indicator_height {
-  width: 10px;
+.indicator_height {
+  width: 0.1px;
   height: 100px;
   background: #f97e76;
   position: absolute;
@@ -741,9 +746,9 @@ aside {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%); }
 
-.tabs__item_tile .indicator_width {
+.indicator_width {
   width: 100px;
-  height: 10px;
+  height: 0.1px;
   background: #f97e76;
   position: absolute;
   top: 50%;
@@ -862,6 +867,10 @@ input[type="radio"]:checked + label {
   .tabs-control__link_single:hover {
     background-position: -49px -238px; }
 
+.off {
+  pointer-events: none;
+  cursor: default; }
+
 .active .tabs-control__link_single {
   background-position: -88px -238px; }
 
@@ -940,15 +949,15 @@ input[type="radio"]:checked + label {
   margin-left: 3px;
   background: url("../img/sprite.png") no-repeat; }
 
-.axis__button_up {
+.axis__button_up, .axis__button_heigt_up, .axis__button_width_up {
   margin-bottom: 17px;
   background-position: -46px -70px; }
-  .axis__button_up:hover {
+  .axis__button_up:hover, .axis__button_heigt_up:hover, .axis__button_width_up:hover {
     background-position: -46px -98px; }
 
-.axis__button_down {
+.axis__button_down, .axis__button_heigt_down, .axis__button_width_down {
   background-position: -46px -14px; }
-  .axis__button_down:hover {
+  .axis__button_down:hover, .axis__button_heigt_down:hover, .axis__button_width_down:hover {
     background-position: -46px -42px; }
 
 .result__wrap {
@@ -960,7 +969,8 @@ input[type="radio"]:checked + label {
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  font-size: 0; }
+  font-size: 0;
+  overflow: hidden; }
 
 .result__img {
   max-width: 651px;
@@ -976,6 +986,9 @@ input[type="radio"]:checked + label {
 .result__img-water {
   max-width: 651px;
   max-height: 534px; }
+
+.row img {
+  margin: 0; }
 
 .slider {
   top: 5px;

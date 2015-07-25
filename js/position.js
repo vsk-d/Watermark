@@ -2,10 +2,10 @@ var modulePosition = (function(){
 
 	function _positioning () {
 		var
-			$this = $(this),
-			water = $('.result__wrap-water'),
-			result = $('.result__wrap'),
-			newPosition = $this.data('position');
+			$this 		= $(this),
+			water 		= $('.result__wrap-water'),
+			result 		= $('.result__wrap'),
+			newPosition 	= $this.data('position');
 
 		console.log(newPosition);
 
@@ -18,21 +18,23 @@ var modulePosition = (function(){
 		_displayInInput ();
 	}
 
-	function _positioningStep() {
+	function _positioningStep(e) {
+		e.preventDefault();
+
 		var
 			$this			= $(this),
 			defAxis			= $this.parent(),
 			step			= 1,
-			img				= $('.result__wrap-water'),
+			img			= $('.result__wrap-water'),
 			topCoord		= img.css('top'),
 			leftCoord		= img.css('left'),
 			currentY		= parseInt(topCoord),
 			currentX		= parseInt(leftCoord),
-			newPositionY	= currentY + step,
-			newPositionX	= currentX + step,
+			newPositionY		= currentY + step,
+			newPositionX		= currentX + step,
 			newPositionYmin	= currentY - step,
-			newPositionXmin = currentX - step,
-			min				= 0,
+			newPositionXmin	 = currentX - step,
+			min			= 0,
 			maxX			= $('.result__wrap').width() - img.width(),
 			maxY			= $('.result__wrap').height() - img.height();
 
@@ -63,7 +65,7 @@ var modulePosition = (function(){
 
 	function _displayInInput () {
 		var
-			img			= $('.result__wrap-water'),
+			img		= $('.result__wrap-water'),
 			topCoord	= img.css('left'),
 			leftCoord	= img.css('top'),
 			inputX		= $('#control-x'),
@@ -72,7 +74,7 @@ var modulePosition = (function(){
 			currentY	= Math.round(parseInt(leftCoord));
 
 		inputX.val(currentX);
-		inputY.val(Math.abs(currentY));
+		inputY.val(currentY);
 	}
 // убираем выделение с чек-боксов
 	function _hideChecked () {
@@ -80,6 +82,74 @@ var modulePosition = (function(){
 			checkedInput = $('input:checked');
 
 		checkedInput.removeAttr('checked');
+	}
+
+// Запрещаем вводить буквы в инпуты
+function _keyPressNumber(e) {
+            //обрабатываются событие надатие клавиши, узнаетеся ее код и сравнивается, оно или не оно, в случае когда это не цифры возвращаем false
+            if (e.which > 57 || e.which < 48) {
+                return false;
+            } 
+         }
+
+// увеличиваем маржины для мульти режима.
+
+	function _marginChanger (e) {
+		e.preventDefault();
+
+		var
+			$this 			= $(this),
+			defAxis 		= $this.parent(),
+			input			= defAxis.parent().find('input'),
+			img 			= $('.multy__water'),
+			curMargBot 		= img.css('margin-bottom'),
+			curMargRight 		= img.css('margin-right'),
+			indexBot		= $('.indicator_width'),
+			indexRight		= $('.indicator_height'),
+			intCurMargBot 		= parseInt(curMargBot),
+			intCurMargRight 	= parseInt(curMargRight),
+			step 			= 1,
+			min 			= 0,
+			newMargBot 		= 0,
+			newMargRight 		= 0;
+
+
+		if ( defAxis.hasClass('axis__control_height') ) {
+
+			console.log('маргин ботом');
+			if ($this.hasClass('axis__button_heigt_up') ) {
+
+				newMargBot = intCurMargBot + step;
+				img.css('margin-bottom', newMargBot );
+				indexBot.css('height', newMargBot);
+
+			} else if ( $this.hasClass('axis__button_heigt_down') && intCurMargRight > min){
+
+				newMargBot = intCurMargBot - step;
+				img.css('margin-bottom', newMargBot );
+				indexBot.css('height', newMargBot);
+
+			}
+			input.val(newMargBot);
+
+
+		} else {
+			console.log('маргин бок');
+			if ($this.hasClass('axis__button_width_up') ) {
+
+				newMargRight = intCurMargRight + step;
+				img.css('margin-right', newMargRight);
+				indexRight.css('width', newMargRight);
+
+			} else  if ( $this.hasClass('axis__button_width_down') && intCurMargBot > min) {
+
+				newMargRight = intCurMargRight - step;
+				img.css('margin-right', newMargRight);
+				indexRight.css('width', newMargRight);
+
+			}
+			input.val(newMargRight);
+		}
 	}
 
 	return {
@@ -92,8 +162,10 @@ var modulePosition = (function(){
 		},
 		setUpListeners : function () {
 			$('.positioningBtn').on('click', _positioning);
-			$('.axis__button').on('click', _positioningStep);
+			$('.singleBtn').on('click', _positioningStep);
 			$('.result__wrap-water').on('drag', _drag);
+			$('.MultiBtn').on('click', _marginChanger);
+			$('.axis__input').on('keypress', _keyPressNumber); 
 		}
 	};
 }());

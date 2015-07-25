@@ -24,7 +24,7 @@
     <div class="wrapper">
       <main class="main-content">
         <div class="result">
-          <h1 class="result__title"><? echo $data['generator'][$lang] ?></h1>
+          <h1 class="result__title">Генератор водяных знаков</h1>
           <div class="result__window">
             <div class="result__wrap">
               <div class="result__wrap-water"></div>
@@ -32,17 +32,17 @@
           </div>
         </div>
         <div class="setting-block">
-          <h2 class="setting-block__title"><? echo $data['settings'][$lang] ?></h2>
+          <h2 class="setting-block__title">Настройки</h2>
           <form action="actions/img.php" encode="multipart/form-data" class="settings">
             <div class="settings__wrapper">
               <div class="settings__upload">
-                <label class="settings__title"><? echo $data['original_image'][$lang] ?>
+                <label class="settings__title">Исходное изображение
                   <label for="upload-img" class="upload__wrapper"><span>Image.jpg</span>
                     <input type="file" id="upload-img" name="files[]" size="30" data-form-data="{&quot;type&quot;: &quot;main-image&quot;}" class="fileupload upload__input upload__input_image hide"/>
                     <input type="hidden" name="genImg"/>
                   </label>
                 </label>
-                <label class="settings__title"><? echo $data['watermark'][$lang] ?>
+                <label class="settings__title">Водяной знак
                   <label for="upload-water" class="upload__wrapper disabled"><span>Image.png</span>
                     <input type="file" id="upload-water" name="files[]" size="30" data-form-data="{&quot;type&quot;: &quot;water-image&quot;}" disabled="disabled" class="fileupload upload__input upload__input_water-image hide"/>
                     <input type="hidden" name="waterImg"/>
@@ -52,10 +52,10 @@
             </div>
             <div class="settings__wrapper">
               <div class="settings__position tabs">
-                <div class="settings__title"><? echo $data['position'][$lang] ?></div>
+                <div class="settings__title">Положение</div>
                 <ul class="tabs__control">
-                  <li class="tabs-control__item single active"><a href="#" class="tabs-control__link tabs-control__link_single"><span class="hide">Одиночный</span></a></li>
-                  <li class="tabs-control__item multy"><a href="#" class="tabs-control__link tabs-control__link_tile"><span class="hide">Замостить</span></a></li>
+                  <li class="tabs-control__item single active"><a href="#" class="tabs-control__link tabs-control__link_single off"><span class="hide">Одиночный</span></a></li>
+                  <li class="tabs-control__item multy enabled"><a href="#" class="tabs-control__link tabs-control__link_tile off"><span class="hide">Замостить</span></a></li>
                 </ul>
                 <ul class="tabs__list">
                   <li class="tabs__item active">
@@ -88,31 +88,31 @@
                     <div class="settings__axis">
                       <div class="axis__wrapper">
                         <div class="axis__name">X</div>
-                        <input type="text" value="0" data-validation="axis-x" id="control-x" name="axis-x" class="axis__input"/>
-                        <div class="axis__control axis__control-x"><a href="#" class="axis__button axis__button_up"></a><a href="#" class="axis__button axis__button_down"></a></div>
+                        <input type="text" value="0" id="control-x" name="axis-x" class="axis__input"/>
+                        <div class="axis__control axis__control-x"><a href="#" class="axis__button axis__button_up singleBtn"></a><a href="#" class="axis__button axis__button_down singleBtn"></a></div>
                       </div>
                       <div class="axis__wrapper">
                         <div class="axis__name">Y</div>
-                        <input type="text" value="0" data-validation="axis-y" id="control-y" name="axis-y" class="axis__input"/>
-                        <div class="axis__control axis__control-y"><a href="#" class="axis__button axis__button_up"></a><a href="#" class="axis__button axis__button_down"></a></div>
+                        <input type="text" value="0" id="control-y" name="axis-y" class="axis__input"/>
+                        <div class="axis__control axis__control-y"><a href="#" class="axis__button axis__button_up singleBtn"></a><a href="#" class="axis__button axis__button_down singleBtn"></a></div>
                       </div>
                     </div>
                   </li>
                   <li class="tabs__item tabs__item_tile">
                     <div class="settings__field">
-                      <div class="indicator indicator_width"></div>
-                      <div class="indicator indicator_height"></div>
+                      <div class="indicator_width"></div>
+                      <div class="indicator_height"></div>
                     </div>
                     <div class="settings__axis">
                       <div class="axis__wrapper">
                         <div class="axis__name axis__name_height"></div>
-                        <input type="text" value="0" data-validation="axis-x" name="axis-height" class="axis__input"/>
-                        <div class="axis__control"><a href="#" class="axis__button axis__button_up"></a><a href="#" class="axis__button axis__button_down"></a></div>
+                        <input type="text" value="0" name="axis-height" class="axis__input"/>
+                        <div class="axis__control axis__control_height"><a href="#" class="axis__button axis__button_heigt_up MultiBtn"></a><a href="#" class="axis__button axis__button_heigt_down MultiBtn"></a></div>
                       </div>
                       <div class="axis__wrapper">
                         <div class="axis__name axis__name_width"></div>
-                        <input type="text" value="0" data-validation="axis-y" name="axis-width" class="axis__input"/>
-                        <div class="axis__control"><a href="#" class="axis__button axis__button_up"></a><a href="#" class="axis__button axis__button_down"></a></div>
+                        <input type="text" value="0" name="axis-width" class="axis__input"/>
+                        <div class="axis__control axis__control_width"><a href="#" class="axis__button axis__button_width_up MultiBtn"></a><a href="#" class="axis__button axis__button_width_down MultiBtn"></a></div>
                       </div>
                     </div>
                   </li>
@@ -121,7 +121,7 @@
             </div>
             <div class="settings__wrapper">
               <div class="settings__opacity">
-                <div class="settings__title"><? echo $data['opacity'][$lang] ?></div>
+                <div class="settings__title">Прозрачность</div>
                 <div class="slider">
                   <div id="slider-range-min">
                     <input type="text" value="100" data-validation="opacity" name="opacity" class="opacity__input"/>
@@ -130,9 +130,10 @@
               </div>
             </div>
             <div class="btn-wrap">
-              <input type="reset" value="<? echo $data['cancel'][$lang] ?>" name="reset" class="settings__btn settings__btn_reset"/>
-              <input type="submit" value="<? echo $data['download'][$lang] ?>" name="download" class="settings__btn settings__btn_download"/>
+              <input type="reset" value="Сброс" name="reset" class="settings__btn settings__btn_reset"/>
+              <input type="submit" value="Скачать" name="download" disabled="disabled" class="settings__btn settings__btn_download"/>
             </div>
+            <input type="hidden" name="single-mod" id="modIndef" value="1"/>
           </form>
         </div>
       </main>
@@ -142,9 +143,9 @@
           <li class="language__item"> <a href="eng" class="language__link">ENG</a></li>
         </ul><a href="" class="socials__link socials__link_lk"></a>
         <ul class="socials">
-          <li class="socials__item"><a href="#" class="socials__link socials__link_fb"><span class="hide">facebook</span></a></li>
-          <li class="socials__item"><a href="#" class="socials__link socials__link_tw"><span class="hide">twitter</span></a></li>
-          <li class="socials__item"><a href="#" class="socials__link socials__link_vk"><span class="hide">вконтакте</span></a></li>
+          <li class="socials__item"><a href="http://www.facebook.com/sharer.php?u=http://watermarkgen.ru" target="_about" class="socials__link socials__link_fb"><span class="hide">facebook</span></a></li>
+          <li class="socials__item"><a href="http://twitter.com/home?status=http://watermarkgen.ru" target="_about" class="socials__link socials__link_tw"><span class="hide">twitter</span></a></li>
+          <li class="socials__item"><a href="http://vk.com/share.php?url=http://watermarkgen.ru" target="_about" class="socials__link socials__link_vk"><span class="hide">вконтакте</span></a></li>
         </ul>
       </aside>
     </div>
@@ -162,13 +163,13 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js js/main.js -->
-    <script src="js/main.js"></script>
     <script src="js/upload.js"></script>
     <script src="js/form.js"></script>
     <script src="js/position.js"></script>
     <script src="js/slider.js"></script>
     <script src="js/mods.js"></script>
     <script src="js/reset.js"></script>
+    <script src="js/socials.js"></script>
     <!-- endbuild -->
   </body>
 </html>
