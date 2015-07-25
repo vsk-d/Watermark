@@ -71,14 +71,14 @@ html(lang="ru-Ru")
 										.settings__axis
 											.axis__wrapper
 												.axis__name X
-												input(type = 'text' value = '0' data-validation = 'axis-x' id='control-x' name="axis-x").axis__input
+												input(type = 'text' value = '0' id='control-x' name="axis-x").axis__input
 												.axis__control.axis__control-x
 													a(href="#").axis__button.axis__button_up.singleBtn
 													a(href="#").axis__button.axis__button_down.singleBtn
 
 											.axis__wrapper
 												.axis__name Y
-												input(type = 'text' value = '0' data-validation = 'axis-y' id='control-y' name="axis-y").axis__input
+												input(type = 'text' value = '0' id='control-y' name="axis-y").axis__input
 												.axis__control.axis__control-y
 													a(href="#").axis__button.axis__button_up.singleBtn
 													a(href="#").axis__button.axis__button_down.singleBtn
@@ -92,18 +92,18 @@ html(lang="ru-Ru")
 										.settings__axis
 											.axis__wrapper
 												.axis__name
-												input(type = 'text' value = '0' data-validation = 'axis-x' name="axis-height" ).axis__input
+												input(type = 'text' value = '0' name="axis-height").axis__input
 												.axis__control.axis__name_height
 													a(href="#").axis__button.axis__button_heigt_up.MultiBtn
 													a(href="#").axis__button.axis__button_heigt_down.MultiBtn
 
 											.axis__wrapper
 												.axis__name
-												input(type = 'text' value = '0' data-validation = 'axis-y' name="axis-width").axis__input
+												input(type = 'text' value = '0' name="axis-width").axis__input
 												.axis__control.axis__name_width
 													a(href="#").axis__button.axis__button_width_up.MultiBtn
 													a(href="#").axis__button.axis__button_width_down.MultiBtn
-
+							
 						.settings__wrapper
 							.settings__opacity
 								.settings__title Прозрачность
@@ -115,6 +115,8 @@ html(lang="ru-Ru")
 						.btn-wrap
 							input(type = "reset" value = "Сброс" name="reset").settings__btn.settings__btn_reset 
 							input(type = "submit" value = "Скачать" name="download").settings__btn.settings__btn_download 
+						//- для определения режима
+						input(type='hidden' name="single-mod" id="modIndef" value = '1')
 						
 			aside
 				ul.language

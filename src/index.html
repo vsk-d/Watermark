@@ -88,12 +88,12 @@
                     <div class="settings__axis">
                       <div class="axis__wrapper">
                         <div class="axis__name">X</div>
-                        <input type="text" value="0" data-validation="axis-x" id="control-x" name="axis-x" class="axis__input"/>
+                        <input type="text" value="0" id="control-x" name="axis-x" class="axis__input"/>
                         <div class="axis__control axis__control-x"><a href="#" class="axis__button axis__button_up singleBtn"></a><a href="#" class="axis__button axis__button_down singleBtn"></a></div>
                       </div>
                       <div class="axis__wrapper">
                         <div class="axis__name">Y</div>
-                        <input type="text" value="0" data-validation="axis-y" id="control-y" name="axis-y" class="axis__input"/>
+                        <input type="text" value="0" id="control-y" name="axis-y" class="axis__input"/>
                         <div class="axis__control axis__control-y"><a href="#" class="axis__button axis__button_up singleBtn"></a><a href="#" class="axis__button axis__button_down singleBtn"></a></div>
                       </div>
                     </div>
@@ -106,12 +106,12 @@
                     <div class="settings__axis">
                       <div class="axis__wrapper">
                         <div class="axis__name"></div>
-                        <input type="text" value="0" data-validation="axis-x" name="axis-height" class="axis__input"/>
+                        <input type="text" value="0" name="axis-height" class="axis__input"/>
                         <div class="axis__control axis__name_height"><a href="#" class="axis__button axis__button_heigt_up MultiBtn"></a><a href="#" class="axis__button axis__button_heigt_down MultiBtn"></a></div>
                       </div>
                       <div class="axis__wrapper">
                         <div class="axis__name"></div>
-                        <input type="text" value="0" data-validation="axis-y" name="axis-width" class="axis__input"/>
+                        <input type="text" value="0" name="axis-width" class="axis__input"/>
                         <div class="axis__control axis__name_width"><a href="#" class="axis__button axis__button_width_up MultiBtn"></a><a href="#" class="axis__button axis__button_width_down MultiBtn"></a></div>
                       </div>
                     </div>
@@ -133,6 +133,7 @@
               <input type="reset" value="Сброс" name="reset" class="settings__btn settings__btn_reset"/>
               <input type="submit" value="Скачать" name="download" class="settings__btn settings__btn_download"/>
             </div>
+            <input type="hidden" name="single-mod" id="modIndef" value="1"/>
           </form>
         </div>
       </main>

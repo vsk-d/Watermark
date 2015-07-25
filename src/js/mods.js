@@ -13,13 +13,21 @@ var mods = (function(){
 
 	function _singleMod() {
 
-// Тут пока ХЗ
+	}
+    
+// переключение режимов
+    function _modIdentif(mod) {
+
+        var
+            modName = $('#modIndef');
+
+        modName.val(mod);
 
 	}
 
     function _multiMod() {
-        var
 
+        var
             $parentWrap			= $('.result__wrap'),
             widthWrap 			= $parentWrap.width(),
             heightWrap 			= $parentWrap.height(),
@@ -152,9 +160,9 @@ var mods = (function(){
             $this = $(this),
 			item = $this.closest('.tabs-control__item'),
 			contentItem = $('.tabs__item'),
-			itemPosition = item.index();
+			itemPosition = item.index(),
+            inputs = $('.axis__wrapper').find('input');
 
-        console.log($this);
 
 		contentItem.eq(itemPosition)
 			.add(item)
@@ -166,11 +174,14 @@ var mods = (function(){
 
         _singleMod();
         _destroy__multiMod();
+        inputs.val(0);
+        _modIdentif(1);
 
     } else if ($this.hasClass('tabs-control__link_tile')){
 
         _multiMod();
         _destroy__singleMod();
+        _modIdentif(0);
 
             console.log(_var.widthWatermark);
             console.log(_var.heightWatermark);
