@@ -40,12 +40,12 @@ var mods = (function(){
             heightIncrease 		= (countHeight * heightImg) + widthImg,
             html = '';
 
-			for (var i = 0; i < countHeight; i++) { // Циклом пробегаемся создавая каждую строку
-                 // html += '<div class="row">';
-                for (var c = 0; c < countWidth; c++) { // Здесь циклом пробегаемся и создаем каждую картинку
+// Циклом размножаем картинки
+			for (var i = 0; i < countHeight; i++) { 
+                for (var c = 0; c < countWidth; c++) { 
                     html += '<img src="img/upload/' + _var.urlWatermark + '"class="multy__water">';
                 }
-                // html += '</div>'; // Закрываем див и снова!
+
             }
 
 // очишаем все из обертки вотермарка
@@ -122,12 +122,11 @@ var mods = (function(){
         $(_var.drag_div)
                 .css({
                     'top': '0',
-                    'left': '0',
-                    'width': '5000',
-                    'height': '5000'
+                    'left': '0'
+                    // 'width': 'auto',
+                    // 'height': 'auto'
                 });
 
-                // тут я пытался посчитать ограничения для драггебл по примеру Зара, но что-то не так
         var $fileUpload = $('.result__window'),
                 offsetLeft = $fileUpload.offset()
                 .left,
@@ -182,9 +181,6 @@ var mods = (function(){
         _multiMod();
         _destroy__singleMod();
         _modIdentif(0);
-
-            console.log(_var.widthWatermark);
-            console.log(_var.heightWatermark);
     }
 
 }

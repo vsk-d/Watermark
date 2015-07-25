@@ -4,13 +4,13 @@ var resetModul = (function(){
 
     var
     	waterDiv   = '.result__wrap-water',
+        multyWater = '.multy__water',
     	sliderOp   = '#slider-range-min';
         
-    	$(waterDiv).css('top', '0');
+    	$(waterDiv).css({'top': '0', 'left': '0', 'opacity': '100' });
         $(_var.indicatorW).css('height', '0.1');
         $(_var.indicatorH).css('width', '0.1');
-    	$(waterDiv).css('left', '0');
-    	$(waterDiv).css('opacity', '100');
+        $(multyWater).css({'margin-bottom': '0', 'margin-right': '0'});
 
         $(sliderOp).slider({
             range: "min",

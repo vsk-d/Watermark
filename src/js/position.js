@@ -96,6 +96,8 @@ var modulePosition = (function(){
 			img 				= $('.multy__water'),
 			curMargBot 			= img.css('margin-bottom'),
 			curMargRight 		= img.css('margin-right'),
+			indexBot			= $('.indicator_width'),
+			indexRight			= $('.indicator_height'),
 			intCurMargBot 		= parseInt(curMargBot),
 			intCurMargRight 	= parseInt(curMargRight),
 			step 				= 1,
@@ -111,10 +113,12 @@ var modulePosition = (function(){
 
 				newMargRight = intCurMargRight + step;
 				img.css('margin-right', newMargRight);
+				indexRight.css('width', newMargRight);
 
 			} else if ( $this.hasClass('axis__button_heigt_down') && intCurMargRight > min){
 				newMargRight = intCurMargRight - step;
 				img.css('margin-right', newMargRight);
+				indexRight.css('width', newMargRight);
 			}
 			input.val(newMargRight);
 
@@ -123,9 +127,11 @@ var modulePosition = (function(){
 			if ($this.hasClass('axis__button_width_up') ) {
 				newMargBot = intCurMargBot + step;
 				img.css('margin-bottom', newMargBot );
+				indexBot.css('height', newMargBot);
 			} else  if ( $this.hasClass('axis__button_width_down') && intCurMargBot > min){
 				newMargBot = intCurMargBot - step;
 				img.css('margin-bottom', newMargBot );
+				indexBot.css('height', newMargBot);
 			}
 			input.val(newMargBot);
 		}
