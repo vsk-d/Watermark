@@ -4,7 +4,6 @@ var _var = (function() {
         picBlock_div: '.result__window',
         fileUpload_div: '.result__wrap',
         waterMarkUpload_div: '.result__wrap-water',
-        download_btn: '.settings__btn_download',
         urlFileUpload: '',
         urlWatermark: '',
         uploadFile: false,
@@ -30,7 +29,8 @@ var upload = (function(){
             genImgWrap      = $('.result__wrap'),
             waterImgWrap    = $('.result__wrap-water'),
             idWater         = $('#upload-water'),
-            tabControls     = $('.tabs-control__link');
+            tabControls     = $('.tabs-control__link'),
+            downloadBtn    = $('.settings__btn_download');
 
 //Добавление основной картинки
         if(data.type === 'main-image') {
@@ -55,6 +55,7 @@ var upload = (function(){
             waterImg.remove();
             waterImgWrap.append(markup);
             tabControls.closest('a').removeClass('off');
+            downloadBtn.removeAttr('disabled');
 
         }
 
