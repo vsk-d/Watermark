@@ -14,7 +14,7 @@ var mods = (function(){
 	function _singleMod() {
 
 	}
-	
+
 // переключение режимов
 	function _modIdentif(mod) {
 
@@ -35,17 +35,17 @@ var mods = (function(){
 			widthImg 		= imgDrop.width(),
 			heightImg 		= imgDrop.height(),
 			countWidth 		= Math.ceil(widthWrap / widthImg) * 2,
-			countHeight 		= Math.ceil(heightWrap / heightImg) * 2,
+			countHeight 	= Math.ceil(heightWrap / heightImg) * 2,
 			count 			= countWidth * countHeight ;
-			widthIncrease 		= (countWidth * widthImg) + widthImg,
-			heightIncrease 		= (countHeight * heightImg) + widthImg,
+			widthIncrease 	= (countWidth * widthImg) + widthImg,
+			heightIncrease 	= (countHeight * heightImg) + widthImg,
 			html 			= '';
 
 // Циклом размножаем картинки
-			
-			for (var c = 2; c < count ; c++) { 
+
+			for (var c = 2; c < count ; c++) {
 				html += '<img src="img/upload/' + _var.urlWatermark + '"class="multy__water">';
-			}			
+			}
 
 // очишаем все из обертки вотермарка
 			$(_var.drag_div)
@@ -53,7 +53,7 @@ var mods = (function(){
 				.html(html)
 				.css({
 					'width': widthIncrease + 'px',
-					'height': heightIncrease + 'px',
+					'height': heightIncrease + 'px'
 				})
 				.position({
 					my: 'left top',
@@ -126,7 +126,7 @@ var mods = (function(){
 					// 'height': 'auto'
 				});
 
-		var 
+		var
 			$fileUpload 	= $('.result__wrap'),
 			offsetLeft 	= $fileUpload.offset().left,
 			offsetTop 	= $fileUpload.offset().top,
@@ -140,7 +140,6 @@ var mods = (function(){
 			x2 		= offsetLeft,
 			y2 		= offsetTop,
 			arrayPosition 	= [x1, y1, x2, y2];
-			console.log(arrayPosition)
 			$(_var.drag_div)
 				.draggable('destroy');
 			$(_var.drag_div)
@@ -168,14 +167,15 @@ var mods = (function(){
 			.siblings()
 			.removeClass('active');
 
+		inputs.val(0);
+
 	if (item.hasClass('single enabled')) {
-		  
+
 		item.removeClass('enabled')
 			.siblings().addClass('enabled');
 
 		_singleMod();
 		_destroy__multiMod();
-		inputs.val(0);
 		_modIdentif(1);
 
 	} else if (item.hasClass('multy enabled')) {
@@ -185,6 +185,7 @@ var mods = (function(){
 
 		_multiMod();
 		_destroy__singleMod();
+
 		_modIdentif(0);
 	}
 
