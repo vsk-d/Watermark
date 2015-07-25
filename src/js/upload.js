@@ -29,7 +29,8 @@ var upload = (function(){
             waterImg        = $('.result__img-water'),
             genImgWrap      = $('.result__wrap'),
             waterImgWrap    = $('.result__wrap-water'),
-            idWater         = $('#upload-water');
+            idWater         = $('#upload-water'),
+            tabControls     = $('.tabs-control__link');
 
 //Добавление основной картинки
         if(data.type === 'main-image') {
@@ -53,7 +54,7 @@ var upload = (function(){
 
             waterImg.remove();
             waterImgWrap.append(markup);
-
+            tabControls.closest('a').removeClass('off');
 
         }
 

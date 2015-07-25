@@ -39,6 +39,10 @@
 	background-position: -9px -238px;
 	&:hover { background-position: -49px  -238px;}	
 }
+.off {
+		pointer-events: none;
+   		cursor: default;
+   	}
 
 .active {
 	.tabs-control__link_single { background-position: -88px -238px;	}

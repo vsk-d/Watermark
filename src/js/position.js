@@ -84,6 +84,14 @@ var modulePosition = (function(){
 		checkedInput.removeAttr('checked');
 	}
 
+// Запрещаем вводить буквы в инпуты
+function _keyPressNumber(e) {
+            //обрабатываются событие надатие клавиши, узнаетеся ее код и сравнивается, оно или не оно, в случае когда это не цифры возвращаем false
+            if (e.which > 57 || e.which < 48) {
+                return false;
+            } 
+         }
+
 // увеличиваем маржины для мульти режима.
 
 	function _marginChanger (e) {
@@ -150,6 +158,7 @@ var modulePosition = (function(){
 			$('.singleBtn').on('click', _positioningStep);
 			$('.result__wrap-water').on('drag', _drag);
 			$('.MultiBtn').on('click', _marginChanger);
+			$('.axis__input').on('keypress', _keyPressNumber); 
 		}
 	};
 }());
