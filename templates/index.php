@@ -24,7 +24,7 @@
     <div class="wrapper">
       <main class="main-content">
         <div class="result">
-          <h1 class="result__title">Генератор водяных знаков</h1>
+          <h1 class="result__title"><? echo $data['generator'][$lang]; ?></h1>
           <div class="result__window">
             <div class="result__wrap">
               <div class="result__wrap-water"></div>
@@ -32,17 +32,17 @@
           </div>
         </div>
         <div class="setting-block">
-          <h2 class="setting-block__title">Настройки</h2>
+          <h2 class="setting-block__title"><? echo $data['settings'][$lang]; ?></h2>
           <form action="actions/img.php" encode="multipart/form-data" class="settings">
             <div class="settings__wrapper">
               <div class="settings__upload">
-                <label class="settings__title">Исходное изображение
+                <label class="settings__title"><? echo $data['original_image'][$lang]; ?>
                   <label for="upload-img" class="upload__wrapper"><span>Image.jpg</span>
                     <input type="file" id="upload-img" name="files[]" size="30" data-form-data="{&quot;type&quot;: &quot;main-image&quot;}" class="fileupload upload__input upload__input_image hide"/>
                     <input type="hidden" name="genImg"/>
                   </label>
                 </label>
-                <label class="settings__title">Водяной знак
+                <label class="settings__title"><? echo $data['watermark'][$lang]; ?>
                   <label for="upload-water" class="upload__wrapper disabled"><span>Image.png</span>
                     <input type="file" id="upload-water" name="files[]" size="30" data-form-data="{&quot;type&quot;: &quot;water-image&quot;}" disabled="disabled" class="fileupload upload__input upload__input_water-image hide"/>
                     <input type="hidden" name="waterImg"/>
@@ -52,7 +52,7 @@
             </div>
             <div class="settings__wrapper">
               <div class="settings__position tabs">
-                <div class="settings__title">Положение</div>
+                <div class="settings__title"><? echo $data['position'][$lang]; ?></div>
                 <ul class="tabs__control">
                   <li class="tabs-control__item single active"><a href="#" class="tabs-control__link tabs-control__link_single off"><span class="hide">Одиночный</span></a></li>
                   <li class="tabs-control__item multy enabled"><a href="#" class="tabs-control__link tabs-control__link_tile off"><span class="hide">Замостить</span></a></li>
@@ -121,7 +121,7 @@
             </div>
             <div class="settings__wrapper">
               <div class="settings__opacity">
-                <div class="settings__title">Прозрачность</div>
+                <div class="settings__title"><? echo $data['opacity'][$lang]; ?></div>
                 <div class="slider">
                   <div id="slider-range-min">
                     <input type="text" value="100" data-validation="opacity" name="opacity" class="opacity__input"/>
@@ -130,8 +130,8 @@
               </div>
             </div>
             <div class="btn-wrap">
-              <input type="reset" value="Сброс" name="reset" class="settings__btn settings__btn_reset"/>
-              <input type="submit" value="Скачать" name="download" disabled="disabled" class="settings__btn settings__btn_download"/>
+              <input type="reset" value="<? echo $data['download'][$lang]; ?>" name="reset" class="settings__btn settings__btn_reset"/>
+              <input type="submit" value="<? echo $data['cancel'][$lang]; ?>" name="download" disabled="disabled" class="settings__btn settings__btn_download"/>
             </div>
             <input type="hidden" name="single-mod" id="modIndef" value="1"/>
           </form>
