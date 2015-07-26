@@ -36,7 +36,35 @@ $image->rotate(45)
 		// Создание слоя с первым изображением
 		$imageLayer1 = PHPImageWorkshop\ImageWorkshop::initFromPath($uploadDir.$_SESSION['water-image']);
 		$imageLayer1->opacity($_POST['opacity']);
-		$mainLayer->addLayerOnTop($imageLayer1,$_POST['axis-x'], $_POST['axis-y'], "LT");
+
+
+		if($_POST['single-mod']==1){
+			$mainLayer->addLayerOnTop($imageLayer1,$_POST['axis-x'], $_POST['axis-y'], "LT");
+		} else {
+			$x=$_POST['axis-x'];
+			$y=$_POST['axis-y'];
+
+			$width_w = $imageLayer1->getWidth();
+			$height_w = $imageLayer1->getHeight();
+			$axis_width=$_POST['axis-width'];
+			$axis_height=$_POST['axis-height'];
+			while($y<$height){
+				while($x<$width){
+					
+					$mainLayer->addLayerOnTop($imageLayer1,$x, $y, "LT");
+					$x=$x+($width_w+$axis_width);				
+				}
+				$y=$y+($height_w+$axis_height);
+				//$i=0;
+				$x=$_POST['axis-x'];
+				//$j++;
+			}
+
+			
+		}
+		
+
+
 
 		$result='result_'.$_SESSION['main-image'];
 		$result=checkFile($uploadDir,$result);
