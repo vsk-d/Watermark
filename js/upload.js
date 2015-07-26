@@ -1,3 +1,16 @@
+
+var _var = (function() {
+    return {
+        picBlock_div: '.result__window',
+        fileUpload_div: '.result__wrap',
+        waterMarkUpload_div: '.result__wrap-water',
+        urlFileUpload: '',
+        urlWatermark: '',
+        uploadFile: false,
+        uploadWatermark: false,
+    };
+})();
+
 var upload = (function(){
     'use strict';
 
@@ -15,7 +28,9 @@ var upload = (function(){
             waterImg        = $('.result__img-water'),
             genImgWrap      = $('.result__wrap'),
             waterImgWrap    = $('.result__wrap-water'),
-            idWater         = $('#upload-water');
+            idWater         = $('#upload-water'),
+            tabControls     = $('.tabs-control__link'),
+            downloadBtn    = $('.settings__btn_download');
 
 //Добавление основной картинки
         if(data.type === 'main-image') {
@@ -39,7 +54,8 @@ var upload = (function(){
 
             waterImg.remove();
             waterImgWrap.append(markup);
-
+            tabControls.closest('a').removeClass('off');
+            downloadBtn.removeAttr('disabled');
 
         }
 
@@ -48,6 +64,9 @@ var upload = (function(){
 
         fileName.text(imageName);
         fileUrl.val(imageName);
+        _var.urlWatermark = imageName;
+
+        console.log(imageName);
     }
 
         return {
