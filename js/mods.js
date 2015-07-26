@@ -53,7 +53,7 @@ var mods = (function(){
 				.html(html)
 				.css({
 					'width': widthIncrease + 'px',
-					'height': heightIncrease + 'px',
+					'height': heightIncrease + 'px'
 				})
 				.position({
 					my: 'left top',
@@ -167,7 +167,7 @@ var mods = (function(){
 			.addClass('active')
 			.siblings()
 			.removeClass('active');
-
+		inputs.val(0);
 	if (item.hasClass('single enabled')) {
 		  
 		item.removeClass('enabled')
@@ -175,7 +175,6 @@ var mods = (function(){
 
 		_singleMod();
 		_destroy__multiMod();
-		inputs.val(0);
 		_modIdentif(1);
 
 	} else if (item.hasClass('multy enabled')) {

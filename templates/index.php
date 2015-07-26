@@ -130,8 +130,8 @@
               </div>
             </div>
             <div class="btn-wrap">
-              <input type="reset" value="<? echo $data['download'][$lang]; ?>" name="reset" class="settings__btn settings__btn_reset"/>
-              <input type="submit" value="<? echo $data['cancel'][$lang]; ?>" name="download" disabled="disabled" class="settings__btn settings__btn_download"/>
+              <input type="reset" value="<? echo $data['cancel'][$lang]; ?>" name="reset" class="settings__btn settings__btn_reset"/>
+              <input type="submit" value="<? echo $data['download'][$lang]; ?>" name="download" disabled="disabled" class="settings__btn settings__btn_download"/>
             </div>
             <input type="hidden" name="single-mod" id="modIndef" value="1"/>
           </form>
