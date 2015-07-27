@@ -1,13 +1,12 @@
 var modulePosition = (function(){
 
+// позиционирование с помощью чек-боксов
 	function _positioning () {
 		var
 			$this 		= $(this),
 			water 		= $('.result__wrap-water'),
 			result 		= $('.result__wrap'),
-			newPosition 	= $this.data('position');
-
-		console.log(newPosition);
+			newPosition = $this.data('position');
 
 		water.position({
 			my: newPosition,
@@ -15,67 +14,77 @@ var modulePosition = (function(){
 			of: result
 		});
 
-		_displayInInput ();
+		_displayInInput ('.result__wrap-water', 'left',  'top', $('#control-x'), $('#control-y') );
 	}
 
-	function _positioningStep(e) {
-		e.preventDefault();
+// универсальная функция для спинеров
+	function _positioningSpin ($this, target, firstProp, secondProp, axis ) {
 
 		var
-			$this			= $(this),
-			defAxis			= $this.parent(),
-			step			= 1,
-			img			= $('.result__wrap-water'),
-			topCoord		= img.css('top'),
-			leftCoord		= img.css('left'),
-			currentY		= parseInt(topCoord),
-			currentX		= parseInt(leftCoord),
-			newPositionY		= currentY + step,
-			newPositionX		= currentX + step,
-			newPositionYmin	= currentY - step,
-			newPositionXmin	 = currentX - step,
-			min			= 0,
-			maxX			= $('.result__wrap').width() - img.width(),
-			maxY			= $('.result__wrap').height() - img.height();
+			defAxis 			= $this.parent(),
+			img 				= $(target),
+			step 				= 1,
+			resultWindow 		= $('.result__wrap'),
+			firstCurProp 		= img.css(firstProp),
+			secondCurProp 		= img.css(secondProp),
+			intFirstCurProp 	= parseInt(firstCurProp),
+			intSecondCurProp 	= parseInt(secondCurProp),
+			newFirstProp 		= 0,
+			newSecondProp 		= 0,
+			min 				= 0,
+			maxFirstProp 		= 999,
+			maxSecondProp 		= 999;
+			topBtn 				= 'axis__button_up',
+			botBtn 				= 'axis__button_down';
 
-		if ( defAxis.hasClass('axis__control-x') ) {
-			console.log('двигаем в сторону');
-			if ($this.hasClass('axis__button_up') && newPositionX <= maxX ) {
-				img.css('left', newPositionX);
-			} else if ( $this.hasClass('axis__button_down') && newPositionXmin >= min){
-				img.css('left', newPositionXmin);
+		if( target === '.result__wrap-water'){
+			maxFirstProp = resultWindow.width() - img.width();
+			maxSecondProp = resultWindow.height() - img.height();
+		}
+
+		if ( defAxis.hasClass( axis ) ) {
+
+			if ($this.hasClass(topBtn) && intFirstCurProp < maxFirstProp ) {
+
+				newFirstProp = intFirstCurProp + step;
+				img.css( firstProp, newFirstProp );
+
+			} else if ( $this.hasClass(botBtn) && intFirstCurProp > min ) {
+
+				newFirstProp = intFirstCurProp - step;
+				img.css(firstProp, newFirstProp);
+
 			}
 
 		} else {
-			console.log('выполняем спуск');
-			if ($this.hasClass('axis__button_up') && newPositionY <= maxY ) {
-				img.css('top', newPositionY );
-			} else  if ( $this.hasClass('axis__button_down') && newPositionYmin >= min){
-				img.css('top', newPositionYmin );
+
+			if ($this.hasClass(topBtn) && intSecondCurProp < maxSecondProp ) {
+
+				newSecondProp = intSecondCurProp + step;
+				img.css(secondProp, newSecondProp );
+
+			} else  if ( $this.hasClass(botBtn) && intSecondCurProp > min){
+
+				newSecondProp = intSecondCurProp - step;
+				img.css( secondProp, newSecondProp );
+
 			}
 		}
-		_displayInInput();
-		_hideChecked();
 	}
 
-	function _drag () {
-		_displayInInput();
-		_hideChecked();
-	}
-
-	function _displayInInput () {
+// выводим информацию в инпуты
+	function _displayInInput (target, firstProp,  secondProp, firstInput, secondInput) {
 		var
-			img		= $('.result__wrap-water'),
-			topCoord	= img.css('left'),
-			leftCoord	= img.css('top'),
-			inputX		= $('#control-x'),
-			inputY		= $('#control-y'),
+			img			= $(target),
+			topCoord	= img.css(firstProp),
+			leftCoord	= img.css(secondProp),
 			currentX	= Math.floor(parseInt(topCoord)),
 			currentY	= Math.round(parseInt(leftCoord));
 
-		inputX.val(currentX);
-		inputY.val(currentY);
+		firstInput.val(currentX);
+		secondInput.val(currentY);
 	}
+
 // убираем выделение с чек-боксов
 	function _hideChecked () {
 		var
@@ -84,73 +93,81 @@ var modulePosition = (function(){
 		checkedInput.removeAttr('checked');
 	}
 
-// Запрещаем вводить буквы в инпуты
-function _keyPressNumber(e) {
-            //обрабатываются событие надатие клавиши, узнаетеся ее код и сравнивается, оно или не оно, в случае когда это не цифры возвращаем false
-            if (e.which > 57 || e.which < 48) {
-                return false;
-            }
-         }
+// индикатор марджинов
+function _marginIndicator (target, firstProp,  secondProp) {
+	var
+		img = $(target),
+		height = img.css(firstProp),
+		width = img.css(secondProp),
+		invicatorHeight = $('.indicator_height'),
+		invicatorWidth = $('.indicator_width');
 
-// увеличиваем маржины для мульти режима.
+	invicatorHeight.css('width', width);
+	invicatorWidth.css('height', height);
+}
 
-	function _marginChanger (e) {
+
+//позиционирование при одиночном режиме
+	function _singleMod(e) {
 		e.preventDefault();
 
 		var
-			$this 			= $(this),
-			defAxis 		= $this.parent(),
-			input			= defAxis.parent().find('input'),
-			img 			= $('.multy__water'),
-			curMargBot 		= img.css('margin-bottom'),
-			curMargRight 	= img.css('margin-right'),
-			indexBot		= $('.indicator_width'),
-			indexRight		= $('.indicator_height'),
-			intCurMargBot 	= parseInt(curMargBot),
-			intCurMargRight = parseInt(curMargRight),
-			step 			= 1,
-			min 			= 0,
-			newMargBot 		= 0,
-			newMargRight 	= 0;
+			$this 		= $(this),
+			target 		= '.result__wrap-water',
+			axis 		= 'axis__control-x',
+			firstProp 	= 'left',
+			secondProp 	= 'top';
 
+		_positioningSpin($this, target, firstProp , secondProp , axis);
 
-		if ( defAxis.hasClass('axis__control_height') ) {
+		var
+			firstInput	= $('#control-x'),
+			secondInput	= $('#control-y');
 
-			console.log('маргин ботом');
-			if ($this.hasClass('axis__button_heigt_up') ) {
+		 _displayInInput( target, firstProp,  secondProp, firstInput, secondInput );
 
-				newMargBot = intCurMargBot + step;
-				img.css('margin-bottom', newMargBot );
-				indexBot.css('height', newMargBot);
-
-			} else if ( $this.hasClass('axis__button_heigt_down') && intCurMargRight > min){
-
-				newMargBot = intCurMargBot - step;
-				img.css('margin-bottom', newMargBot );
-				indexBot.css('height', newMargBot);
-
-			}
-			input.val(newMargBot);
-
-
-		} else {
-			console.log('маргин бок');
-			if ($this.hasClass('axis__button_width_up') ) {
-
-				newMargRight = intCurMargRight + step;
-				img.css('margin-right', newMargRight);
-				indexRight.css('width', newMargRight);
-
-			} else  if ( $this.hasClass('axis__button_width_down') && intCurMargBot > min) {
-
-				newMargRight = intCurMargRight - step;
-				img.css('margin-right', newMargRight);
-				indexRight.css('width', newMargRight);
-
-			}
-			input.val(newMargRight);
-		}
+		_hideChecked();
 	}
+
+//позиционирование при мульти режиме
+	function _multyMod(e) {
+		e.preventDefault();
+
+		var
+			$this 		= $(this),
+			target 		= '.multy__water',
+			axis 		= 'axis__control_height',
+			firstProp 	= 'margin-bottom',
+			secondProp 	= 'margin-right';
+
+		_positioningSpin($this, target, firstProp , secondProp , axis);
+
+		var
+			firstInput	= $('#control-height'),
+			secondInput	= $('#control-width');
+
+		 _displayInInput( target, firstProp,  secondProp, firstInput, secondInput );
+
+		 _marginIndicator( target, firstProp,  secondProp );
+	}
+
+// позиционирование при перемещении
+	function _drag () {
+
+		_displayInInput ('.result__wrap-water', 'left',  'top', $('#control-x'), $('#control-y') );
+
+		_hideChecked();
+	}
+
+
+// Запрещаем вводить буквы в инпуты
+	function _keyPressNumber(e) {
+
+        if (e.which > 57 || e.which < 48) {
+            return false;
+        }
+    }
+
 
 	return {
 		init : function () {
@@ -162,9 +179,9 @@ function _keyPressNumber(e) {
 		},
 		setUpListeners : function () {
 			$('.positioningBtn').on('click', _positioning);
-			$('.singleBtn').on('click', _positioningStep);
+			$('.singleBtn').on('click', _singleMod);
+			$('.multiBtn').on('click', _multyMod);
 			$('.result__wrap-water').on('drag', _drag);
-			$('.MultiBtn').on('click', _marginChanger);
 			$('.axis__input').on('keypress', _keyPressNumber);
 		}
 	};

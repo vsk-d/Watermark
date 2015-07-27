@@ -10,10 +10,10 @@ var _var = (function() {
 })();
 
 var mods = (function(){
-
+	
 	function _singleMod() {
 
-	}
+		}
 
 // переключение режимов
 	function _modIdentif(mod) {
@@ -105,7 +105,7 @@ var mods = (function(){
 	}
 
 
-	   function _destroy__singleMod() {
+	function _destroy__singleMod() {
 
 		$(_var.indicatorW)
 				.css({
@@ -128,18 +128,19 @@ var mods = (function(){
 
 		var
 			$fileUpload 	= $('.result__wrap'),
-			offsetLeft 	= $fileUpload.offset().left,
-			offsetTop 	= $fileUpload.offset().top,
-			fileWidth 	= $fileUpload.width(),
-			fileHeight 	= $fileUpload.height(),
-			$dragBlock 	= $('.result__wrap-water'),
-			dragWidth 	= $dragBlock.width(),
-			dragHeight 	= $dragBlock.height(),
-			x1 		= (offsetLeft + fileWidth) - dragWidth,
-			y1 		= -(dragHeight - (offsetTop + fileHeight)),
-			x2 		= offsetLeft,
-			y2 		= offsetTop,
+			offsetLeft 		= $fileUpload.offset().left,
+			offsetTop 		= $fileUpload.offset().top,
+			fileWidth 		= $fileUpload.width(),
+			fileHeight 		= $fileUpload.height(),
+			$dragBlock 		= $('.result__wrap-water'),
+			dragWidth 		= $dragBlock.width(),
+			dragHeight 		= $dragBlock.height(),
+			x1 				= (offsetLeft + fileWidth) - dragWidth,
+			y1 				= -(dragHeight - (offsetTop + fileHeight)),
+			x2 				= offsetLeft,
+			y2 				= offsetTop,
 			arrayPosition 	= [x1, y1, x2, y2];
+
 			$(_var.drag_div)
 				.draggable('destroy');
 			$(_var.drag_div)
@@ -147,18 +148,18 @@ var mods = (function(){
 					containment: arrayPosition,
 					scroll: false
 				});
-}
+	}
 
 // Собственно к переключению режимов добавлены методы для перехода
 	function _modChanger(e) {
 		e.preventDefault();
 
 		var
-			$this 		= $(this),
-			item 		= $this.closest('.tabs-control__item'),
+			$this 			= $(this),
+			item 			= $this.closest('.tabs-control__item'),
 			contentItem 	= $('.tabs__item'),
 			itemPosition 	= item.index(),
-			inputs 		= $('.axis__wrapper').find('input');
+			inputs 			= $('.axis__wrapper').find('input');
 
 
 		contentItem.eq(itemPosition)
@@ -167,38 +168,42 @@ var mods = (function(){
 			.siblings()
 			.removeClass('active');
 
-		inputs.val(0);
+// при переключении сбрасываем инпуты
+		if( !item.hasClass('active') ) {
 
-	if (item.hasClass('single enabled')) {
+			inputs.val(0);
 
-		item.removeClass('enabled')
-			.siblings().addClass('enabled');
+		}
 
-		_singleMod();
-		_destroy__multiMod();
-		_modIdentif(1);
+		if (item.hasClass('single enabled')) {
 
-	} else if (item.hasClass('multy enabled')) {
+			item.removeClass('enabled')
+				.siblings().addClass('enabled');
 
-		item.removeClass('enabled')
-			.siblings().addClass('enabled');
+			_singleMod();
+			_destroy__multiMod();
+			_modIdentif(1);
 
-		_multiMod();
-		_destroy__singleMod();
+		} else if (item.hasClass('multy enabled')) {
 
-		_modIdentif(0);
+			item.removeClass('enabled')
+				.siblings().addClass('enabled');
+
+			_multiMod();
+			_destroy__singleMod();
+
+			_modIdentif(0);
+		}
+
 	}
 
-}
-
-
-	return {
-		init : function () {
-			this.setUpListeners();
-		},
-		setUpListeners : function () {
-			$('.tabs-control__link').on('click', _modChanger);
-		}
-	};
+		return {
+			init : function () {
+				this.setUpListeners();
+			},
+			setUpListeners : function () {
+				$('.tabs-control__link').on('click', _modChanger);
+			}
+		};
 }());
 mods.init();
